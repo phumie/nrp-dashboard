@@ -1,0 +1,335 @@
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+</head>
+    
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <h5>Admin</h5>
+            </nav>
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="dashboard">NRP PORTAL</a>
+                </div>
+                <div class="sidebar-user">
+                    <div class="sidebar-user-picture">
+                    <img alt="image" src="assets/profile.png">
+                    </div>
+                    <div class="sidebar-user-details">
+                    <div class="user-name">Phumie Nevhutala</div>
+                    <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+        
+                <ul class="sidebar-menu">
+                    <li class="menu-header">Dashboard</li>
+                    <li>
+                    <a href="dashboard">
+                        <img src="assets/home.png" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                    </li>
+                    <li class="menu-header">MENU</li>
+                    <li>
+                    <a href="admin/employees">
+                        <img src="assets/project.png" alt="">
+                        <span>Employees</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="admin/clients">
+                        <img src="assets/finance.png" alt="">
+                        <span>Clients</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="admin/suppliers">
+                        <img src="assets/report.png" alt="">
+                        <span>Suppliers</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="login">
+                        <img src="assets/logout.png" alt="">
+                        <span>Signout</span>
+                    </a>
+                    </li>
+                </ul>
+                </aside>
+            </div>
+            <!-- <div class="main-content"></div> -->
+        </div>
+    </div>
+</body>
+
+<div class="main-content">
+    <h6>MANAGE CLIENT</h6>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="additional-tab" data-toggle="tab" href="#additional" role="tab" aria-controls="additional" aria-selected="false">Additional Info</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="projects-tab" data-toggle="tab" href="#projects" role="tab" aria-controls="projects" aria-selected="false">Projects</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="feedback-tab" data-toggle="tab" href="#feedback" role="tab" aria-controls="Feedback" aria-selected="false">Feedback</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent" style="margin-top:10px">
+        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+            <form>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Client Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Account Number</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" placeholder="Account No">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Branch Code</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" placeholder="Code">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-pane fade" id="additional" role="tabpanel" aria-labelledby="additional-tab">
+            <form>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Surname</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Surname">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Contact Number</label>
+                    <div class="col-sm-10">
+                    <input type="numbers" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Tel Number</label>
+                    <div class="col-sm-10">
+                    <input type="numbers" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                    <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Acquisition Number</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">Date</label>
+                        <div class="col-sm-10">
+                        </div>
+                    </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>                          </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+            <form>
+                <input class="search" type="text">
+                <button class="btn-search">Search</button>
+            </form>
+            <table class="table table-hover" style="margin-top: 10px; width: 100%; overflow: scrollable;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Start</th>
+                        <th scope="col">End</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="projects/:id">id</a></td>
+                        <td><a href="projects/:id">name</a></td>
+                        <td><a href="projects/:id">start</a></td>
+                        <td><a href="projects/:id">end</a></td>
+                        <td>status</td>
+                    </tr>
+                    <tr>
+                        <td><a href="projects/:id">id</a></td>
+                        <td><a href="projects/:id">name</a></td>
+                        <td><a href="projects/:id">start</a></td>
+                        <td><a href="projects/:id">end</a></td>
+                        <td>status</td>
+                    </tr>
+                    <tr>
+                        <td><a href="projects/:id">id</a></td>
+                        <td><a href="projects/:id">name</a></td>
+                        <td><a href="projects/:id">start</a></td>
+                        <td><a href="projects/:id">end</a></td>
+                        <td>status</td>
+                    </tr>
+                    <tr>
+                        <td><a href="projects/:id">id</a></td>
+                        <td><a href="projects/:id">name</a></td>
+                        <td><a href="projects/:id">start</a></td>
+                        <td><a href="projects/:id">end</a></td>
+                        <td>status</td>
+                    </tr>
+                    <tr>
+                        <td><a href="projects/:id">id</a></td>
+                        <td><a href="projects/:id">name</a></td>
+                        <td><a href="projects/:id">start</a></td>
+                        <td><a href="projects/:id">end</a></td>
+                        <td>status</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tab-pane fade" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
+            <form>
+                <input class="search" type="text">
+                <button class="btn-search">Search</button>
+            </form>
+            <table class="table table-hover" style="margin-top: 10px; width: 100%; overflow: scrollable;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Feedback Title</th>
+                        <th scope="col">Project</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">title</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">project</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">date</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">type</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">title</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">project</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">date</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">type</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">title</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">project</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">date</td>
+                        <td data-toggle="modal" data-target=".bd-example-modal-lg">type</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="exampleModalLabel">Feedback</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 col-form-label">PROJECT</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" value="FNB Paint Job" readonly>
+                                    </div>
+                                </div>
+                            </form>
+                            <form>
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 col-form-label">TYPE</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" value="Complaint" readonly>
+                                    </div>
+                                </div>
+                            </form>
+                            <form>
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 col-form-label">TITLE</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" value="Unfinished paint job" readonly>
+                                    </div>
+                                </div>
+                            </form>
+                            <form>
+                                <div class="form-group row">
+                                    <label  class="col-sm-2 col-form-label">MESSAGE</label>
+                                    <div class="col-sm-10">
+                                        <textarea type="text" class="form-control" value="message" readonly></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                            <img src="assets/background.jpg" class="feedback-img" data-toggle="modal" data-target="#exampleModal">
+                            <img src="assets/painting.jpg" class="feedback-img" data-toggle="modal" data-target="#exampleModal">
+      
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <img src="assets/background.jpg" class="expand-img">
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form>
+                            <div class="form-group">
+                                <label  class="col-sm-2 col-form-label">REPLY</label>
+                                <div class="col-sm-10">
+                                <textarea class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" id="deleteClient" class="btn btn-danger" style="margin-top:10px"> DELETE CLIENT</button>
+</div>

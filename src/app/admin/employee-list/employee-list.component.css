@@ -1,0 +1,17 @@
+.list
+{
+    height: calc(100% - 5px);
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+}
+
+h5 {
+    text-align: center;
+    margin: 10px;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,126 @@
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+</head>
+    
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+        <nav class="navbar navbar-expand-lg main-navbar">
+            <h5>Home</h5>
+        </nav>
+        <div class="main-sidebar">
+            <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+                <a href="dashboard">CLIENT PORTAL</a>
+            </div>
+            <div class="sidebar-user">
+                <div class="sidebar-user-picture">
+                <img alt="image" src="assets/profile.png">
+                </div>
+                <div class="sidebar-user-details">
+                <div class="user-name">Phumie Nevhutala</div>
+                <div class="user-role">Administrator</div>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-header">Dashboard</li>
+                <li>
+                <a href="client-dashboard">
+                    <img src="assets/home.png" alt="">
+                    <span>Dashboard</span>
+                </a>
+                </li>
+                <li class="menu-header">MENU</li>
+                <li>
+                <a href="client-projects">
+                    <img src="assets/project.png" alt="">
+                    <span>Projects</span>
+                </a>
+                </li>
+                <li>
+                <a href="feedback">
+                    <img src="assets/feedback.png" alt="">
+                    <span>Feedback</span>
+                </a>
+                </li>
+                <li>
+                <a href="login">
+                    <img src="assets/logout.png" alt="">
+                    <span>Signout</span>
+                </a>
+                </li>
+            </ul>
+            </aside>
+        </div>
+        <div class="main-content"></div>
+        </div>
+    </div>
+</body>
+    
+  
+  <div class="main-content">
+        <h5 align="center">FEEDBACK LIST</h5>
+        <form>
+            <button type="button" class="btn btn-danger" style="margin-top:10px">
+                <a href="feedback/new-feedback">New Feedback  +</a>
+            </button>
+        </form>
+        <form>
+            <input type="text">
+            <button class="search">Search</button>
+        </form>
+        <table class="table table-hover" style="margin-top: 10px; width: 100%;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td><a data-toggle="modal" data-target="#exampleModal">id</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">title</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">project</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">date</a></td>
+                </tr>
+                <tr>
+                <td><a data-toggle="modal" data-target="#exampleModal">id</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">title</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">project</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">date</a></td>
+                </tr>
+            <tr>
+                <td><a data-toggle="modal" data-target="#exampleModal">id</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">title</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">project</a></td>
+                <td><a data-toggle="modal" data-target="#exampleModal">date</a></td>
+            </tr>
+            </tbody>
+        </table>
+   
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">FEEDBACK TITLE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                The content for the feedback the clients send to NRP will be here.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+ 

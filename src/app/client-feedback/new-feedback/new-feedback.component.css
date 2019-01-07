@@ -1,0 +1,11 @@
+.list
+{
+    height: calc(100% - 5px);
+    background-color: white;
+    padding: 20px;
+    overflow: auto;
+}
+
+.btn {
+    width: 150px;
+}

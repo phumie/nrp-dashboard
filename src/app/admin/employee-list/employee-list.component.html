@@ -1,0 +1,108 @@
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+</head>
+    
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <h5>Admin</h5>
+            </nav>
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="dashboard">NRP PORTAL</a>
+                </div>
+                <div class="sidebar-user">
+                    <div class="sidebar-user-picture">
+                    <img alt="image" src="assets/profile.png">
+                    </div>
+                    <div class="sidebar-user-details">
+                    <div class="user-name">Phumie Nevhutala</div>
+                    <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+        
+                <ul class="sidebar-menu">
+                    <li class="menu-header">Dashboard</li>
+                    <li>
+                    <a href="dashboard">
+                        <img src="assets/home.png" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                    </li>
+                    <li class="menu-header">MENU</li>
+                    <li>
+                    <a href="admin/employees">
+                        <img src="assets/project.png" alt="">
+                        <span>Employees</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="admin/clients">
+                        <img src="assets/finance.png" alt="">
+                        <span>Clients</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="admin/suppliers">
+                        <img src="assets/report.png" alt="">
+                        <span>Suppliers</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="login">
+                        <img src="assets/logout.png" alt="">
+                        <span>Signout</span>
+                    </a>
+                    </li>
+                </ul>
+                </aside>
+            </div>
+            <!-- <div class="main-content"></div> -->
+        </div>
+    </div>
+</body>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <h5>EMPLOYEES LIST</h5>
+        <form>
+            <button type="button" class="btn btn-danger" >
+                <a href="/admin/employees/edit">ADD EMPLOYEE</a>
+            </button>
+        </form>
+
+        <table class="table table-hover" style="margin-top: 10px; width: 100%; overflow: scrollable;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Names</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark Otto</td>
+                    <td>079457657</td>
+                    <td>mark@gmail.com</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob Sikes</td>
+                    <td>081342554</td>
+                    <td>jacob@gmail.com</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry Bird</td>
+                    <td>076435453</td>
+                    <td>larry@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

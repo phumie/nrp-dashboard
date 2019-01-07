@@ -1,0 +1,158 @@
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+</head>
+    
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+        <nav class="navbar navbar-expand-lg main-navbar">
+            <h5>Home</h5>
+        </nav>
+        <div class="main-sidebar">
+            <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+                <a href="dashboard">NRP PORTAL</a>
+            </div>
+            <div class="sidebar-user">
+                <div class="sidebar-user-picture">
+                <img alt="image" src="assets/profile.png">
+                </div>
+                <div class="sidebar-user-details">
+                <div class="user-name">Phumie Nevhutala</div>
+                <div class="user-role">Administrator</div>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li class="menu-header">Dashboard</li>
+                <li>
+                <a href="dashboard">
+                    <img src="assets/home.png" alt="">
+                    <span>Dashboard</span>
+                </a>
+                </li>
+                <li class="menu-header">MENU</li>
+                <li>
+                <a href="projects">
+                    <img src="assets/project.png" alt="">
+                    <span>Projects</span>
+                </a>
+                </li>
+                <li>
+                <a href="finance">
+                    <img src="assets/finance.png" alt="">
+                    <span>Finance</span>
+                </a>
+                </li>
+                <li>
+                <a href="reports">
+                    <img src="assets/report.png" alt="">
+                    <span>Reports</span>
+                </a>
+                </li>
+                <li>
+                <a href="quotes">
+                    <img src="assets/quote.png" alt="">
+                    <span>Quotes</span>
+                </a>
+                </li>
+                <li>
+                <a href="rfqs">
+                    <img src="assets/quote.png" alt="">
+                    <span>RFQs</span>
+                </a>
+                </li>
+                <li>
+                <a href="admin">
+                    <img src="assets/admin.png" alt="">
+                    <span>Admin</span>
+                </a>
+                </li>
+                <li>
+                <a href="login">
+                    <img src="assets/logout.png" alt="">
+                    <span>Signout</span>
+                </a>
+                </li>
+            </ul>
+            </aside>
+        </div>
+        <!-- <div class="main-content"></div> -->
+        </div>
+    </div>
+</body>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <h5>PROJECTS</h5> 
+    </div>
+
+    <div class="list">
+        <h6><b>NEW PROJECT</b></h6>
+        <br>
+        <div class="tab-content" id="myTabContent" style="margin-top: 10px; margin-left: 10px">
+            <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+                <form>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">Project Manager</label>
+                        <div class="col-sm-10">
+                            <select class="form-control selectpicker" id="select-employee" data-live-search="true">
+                                <option data-tokens="china" style="color:red">Phuti</option>
+                                <option data-tokens="malayasia" style="color: orange">Kat</option>
+                                <option data-tokens="singapore" style="color: green">Rapula</option>
+                                <option data-tokens="singapore" style="color: green">Phumie</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">Site Manager</label>
+                        <div class="col-sm-10">
+                            <select class="form-control selectpicker" id="select-employee" data-live-search="true">
+                                <option data-tokens="china" style="color:red">Phuti</option>
+                                <option data-tokens="malayasia" style="color: orange">Kat</option>
+                                <option data-tokens="singapore" style="color: green">Rapula</option>
+                                <option data-tokens="singapore" style="color: green">Phumie</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">Project Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">Start Date</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="(dd-mm-yyyy)">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">End Date</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="(dd-mm-yyyy)">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">Facility</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="facility">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="Description">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-danger" id="createProject">Create Project</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

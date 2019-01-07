@@ -1,0 +1,33 @@
+.main-content a {
+    text-decoration: none;
+    color: black;
+}
+
+.img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+    width: 30px;
+    margin-bottom: 5px;
+}
+
+.icons {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  #card {
+      /* background-color: #f1f2f6; */
+      border: 1px solid #c3cbd5;
+  }
+
+  #card p, h5 {
+      text-align: center;
+  }
+

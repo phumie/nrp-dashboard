@@ -1,0 +1,16 @@
+.list
+{
+    height: calc(100% - 5px);
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+}
+
+h6 {
+    margin: 10px;
+    text-align: center;
+}
+
+.main-content {
+    margin-bottom: 20px;
+}

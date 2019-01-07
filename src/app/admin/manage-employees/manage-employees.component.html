@@ -1,0 +1,369 @@
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+</head>
+    
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <h5>Admin</h5>
+            </nav>
+            <div class="main-sidebar">
+                <aside id="sidebar-wrapper">
+                <div class="sidebar-brand">
+                    <a href="dashboard">NRP PORTAL</a>
+                </div>
+                <div class="sidebar-user">
+                    <div class="sidebar-user-picture">
+                    <img alt="image" src="assets/profile.png">
+                    </div>
+                    <div class="sidebar-user-details">
+                    <div class="user-name">Phumie Nevhutala</div>
+                    <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+        
+                <ul class="sidebar-menu">
+                    <li class="menu-header">Dashboard</li>
+                    <li>
+                    <a href="dashboard">
+                        <img src="assets/home.png" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                    </li>
+                    <li class="menu-header">MENU</li>
+                    <li>
+                    <a href="admin/employees">
+                        <img src="assets/project.png" alt="">
+                        <span>Employees</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="admin/clients">
+                        <img src="assets/finance.png" alt="">
+                        <span>Clients</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="admin/suppliers">
+                        <img src="assets/report.png" alt="">
+                        <span>Suppliers</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="login">
+                        <img src="assets/logout.png" alt="">
+                        <span>Signout</span>
+                    </a>
+                    </li>
+                </ul>
+                </aside>
+            </div>
+            <!-- <div class="main-content"></div> -->
+        </div>
+    </div>
+</body>
+
+<div class="main-content">
+    <h6>MANAGE EMPLOYEE</h6>        
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="true">General</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="false">Account Details</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="kin-tab" data-toggle="tab" href="#kin" role="tab" aria-controls="kin" aria-selected="false">Employee Kin</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="access-tab" data-toggle="tab" href="#access" role="tab" aria-controls="access" aria-selected="false">Access Rights</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent" style="margin-top: 10px; margin-left: 10px">
+        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+            <form>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Surname</label>
+                    <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Surname">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Contact Number</label>
+                    <div class="col-sm-10">
+                    <input type="numbers" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Alternative Number</label>
+                    <div class="col-sm-10">
+                    <input type="numbers" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                    <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Physical Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Postal Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">SA ID/Passport Number</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" placeholder="ID/Passport Number">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+            <form>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Bank Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Account Number</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" placeholder="Account No">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Physical Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="kin" role="tabpanel" aria-labelledby="kin-tab">
+            <form>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Contact Numbber</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Alternative Numbber</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Physical Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">Postal Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Address">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-2 col-form-label">SA ID/Passport Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="ID/Passport">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
+            <form>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><b>PROJECTS</b></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Read
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Write
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Delete
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><b>FINANCE</b></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Read
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Write
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Delete
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><b>RFQs</b></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Read
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Write
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Delete
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><b>QUOTES</b></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Read
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Write
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Delete
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><b>REPORTS</b></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Read
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Write
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Delete
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><b>ADMIN</b></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Read
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Write
+                        </label>
+                    </div>
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input class="form-check-input" type="checkbox">
+                        <label class="form-check-label" for="gridCheck1">
+                            Delete
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button type="submit" id="deleteEmployee" class="btn btn-danger"> DELETE EMPLOYEE</button>
+</div>

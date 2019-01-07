@@ -1,0 +1,181 @@
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+  </head>
+  
+  <body>
+    <div id="app">
+      <div class="main-wrapper">
+        <nav class="navbar navbar-expand-lg main-navbar">
+          <h5>Home</h5>
+        </nav>
+        <div class="main-sidebar">
+          <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+              <a href="dashboard">NRP PORTAL</a>
+            </div>
+            <div class="sidebar-user">
+              <div class="sidebar-user-picture">
+                <img alt="image" src="assets/profile.png">
+              </div>
+              <div class="sidebar-user-details">
+                <div class="user-name">Phumie Nevhutala</div>
+                <div class="user-role">Administrator</div>
+              </div>
+            </div>
+
+            <ul class="sidebar-menu">
+              <li class="menu-header">Dashboard</li>
+              <li>
+                <a href="dashboard">
+                  <img src="assets/home.png" alt="">
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              <li class="menu-header">MENU</li>
+              <li>
+                <a href="projects">
+                  <img src="assets/project.png" alt="">
+                  <span>Projects</span>
+                </a>
+              </li>
+              <li>
+                <a href="finance">
+                  <img src="assets/finance.png" alt="">
+                  <span>Finance</span>
+                </a>
+              </li>
+              <li>
+                <a href="reports">
+                  <img src="assets/report.png" alt="">
+                  <span>Reports</span>
+                </a>
+              </li>
+              <li>
+                <a href="quotes">
+                  <img src="assets/quote.png" alt="">
+                  <span>Quotes</span>
+                </a>
+              </li>
+              <li>
+                <a href="rfqs">
+                  <img src="assets/quote.png" alt="">
+                  <span>RFQs</span>
+                </a>
+              </li>
+              <li>
+                <a href="admin">
+                  <img src="assets/admin.png" alt="">
+                  <span>Admin</span>
+                </a>
+              </li>
+              <li>
+                <a href="login">
+                  <img src="assets/logout.png" alt="">
+                  <span>Signout</span>
+                </a>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <div class="main-content">
+    <h5 align="center">Projects List</h5>
+
+    <div class="card-columns">
+        <div class="card">
+            <h3 style="color:green">12</h3>
+            <p>projects in progress</p>
+        </div>
+        <div class="card">
+            <h3 style="color:red">5</h3>
+            <p>projects overdue</p>
+        </div>
+        <div class="card">
+            <h3>3</h3>
+            <p>projectts pending</p>
+        </div>
+    </div>
+
+    <nav class="status-bar">
+        <div class="container-fluid" style="padding: 10px;">
+            <ul>
+                <li>
+                    <img src="assets/complete.png">
+                </li>
+                <li><p>COMPLETE</p></li>
+                <li>
+                    <img src="assets/progress.png">
+                </li>
+                <li><p>IN PROGRESS</p></li>
+                <li>
+                    <img src="assets/overdue.png">
+                </li>
+                <li><p>OVERDUE</p></li>
+                <li>
+                    <img src="assets/pending.png">
+                </li>
+                <li><p>PENDING</p></li>
+
+                <li style="float: right;">
+                    <button>
+                        <img src="assets/filter.png">
+                    </button>
+                </li>
+                <li style="float: right;">
+                    <button>
+                        <img src="assets/sort.png">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="add-search">
+      <form>
+        <button type="button" class="btn btn-danger" style="margin-top:10px">
+            <a href="projects/new-project">ADD PROJECT</a>
+        </button><br>
+        <input type="text">
+        <button class="search">Search</button>
+      </form>
+    </div>
+    
+    <table class="table table-hover" style="margin-top: 10px; width: 100%;">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Names</th>
+                <th scope="col">Start</th>
+                <th scope="col">End</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><a href="projects/:id">id</a></td>
+            <td><a href="projects/:id">name</a></td>
+            <td><a href="projects/:id">start</a></td>
+            <td><a href="projects/:id">end</a></td>
+            <td>status</td>
+            </tr>
+            <tr>
+            <td><a href="projects/:id">id</a></td>
+            <td><a href="projects/:id">name</a></td>
+            <td><a href="projects/:id">start</a></td>
+            <td><a href="projects/:id">end</a></td>
+            <td>status</td>
+            </tr>
+        <tr>
+            <td><a href="project-view">id</a></td>
+            <td><a href="project-view">name</a></td>
+            <td><a href="project-view">start</a></td>
+            <td><a href="project-view">end</a></td>
+            <td>status</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

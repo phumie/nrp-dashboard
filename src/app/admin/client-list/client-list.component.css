@@ -1,0 +1,27 @@
+.list
+{
+    height: calc(100% - 5px);
+    background-color: white;
+    padding: 10px;
+    overflow: auto;
+}
+
+/* .main-content a {
+    text-decoration: none;
+    color: black;
+} */
+
+h5 {
+    text-align: center;
+    margin: 10px;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+td a {
+    text-decoration: none;
+    color: black;
+}

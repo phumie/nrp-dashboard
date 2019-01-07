@@ -1,0 +1,33 @@
+.status-bar p {
+    text-align: center;
+}
+
+.card {
+    margin-top: 10px;
+}
+
+.card a {
+    cursor: pointer;
+    margin: 20px;
+    font-size: 1.1em;
+    color: #2E2D2D;
+}
+
+.icon {
+    height: auto;
+    background-color: #ff5252;
+    width: 30%;
+    float: left;
+}
+
+.icon img {
+    height: 70px;
+    width: 70px;
+    display:block;
+    margin:auto;
+    padding: 20px;
+}
+
+.icon img:hover {
+    cursor: pointer;
+}

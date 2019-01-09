@@ -1,0 +1,19 @@
+td a {
+    text-decoration: none;
+    color: black;
+}
+
+td {
+    cursor: pointer;
+}
+
+.feedback-img {
+    height: 70px;
+    width: 70px;
+    margin: 10px;
+}
+
+.expand-img {
+    height: calc(100% - 5px);
+    width: calc(100% - 5px);
+}

@@ -103,60 +103,53 @@
     <div class="card-columns">
         <div class="card">
             <div class="icon">
-                <img src="assets/resources.png" data-toggle="modal" data-target=".bd-example-modal-lg" id="resources">
+                <img src="assets/resources.png" data-toggle="modal" data-target=".bd-resources-modal-lg" id="resources">
             </div>
-            <a data-toggle="modal" data-target=".bd-example-modal-lg" id="resources">RESOURCES</a>
+            <a data-toggle="modal" data-target=".bd-resources-modal-lg" id="resources">RESOURCES</a>
         </div>
         <div class="card">
             <div class="icon">
-                <img src="assets/budget.png" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <img src="assets/budget.png" data-toggle="modal" data-target=".bd-buget-modal-lg">
             </div>
-            <a data-toggle="modal" data-target=".bd-example-modal-lg">BUDGET</a>
+            <a data-toggle="modal" data-target=".bd-budget-modal-lg">BUDGET</a>
         </div>
         <div class="card">
             <div class="icon">
-                <img src="assets/quote.png" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <img src="assets/quote.png" data-toggle="modal" data-target=".bd-quotes-modal-lg">
             </div>
-            <a data-toggle="modal" data-target=".bd-example-modal-lg">QUOTES</a>
+            <a data-toggle="modal" data-target=".bd-quotes-modal-lg">QUOTES</a>
         </div>
         <div class="card">
             <div class="icon">
-                <img src="assets/defaults.png" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <img src="assets/defaults.png" data-toggle="modal" data-target=".bd-defaults-modal-lg">
             </div>
-            <a data-toggle="modal" data-target=".bd-example-modal-lg">DEFAULTS</a>
+            <a data-toggle="modal" data-target=".bd-defaults-modal-lg">DEFAULTS</a>
         </div>
         <div class="card">
             <div class="icon">
-                <img src="assets/duration.png" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <img src="assets/duration.png" data-toggle="modal" data-target=".bd-duration-modal-lg">
             </div>
-            <a data-toggle="modal" data-target=".bd-example-modal-lg">DURATION</a>
+            <a data-toggle="modal" data-target=".bd-duration-modal-lg">DURATION</a>
         </div>
         <div class="card">
             <div class="icon">
-                <img src="assets/plan.png" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <img src="assets/feedback.png" data-toggle="modal" data-target=".bd-feedback-modal-lg">
             </div>
-            <a data-toggle="modal" data-target=".bd-example-modal-lg">PLAN</a>
+            <a data-toggle="modal" data-target=".bd-feedback-modal-lg">FEEDBACK</a>
         </div>
         <div class="card">
             <div class="icon">
-                <img src="assets/feedback.png" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <img src="assets/status.png" data-toggle="modal" data-target=".bd-status-modal-lg">
             </div>
-            <a data-toggle="modal" data-target=".bd-example-modal-lg">FEEDBACK</a>
-        </div>
-        <div class="card">
-            <div class="icon">
-                <img src="assets/status.png" data-toggle="modal" data-target=".bd-example-modal-lg">
-            </div>
-            <a data-toggle="modal" data-target=".bd-example-modal-lg">STATUS</a>
+            <a data-toggle="modal" data-target=".bd-status-modal-lg">STATUS</a>
         </div>
     </div>
 
-
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-            CONTENT WILL BE IN HERE
-            </div>
-        </div>
-    </div>
+    <app-resources></app-resources>
+    <app-budget></app-budget>
+    <app-defaults></app-defaults>
+    <app-duration></app-duration>
+    <app-feedback></app-feedback>
+    <app-quotes></app-quotes>
+    <app-status></app-status>
 </div>

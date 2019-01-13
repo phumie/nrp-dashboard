@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { FinanceRoutingModule } from './finance-routing.module';
 import { FinanceComponent } from './finance/finance.component';
+import { ViewTransactionComponent } from './finance/view-transaction/view-transaction.component';
+import { ManageTransactionsComponent } from './finance/manage-transactions/manage-transactions.component';
 
 @NgModule({
-  declarations: [FinanceComponent],
+  declarations: [FinanceComponent, ViewTransactionComponent, ManageTransactionsComponent],
   imports: [
     CommonModule,
     FinanceRoutingModule

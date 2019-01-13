@@ -22,3 +22,9 @@ td {
     background-color: white;
     cursor: pointer;
 }
+
+.card {
+    padding: 10px;
+    text-align: center;
+    border: none;
+}

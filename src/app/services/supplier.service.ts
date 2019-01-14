@@ -26,7 +26,7 @@ export class SupplierService {
   }
 
   getSupplier(id: number): Observable<Supplier> {
-    const url = `${this.clientURL}/?id=${id}`;
+    const url = `${this.clientURL}/${id}`;
     return this.http.get<Supplier>(url)
       .pipe(
         tap(_ => console.log('retrived supplier'))

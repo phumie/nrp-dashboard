@@ -4,19 +4,19 @@ import { ClientFeedbackComponent } from './client-feedback/client-feedback.compo
 import { NewFeedbackComponent } from './new-feedback/new-feedback.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   children: [
-  //     {
-  //       path: '',
-  //       children: [
-  //         {path: 'new-feedback', component: NewFeedbackComponent},
-  //         // { path: ':id', component: ProjectViewComponent},
-  //         { path: '', component: ClientFeedbackComponent }
-  //       ],
-  //     }
-  //   ]
-  // }
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        children: [
+          {path: 'new-feedback', component: NewFeedbackComponent},
+          // { path: ':id', component: ProjectViewComponent},
+          { path: '', component: ClientFeedbackComponent }
+        ],
+      }
+    ]
+  }
 ];
 
 @NgModule({

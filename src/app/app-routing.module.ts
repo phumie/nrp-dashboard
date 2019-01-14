@@ -25,23 +25,27 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: DashboardComponent
   },
-  // {
-  //   path: 'admin',
-  //   loadChildren : './admin/admin.module#AdminModule'
-  // },
+  {
+    path: 'admin',
+    loadChildren : './admin/admin.module#AdminModule'
+  },
   // {
   //   path: 'admin-template',
   //   component: AdminTemplateComponent
   // },
-  // { path: 'projects', loadChildren: './projects/projects.module#ProjectsModule'},
+  { path: 'projects', loadChildren: './projects/projects.module#ProjectsModule'},
   // { path: 'quotes', loadChildren: './quotes/quotes.module#QuotesModule'},
   // {path: 'reports', loadChildren: './reports/reports.module#ReportsModule'},
-  // {path: 'finance', loadChildren: './finance/finance.module#FinanceModule'},
-  // {path: 'feedback', loadChildren : './client-feedback/client-feedback.module#ClientFeedbackModule'},
-  // {path: 'client-projects', loadChildren : './client-projects/client-projects.module#ClientProjectsModule'},
+  {path: 'finance', loadChildren: './finance/finance.module#FinanceModule'},
+  {path: 'feedback', loadChildren : './client-feedback/client-feedback.module#ClientFeedbackModule'},
+  {path: 'client-projects', loadChildren : './client-projects/client-projects.module#ClientProjectsModule'},
   // // {path: 'new-feedback', loadChildren : './new-feedback/new-feedback.module#NewFeedbackModule'},
-  // {path: 'client-dashboard', component: ClientDashboardComponent},
-  // {path: '**', component: PageNotFoundComponent}
+  {path: 'client-dashboard', component: ClientDashboardComponent},
+  {
+    path: '**',
+    canActivate: [AuthGuard],
+    component: PageNotFoundComponent
+  }
 ];
 
 @NgModule({

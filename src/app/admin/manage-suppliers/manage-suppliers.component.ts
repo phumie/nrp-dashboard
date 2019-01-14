@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { Supplier } from 'src/app/classes/supplier';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SupplierService } from 'src/app/services/supplier.service';
 
 @Component({
   selector: 'app-manage-suppliers',
@@ -8,14 +11,19 @@ import * as $ from 'jquery';
 })
 export class ManageSuppliersComponent implements OnInit {
 
-  constructor() { }
+  supplier: Supplier;
+  supplierForm: FormGroup;
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private supplierService: SupplierService
+  ) { }
+
+  // Will finish adding this in the morning
   ngOnInit() {
-    $(document).ready(function(){
-      $('#submit').click(function(){
-        alert("Supplier information updated.");
-      });
-    })
+    this.supplierForm = this.formBuilder.group({
+      businessName: ['', Validators.required]
+    });
   }
 
 }

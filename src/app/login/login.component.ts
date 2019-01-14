@@ -48,9 +48,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.employeeLogin(username, password)
       .subscribe(
         data => {
-          if (this.authenticationService.currentUserValue) {
-            console.log('It looks ok');
-          }
+          console.log(data);
           this.router.navigate([this.returnUrl]);
         },
         error => console.log(error)

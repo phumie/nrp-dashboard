@@ -15,6 +15,7 @@ import { tap } from 'rxjs/operators';
 export class ManageEmployeesGeneralComponent implements OnInit {
 
   submitted = false;
+  employee: Employee;
   employeeForm: FormGroup;
 
   constructor(
@@ -40,7 +41,7 @@ export class ManageEmployeesGeneralComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.employeeGeneralService.getEmployee(id)
-        .subscribe(emp => console.log(emp));
+        .subscribe(emp => this.employee = emp);
     }
   }
 
@@ -66,9 +67,7 @@ export class ManageEmployeesGeneralComponent implements OnInit {
       email: this.form.email.value
     };
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
     if (id) {
-      console.log('trying to update');
       this.employeeGeneralService.updateEmployee(employee)
         .subscribe(
           data => this.employeeService.storeEmployee(data),

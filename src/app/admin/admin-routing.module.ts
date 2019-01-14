@@ -12,45 +12,45 @@ import { SupplierListComponent } from './supplier-list/supplier-list.component';
 import { ManageSuppliersComponent } from './manage-suppliers/manage-suppliers.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   children: [
-  //     {
-  //       path: '',
-  //       component: AdminComponent
-  //     },
-  //     {
-  //       path: 'employees',
-  //       children: [
-  //         {
-  //           path: 'edit',
-  //           children: [
-  //             { path: ':id', component: ManageEmployeesComponent },
-  //             { path: '', component: ManageEmployeesComponent }
-  //           ]
-  //         },
-  //         { path: 'employee-list', component: EmployeeListComponent },
-  //         { path: '', component: EmployeeListComponent }
-  //       ]
-  //     },
-  //     {
-  //       path: 'clients',
-  //       children: [
-  //         { path: 'edit', component: ManageClientsComponent },
-  //         { path: 'client-list', component: ClientListComponent },
-  //         { path: '', component: ClientListComponent }
-  //       ]
-  //     },
-  //     {
-  //       path: 'suppliers',
-  //       children: [
-  //         { path: 'edit', component: ManageSuppliersComponent },
-  //         { path: 'supplier-list', component: SupplierListComponent },
-  //         { path: '', component: SupplierListComponent }
-  //       ]
-  //     }
-  //   ]
-  // }
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        component: AdminComponent
+      },
+      {
+        path: 'employees',
+        children: [
+          {
+            path: 'edit',
+            children: [
+              { path: ':id', component: ManageEmployeesComponent },
+              { path: '', component: ManageEmployeesComponent }
+            ]
+          },
+          { path: 'employee-list', component: EmployeeListComponent },
+          { path: '', component: EmployeeListComponent }
+        ]
+      },
+      {
+        path: 'clients',
+        children: [
+          { path: 'edit', component: ManageClientsComponent },
+          { path: 'client-list', component: ClientListComponent },
+          { path: '', component: ClientListComponent }
+        ]
+      },
+      {
+        path: 'suppliers',
+        children: [
+          { path: 'edit', component: ManageSuppliersComponent },
+          { path: 'supplier-list', component: SupplierListComponent },
+          { path: '', component: SupplierListComponent }
+        ]
+      }
+    ]
+  }
 ];
 
 @NgModule({

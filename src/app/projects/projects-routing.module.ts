@@ -8,19 +8,19 @@ import { NewProjectComponent } from './new-project/new-project.component';
 
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   children: [
-  //     {
-  //       path: '',
-  //       children: [
-  //         {path: 'new-project', component: NewProjectComponent},
-  //         { path: ':id', component: ProjectViewComponent},
-  //         { path: '', component: ProjectListComponent }
-  //       ],
-  //     }
-  //   ]
-  // }
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        children: [
+          {path: 'new-project', component: NewProjectComponent},
+          { path: ':id', component: ProjectViewComponent},
+          { path: '', component: ProjectListComponent }
+        ],
+      }
+    ]
+  }
 ];
 
 @NgModule({

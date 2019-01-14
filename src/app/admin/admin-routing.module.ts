@@ -22,7 +22,13 @@ const routes: Routes = [
       {
         path: 'employees',
         children: [
-          { path: 'edit', component: ManageEmployeesComponent },
+          {
+            path: 'edit',
+            children: [
+              { path: ':id', component: ManageEmployeesComponent },
+              { path: '', component: ManageEmployeesComponent }
+            ]
+          },
           { path: 'employee-list', component: EmployeeListComponent },
           { path: '', component: EmployeeListComponent }
         ]

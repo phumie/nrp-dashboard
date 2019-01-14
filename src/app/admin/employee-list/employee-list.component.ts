@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService } from 'src/app/services/employees/general.service';
+import { Employee } from 'src/app/classes/employee/employee';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor() { }
+  employees: Employee[];
+
+  constructor(
+    private router: Router,
+    private employeeService: GeneralService
+    ) { }
 
   ngOnInit() {
+    this.getEmployees();
+  }
+
+  getEmployees(): void {
+    this.employeeService.getEmployees()
+      .subscribe(employees => this.employees = employees);
+  }
+
+  onSelect(employee: Employee): void {
+    const url = `/admin/employees/edit/${employee.employeeId}`;
+    this.router.navigate([url]);
   }
 
 }

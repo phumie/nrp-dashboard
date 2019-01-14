@@ -10,9 +10,12 @@ import { AdminTemplateComponent } from './admin-template/admin-template.componen
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
   {path: 'login', component: LoginComponent},
-  // {path: 'base-template', component: BaseTemplateComponent},
   {path: 'admin-template', component: AdminTemplateComponent},
   {path: 'dashboard', component: DashboardComponent},
   { path: 'projects', loadChildren: './projects/projects.module#ProjectsModule'},
@@ -21,8 +24,8 @@ const routes: Routes = [
   {path: 'reports', loadChildren: './reports/reports.module#ReportsModule'},
   {path: 'finance', loadChildren: './finance/finance.module#FinanceModule'},
   {path: 'feedback', loadChildren : './client-feedback/client-feedback.module#ClientFeedbackModule'},
-  {path: 'client-projects', loadChildren : './client-projects/client-projects.module#ClientProjectsModule'},  
-  // {path: 'new-feedback', loadChildren : './new-feedback/new-feedback.module#NewFeedbackModule'},    
+  {path: 'client-projects', loadChildren : './client-projects/client-projects.module#ClientProjectsModule'},
+  // {path: 'new-feedback', loadChildren : './new-feedback/new-feedback.module#NewFeedbackModule'},
   {path: 'client-dashboard', component: ClientDashboardComponent},
   {path: '**', component: PageNotFoundComponent}
 ];

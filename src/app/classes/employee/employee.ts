@@ -4,7 +4,7 @@ export class Employee {
     maidenName?: string;
     lastName: string;
     contactNumber: string;
-    alternativeNumber: string;
+    alternativeNumber?: string;
     physicalAddress: string;
     postalAddress: string;
     idNumber: number;

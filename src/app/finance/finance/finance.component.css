@@ -1,0 +1,30 @@
+h5 {
+    margin: 10px;
+    text-align: center;
+}
+
+td {
+    cursor: pointer;
+}
+
+.btn {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.search {
+    border-radius: 2px;
+    border: 1px solid #B9B9B9;
+}
+
+.search-btn {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.card {
+    padding: 10px;
+    text-align: center;
+    border: none;
+}

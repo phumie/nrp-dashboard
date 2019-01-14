@@ -7,7 +7,7 @@
   <div id="app">
     <div class="main-wrapper">
       <nav class="navbar navbar-expand-lg main-navbar">
-        <h5>Home</h5>
+        <h5>FINANCE</h5>
       </nav>
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
@@ -78,7 +78,73 @@
           </ul>
         </aside>
       </div>
-      <div class="main-content"></div>
+      <!-- <div class="main-content"></div> -->
     </div>
   </div>
 </body>
+
+<div class="main-content">
+  <h5>NRP FINANCES</h5>
+  <div class="card-columns">
+    <div class="card">
+      <h6 style="color: red">R 748 673.92</h6>
+      <p>Expenses</p>
+    </div>
+    <div class="card">
+      <h6 style="color: green">R 1 674 308.67</h6>
+      <p>Income</p>
+    </div>
+    <div class="card">
+      <h6 style="color: blue">R 45 067</h6>
+      <p>Profit</p>
+    </div>
+  </div>
+
+  <div>
+    <input type="text" class="search"><button class="search-btn">Search</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bd-manage-transaction-modal-lg">New Transaction</button>
+  </div>
+  
+
+  <table class="table table-hover" style="margin-top: 10px; width: 100%;">
+      <thead class="thead-dark">
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Type</th>
+              <th scope="col">Date</th>
+              <th scope="col">Amount</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">id</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">name</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">description</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">type</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">date</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">amount</td>
+          </tr>
+          <tr>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">id</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">name</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">description</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">type</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">date</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">amount</td>
+          </tr>
+          <tr>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">id</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">name</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">description</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">type</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">date</td>
+            <td data-toggle="modal" data-target=".bd-view-transaction-modal-lg">amount</td>
+          </tr>
+      </tbody>
+  </table>
+
+  <app-view-transaction></app-view-transaction>
+  <app-manage-transactions></app-manage-transactions>
+</div>

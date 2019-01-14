@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../classes/employee/employee';
+import { EmployeeService } from '../services/employees/employee.service';
+import { GeneralService } from '../services/employees/general.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-base-template',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseTemplateComponent implements OnInit {
 
-  constructor() { }
+  employee: Employee;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.employee = this.authService.currentUserValue;
   }
 
 }

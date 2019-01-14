@@ -26,10 +26,10 @@ export class AuthService {
   }
 
   clientLogin(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.authUrl, { username: username, password: password }, httpOptions)
+    const url = `${this.authUrl}/?id=0`;
+    return this.http.post<any>(url, { username: username, password: password }, httpOptions)
       .pipe(
         tap(user => {
-          console.log('logged in');
           sessionStorage.setItem('user', JSON.stringify(user));
           this.currentUserSubject.next(user);
         })
@@ -39,12 +39,21 @@ export class AuthService {
   employeeLogin(username: string, password: string): Observable<any> {
     return this.http.post<any>(this.authUrl, { username: username, password: password }, httpOptions)
       .pipe(
-        tap(_ => console.log('Logged in'))
+        tap(user => {
+          sessionStorage.setItem('user', JSON.stringify(user));
+          this.currentUserSubject.next(user);
+        })
       );
   }
 
-  logout(): void {
-    sessionStorage.removeItem('user');
-    this.currentUserSubject.next(null);
+  logout(id: number): void {
+    const url = `${this.authUrl}/id`;
+    this.http.delete<any>(url, httpOptions)
+      .pipe(
+        tap(_ => {
+          sessionStorage.removeItem('user');
+          this.currentUserSubject.next(null);
+        })
+      );
   }
 }

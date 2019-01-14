@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RfqsComponent } from './rfqs/rfqs.component';
 
 const routes: Routes = [
-  {path: 'rfqs', component: RfqsComponent}
+  // {path: 'rfqs', component: RfqsComponent}
 ];
 
 @NgModule({

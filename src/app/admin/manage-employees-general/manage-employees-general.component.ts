@@ -65,23 +65,22 @@ export class ManageEmployeesGeneralComponent implements OnInit {
       idNumber: this.form.idNumber.value,
       email: this.form.email.value
     };
-    console.log('Whats going on!');
-    // const id = +this.route.snapshot.paramMap.get('id');
-    // console.log(id);
-    // if (id) {
-    //   console.log('trying to update');
-    //   this.employeeGeneralService.updateEmployee(employee)
-    //     .subscribe(
-    //       data => this.employeeService.storeEmployee(data),
-    //       error => console.log(error)
-    //     );
-    // } else {
-    //   this.employeeGeneralService.addEmployee(employee)
-    //     .subscribe(
-    //       data => this.employeeService.storeEmployee(data),
-    //       error => console.log(error)
-    //   );
-    // }
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    if (id) {
+      console.log('trying to update');
+      this.employeeGeneralService.updateEmployee(employee)
+        .subscribe(
+          data => this.employeeService.storeEmployee(data),
+          error => console.log(error)
+        );
+    } else {
+      this.employeeGeneralService.addEmployee(employee)
+        .subscribe(
+          data => this.employeeService.storeEmployee(data),
+          error => console.log(error)
+      );
+    }
   }
 
 }

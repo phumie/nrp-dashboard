@@ -12,7 +12,7 @@
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                 <div class="sidebar-brand">
-                    <a href="dashboard">NRP PORTAL</a>
+                    <a routerLink="/dashboard">NRP PORTAL</a>
                 </div>
                 <div class="sidebar-user">
                     <div class="sidebar-user-picture">
@@ -27,32 +27,32 @@
                 <ul class="sidebar-menu">
                     <li class="menu-header">Dashboard</li>
                     <li>
-                    <a href="dashboard">
+                    <a routerLink="/dashboard">
                         <img src="assets/home.png" alt="">
                         <span>Dashboard</span>
                     </a>
                     </li>
                     <li class="menu-header">MENU</li>
                     <li>
-                    <a href="admin/employees">
+                    <a routerLink="/admin/employees">
                         <img src="assets/project.png" alt="">
                         <span>Employees</span>
                     </a>
                     </li>
                     <li>
-                    <a href="admin/clients">
+                    <a routerLink="/admin/clients">
                         <img src="assets/finance.png" alt="">
                         <span>Clients</span>
                     </a>
                     </li>
                     <li>
-                    <a href="admin/suppliers">
+                    <a routerLink="/admin/suppliers">
                         <img src="assets/report.png" alt="">
                         <span>Suppliers</span>
                     </a>
                     </li>
                     <li>
-                    <a href="login">
+                    <a routerLink="/login">
                         <img src="assets/logout.png" alt="">
                         <span>Signout</span>
                     </a>
@@ -70,7 +70,7 @@
         <h5>EMPLOYEES LIST</h5>
         <form>
             <button type="button" class="btn btn-danger" >
-                <a href="/admin/employees/edit">ADD EMPLOYEE</a>
+                <a routerLink="/admin/employees/edit">ADD EMPLOYEE</a>
             </button>
         </form>
 
@@ -84,23 +84,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark Otto</td>
-                    <td>079457657</td>
-                    <td>mark@gmail.com</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob Sikes</td>
-                    <td>081342554</td>
-                    <td>jacob@gmail.com</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry Bird</td>
-                    <td>076435453</td>
-                    <td>larry@gmail.com</td>
+                <tr *ngFor="let employee of employees" (click)="onSelect(employee)">
+                    <th scope="row">{{employee.employeeId}}</th>
+                    <td>{{employee.firstName}} {{employee.lastName}}</td>
+                    <td>{{employee.contactNumber}}</td>
+                    <td>{{employee.email}}</td>
                 </tr>
             </tbody>
         </table>

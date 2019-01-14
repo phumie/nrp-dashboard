@@ -1,0 +1,25 @@
+<form [formGroup]="employeeAccountForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Bank Name</label>
+        <div class="col-sm-10">
+            <input type="text" formControlName="bankName" class="form-control" placeholder="Bank Name" [ngClass]="{ 'is-invalid': submitted && form.firstName.errors }">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Account Number</label>
+        <div class="col-sm-10">
+            <input type="number" formControlName="accountNumber" class="form-control" placeholder="Account No." [ngClass]="{ 'is-invalid': submitted && form.firstName.errors }">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Branch Code</label>
+        <div class="col-sm-10">
+            <input type="text" formControlName="branchCode" class="form-control" placeholder="Branch Code" [ngClass]="{ 'is-invalid': submitted && form.firstName.errors }">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+  </form>

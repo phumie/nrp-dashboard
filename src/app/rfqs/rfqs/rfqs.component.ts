@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
-
+import { Rfq } from '../../classes/rfq/rfq';
+import { Client } from '../../classes/client/client';
+import { ClientService } from '../../services/clients/client.service';
+import { RfqService } from '../../services/rfq.service';
 
 @Component({
   selector: 'app-rfqs',
@@ -9,19 +11,28 @@ import * as $ from 'jquery';
 })
 export class RfqsComponent implements OnInit {
 
-  constructor() { }
+  rfqs: Rfq[];
+  clients: Client[];
+
+  constructor(
+    private rfqServices: RfqService,
+    private clientServices: ClientService
+  ) { }
 
   ngOnInit() {
-    var quantity;
-    var description;
-    var rate;
-    var total;
-
-    $(document).ready(function(){
-      $('#creatQuote').click(function(){
-        alert("New quote created.");
-      });
-    });
+    this.getRfqs();
+    this.getClients();
   }
 
+  getRfqs() : void {
+    console.log("Retrieving rfqs");
+    this.rfqServices.getRfqs()
+      .subscribe(rfqs => this.rfqs = rfqs);
+  }
+
+  getClients() : void {
+    console.log("Retrieving clients");
+    this.clientServices.getClients()
+      .subscribe(clients => this.clients = clients;
+  }
 }

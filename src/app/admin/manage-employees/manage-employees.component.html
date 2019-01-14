@@ -78,13 +78,13 @@
             <app-manage-employees-general></app-manage-employees-general>
         </div>
         <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
-            <app-manage-employees-account></app-manage-employees-account>
+            <app-manage-employees-account [employee]="employee"></app-manage-employees-account>
         </div>
         <div class="tab-pane fade" id="kin" role="tabpanel" aria-labelledby="kin-tab">
-            <app-manage-employees-kin></app-manage-employees-kin>
+            <app-manage-employees-kin [employee]="employee"></app-manage-employees-kin>
         </div>
         <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
-            <app-manage-employees-permissions></app-manage-employees-permissions>
+            <app-manage-employees-permissions [employee]="employee"></app-manage-employees-permissions>
         </div>
     </div>
     <button type="submit" id="deleteEmployee" class="btn btn-danger"> DELETE EMPLOYEE</button>

@@ -40,7 +40,18 @@ export class ManageEmployeesGeneralComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.employeeGeneralService.getEmployee(id)
-        .subscribe(emp => console.log(emp));
+        .subscribe(emp => {
+          // this.employeeForm.controls['firstName'].value = emp.firstName;
+          // this.employeeForm.controls['lastName'].value = emp.lastName;
+          // this.employeeForm.controls['maidenName'].value = emp.maidenName;
+          // this.employeeForm.controls['contactNumber'].value = emp.contactNumber;
+          // this.employeeForm.controls['alternativeNumber'].value = emp.alternativeNumber;
+          // this.employeeForm.controls['physicalAddress'].value = emp.physicalAddress;
+          // this.employeeForm.controls['postalAddress'].value = emp.postalAddress;
+          // this.employeeForm.controls['idNUmber'].value = emp.idNumber;
+          // this.employeeForm.controls['email'].value = emp.email;
+          console.log('test');
+        });
     }
   }
 
@@ -65,23 +76,20 @@ export class ManageEmployeesGeneralComponent implements OnInit {
       idNumber: this.form.idNumber.value,
       email: this.form.email.value
     };
-    console.log('Whats going on!');
-    // const id = +this.route.snapshot.paramMap.get('id');
-    // console.log(id);
-    // if (id) {
-    //   console.log('trying to update');
-    //   this.employeeGeneralService.updateEmployee(employee)
-    //     .subscribe(
-    //       data => this.employeeService.storeEmployee(data),
-    //       error => console.log(error)
-    //     );
-    // } else {
-    //   this.employeeGeneralService.addEmployee(employee)
-    //     .subscribe(
-    //       data => this.employeeService.storeEmployee(data),
-    //       error => console.log(error)
-    //   );
-    // }
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.employeeGeneralService.updateEmployee(employee)
+        .subscribe(
+          data => this.employeeService.storeEmployee(data),
+          error => console.log(error)
+        );
+    } else {
+      this.employeeGeneralService.addEmployee(employee)
+        .subscribe(
+          data => this.employeeService.storeEmployee(data),
+          error => console.log(error)
+      );
+    }
   }
 
 }

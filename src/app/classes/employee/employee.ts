@@ -1,3 +1,5 @@
+import { EmployeePermissions } from './employee-permissions';
+
 export class Employee {
     employeeId?: number;
     firstName: string;
@@ -9,4 +11,5 @@ export class Employee {
     postalAddress: string;
     idNumber: number;
     email: string;
+    userRights?: EmployeePermissions;
 }

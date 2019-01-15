@@ -1,10 +1,4 @@
-  <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-  </head>
-  
-  <body>
-    <div id="app">
+<div id="app">
       <div class="main-wrapper">
         <nav class="navbar navbar-expand-lg main-navbar">
           <h5>Home</h5>
@@ -12,7 +6,7 @@
         <div class="main-sidebar">
           <aside id="sidebar-wrapper">
             <div class="sidebar-brand">
-              <a href="dashboard">NRP PORTAL</a>
+              <a routerLink="/dashboard">NRP PORTAL</a>
             </div>
             <div class="sidebar-user">
               <div class="sidebar-user-picture">
@@ -27,50 +21,50 @@
             <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
               <li>
-                <a href="dashboard">
+                <a routerLink="/dashboard">
                   <img src="assets/home.png" alt="">
                   <span>Dashboard</span>
                 </a>
               </li>
               <li class="menu-header">MENU</li>
               <li>
-                <a href="projects">
+                <a routerLink="/projects">
                   <img src="assets/project.png" alt="">
                   <span>Projects</span>
                 </a>
               </li>
               <li>
-                <a href="finance">
+                <a routerLink="/finance">
                   <img src="assets/finance.png" alt="">
                   <span>Finance</span>
                 </a>
               </li>
               <li>
-                <a href="reports">
+                <a routerLink="/reports">
                   <img src="assets/report.png" alt="">
                   <span>Reports</span>
                 </a>
               </li>
               <li>
-                <a href="quotes">
+                <a routerLink="/quotes">
                   <img src="assets/quote.png" alt="">
                   <span>Quotes</span>
                 </a>
               </li>
               <li>
-                <a href="rfqs">
+                <a routerLink="/rfqs">
                   <img src="assets/quote.png" alt="">
                   <span>RFQs</span>
                 </a>
               </li>
               <li>
-                <a href="admin">
+                <a routerLink="/admin">
                   <img src="assets/admin.png" alt="">
                   <span>Admin</span>
                 </a>
               </li>
               <li>
-                <a href="login">
+                <a routerLink="/login">
                   <img src="assets/logout.png" alt="">
                   <span>Signout</span>
                 </a>
@@ -79,8 +73,7 @@
           </aside>
         </div>
       </div>
-    </div>
-  </body>
+</div>
 
   <div class="main-content">
     <h5 align="center">Projects List</h5>
@@ -96,7 +89,7 @@
         </div>
         <div class="card">
             <h3>3</h3>
-            <p>projectts pending</p>
+            <p>projects pending</p>
         </div>
     </div>
 
@@ -137,7 +130,7 @@
     <div class="add-search">
       <form>
         <button type="button" class="btn btn-danger" style="margin-top:10px">
-            <a href="projects/new-project">Create Project</a>
+            <a routerLink="/projects/new-project">Create Project</a>
         </button><br>
         <input type="text">
         <button class="search">Search</button>
@@ -149,19 +142,19 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Names</th>
-                <th scope="col">Start</th>
-                <th scope="col">End</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
                 <th>Status</th>
             </tr>
         </thead>
         
         <tbody>
-            <tr *ngFor="let project of projects" (click)="onSelect(project)">
+            <!-- <tr *ngFor="let project of projects" (click)="onSelect(project)">
                 <th scope="row">{{project.projectId}}</th>
                 <td>{{project.title}}</td>
-                <td>{{employee.contactNumber}}</td>
+                <td>{{employee.}}</td>
                 <td>{{employee.email}}</td>
-            </tr>
+            </tr> -->
             <tr>
             <td><a href="projects/:id">id</a></td>
             <td><a href="projects/:id">name</a></td>

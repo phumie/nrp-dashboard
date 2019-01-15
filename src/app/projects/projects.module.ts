@@ -12,18 +12,26 @@ import { BudgetComponent } from './project-view/budget/budget.component';
 import { DurationComponent } from './project-view/duration/duration.component';
 import { StatusComponent } from './project-view/status/status.component';
 import { QuotesComponent } from './project-view/quotes/quotes.component';
-// import { BaseTemplateComponent } from '../base-template/base-template.component';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ProjectListComponent, ProjectViewComponent, NewProjectComponent, ResourcesComponent, DefaultsComponent, FeedbackComponent, BudgetComponent, DurationComponent, StatusComponent, QuotesComponent],
+  declarations: [
+    ProjectListComponent,
+    ProjectViewComponent,
+    NewProjectComponent,
+    ResourcesComponent,
+    DefaultsComponent,
+    FeedbackComponent,
+    BudgetComponent,
+    DurationComponent,
+    StatusComponent,
+    QuotesComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     ProjectsRoutingModule
-    // BaseTemplateComponent
   ],
-  exports: [
-    // BaseTemplateComponent
-  ]
+  exports: []
 })
 export class ProjectsModule { }

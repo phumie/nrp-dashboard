@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { Project } from 'src/app/classes/projects/project';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProjectService } from 'src/app/services/projects/project.service';
+import { GeneralService } from 'src/app/services/clients/general.service';
+import { Client } from 'src/app/classes/client/client';
 
 @Component({
   selector: 'app-new-project',
@@ -8,18 +12,47 @@ import * as $ from 'jquery';
 })
 export class NewProjectComponent implements OnInit {
 
-  constructor() { }
+  submitted = false;
+  clients: Client[];
+  projectForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private clientService: GeneralService,
+    private projectService: ProjectService
+  ) { }
 
   ngOnInit() {
-    $(document).ready(function(){
-      $('#createProject').click(function(){
-        alert("New project created.");
-      });
-
-      $(function() {
-        $('.selectpicker').selectpicker();
-      });
+    this.projectForm = this.formBuilder.group({
+      projectName: ['', Validators.required],
+      clientId: [''],
+      facility: ['', Validators.required],
+      description: ['', Validators.required],
+      creationDate: ['']
     });
+    this.clientService.getClients()
+      .subscribe(clients => this.clients = clients);
+  }
+
+  get form() {
+    return this.projectForm.controls;
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+    if (this.projectForm.invalid) {
+      return;
+    }
+
+    const project: Project = {
+      title: this.form.projectName.value,
+      facility: this.form.facility.value,
+      description: this.form.description.value,
+      date: this.form.creationDate.value,
+      clientId: this.form.clientId.value
+    };
+    this.projectService.addProject(project)
+      .subscribe(data => console.log(data));
   }
 
 }

@@ -46,7 +46,7 @@ export class ManageClientsGeneralComponent implements OnInit {
     };
     this.clientGeneralService.addClient(client)
       .subscribe(
-        data => this.clientService.storeClient(data),
+        data => { this.clientService.storeClient(data); console.log(data); },
         error => console.log(error)
       );
   }

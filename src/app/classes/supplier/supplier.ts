@@ -1,5 +1,5 @@
 export class Supplier {
-    supplierId: number;
+    supplierId?: number;
     name: string;
     address: string;
     tell: string;

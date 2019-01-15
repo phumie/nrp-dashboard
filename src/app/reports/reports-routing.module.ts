@@ -13,7 +13,7 @@ import { ProjectFeedbackComponent } from './project-feedback/project-feedback.co
 import { ProjectReportsComponent } from './project-reports/project-reports.component';
 
 const routes: Routes = [
-  {path: '', component: ReportsComponent}
+  // {path: '', component: ReportsComponent}
 
   {
     path: '',

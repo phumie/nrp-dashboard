@@ -12,6 +12,7 @@ import { Client } from 'src/app/classes/client/client';
 export class ManageClientsGeneralComponent implements OnInit {
 
   submitted = false;
+  client: Client;
   clientForm: FormGroup;
 
   constructor(
@@ -23,8 +24,8 @@ export class ManageClientsGeneralComponent implements OnInit {
   ngOnInit() {
     this.clientForm = this.formBuilder.group({
       clientName: ['', Validators.required],
-      accountNumber: ['', Validators.required],
-      branchCode: ['', Validators.required]
+      vatNumber: ['', Validators.required],
+      physicalAddress: ['', Validators.required]
     });
   }
 
@@ -40,16 +41,13 @@ export class ManageClientsGeneralComponent implements OnInit {
 
     const client: Client = {
       clientName: this.form.clientName.value,
-      vatNumber: this.form.accountNumber.value,
-      address: this.form.branchCode.value
+      vatNumber: this.form.vatNumber.value,
+      address: this.form.physicalAddress.value
     };
     this.clientGeneralService.addClient(client)
       .subscribe(
-        data => {
-          this.clientService.storeClient(data);
-        },
+        data => this.clientService.storeClient(data),
         error => console.log(error)
       );
   }
-
 }

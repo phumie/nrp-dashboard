@@ -17,10 +17,7 @@ export class ManageEmployeesComponent implements OnDestroy {
 
   constructor(private employeeService: EmployeeService) {
     this.subscription = this.employeeService.getEmployee()
-      .subscribe(employee => {
-        this.employee = employee;
-        console.log(this.employee);
-  });
+      .subscribe(employee => this.employee = employee);
   }
 
   ngOnDestroy() {

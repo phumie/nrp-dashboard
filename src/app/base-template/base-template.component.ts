@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../classes/employee/employee';
+import { EmployeeService } from '../services/employees/employee.service';
+import { GeneralService } from '../services/employees/general.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-base-template',
@@ -7,9 +12,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseTemplateComponent implements OnInit {
 
-  constructor() { }
+  employee: Employee;
+
+  constructor(
+    private router: Router,
+    private authService: AuthService
+    ) { }
 
   ngOnInit() {
+    this.employee = this.authService.currentUserValue;
+  }
+
+  logout(): void {
+    console.log('logout');
+    this.authService.logout(this.employee.employeeId);
+    this.router.navigate(['/login']);
   }
 
 }

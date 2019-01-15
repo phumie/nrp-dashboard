@@ -33,25 +33,14 @@ export class ManageEmployeesGeneralComponent implements OnInit {
       alternativeNumber: [''],
       physicalAddress: ['', Validators.required],
       postalAddress: ['', Validators.required],
-      idNumber: ['', Validators.required],
+      said: ['', Validators.required],
       email: ['', Validators.required]
     });
 
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.employeeGeneralService.getEmployee(id)
-        .subscribe(emp => {
-          // this.employeeForm.controls['firstName'].value = emp.firstName;
-          // this.employeeForm.controls['lastName'].value = emp.lastName;
-          // this.employeeForm.controls['maidenName'].value = emp.maidenName;
-          // this.employeeForm.controls['contactNumber'].value = emp.contactNumber;
-          // this.employeeForm.controls['alternativeNumber'].value = emp.alternativeNumber;
-          // this.employeeForm.controls['physicalAddress'].value = emp.physicalAddress;
-          // this.employeeForm.controls['postalAddress'].value = emp.postalAddress;
-          // this.employeeForm.controls['idNUmber'].value = emp.idNumber;
-          // this.employeeForm.controls['email'].value = emp.email;
-          console.log('test');
-        });
+        .subscribe(emp => this.employeeForm.patchValue(emp));
     }
   }
 
@@ -73,9 +62,10 @@ export class ManageEmployeesGeneralComponent implements OnInit {
       alternativeNumber: this.form.alternativeNumber.value,
       physicalAddress: this.form.physicalAddress.value,
       postalAddress: this.form.postalAddress.value,
-      idNumber: this.form.idNumber.value,
+      said: this.form.said.value,
       email: this.form.email.value
     };
+
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.employeeGeneralService.updateEmployee(employee)

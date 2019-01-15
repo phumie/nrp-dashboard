@@ -15,14 +15,14 @@
         <div class="main-sidebar">
           <aside id="sidebar-wrapper">
             <div class="sidebar-brand">
-              <a href="dashboard">NRP PORTAL</a>
+              <a routerLink="/dashboard">NRP PORTAL</a>
             </div>
             <div class="sidebar-user">
               <div class="sidebar-user-picture">
                 <img alt="image" src="assets/profile.png">
               </div>
               <div class="sidebar-user-details">
-                <div class="user-name">Phumie Nevhutala</div>
+                <div class="user-name">{{employee.firstName}} {{employee.secondName}}</div>
                 <div class="user-role">Administrator</div>
               </div>
             </div>
@@ -30,50 +30,50 @@
             <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
               <li>
-                <a href="dashboard">
+                <a routerLink="/dashboard">
                   <img src="assets/home.png" alt="">
                   <span>Dashboard</span>
                 </a>
               </li>
               <li class="menu-header">MENU</li>
               <li>
-                <a href="projects">
+                <a routerLink="/projects">
                   <img src="assets/project.png" alt="">
                   <span>Projects</span>
                 </a>
               </li>
               <li>
-                <a href="finance">
+                <a routerLink="/finance">
                   <img src="assets/finance.png" alt="">
                   <span>Finance</span>
                 </a>
               </li>
               <li>
-                <a href="reports">
+                <a routerLink="/reports">
                   <img src="assets/report.png" alt="">
                   <span>Reports</span>
                 </a>
               </li>
               <li>
-                <a href="quotes">
+                <a routerLink="/quotes">
                   <img src="assets/quote.png" alt="">
                   <span>Quotes</span>
                 </a>
               </li>
               <li>
-                <a href="rfqs">
+                <a routerLink="/rfqs">
                   <img src="assets/quote.png" alt="">
                   <span>RFQs</span>
                 </a>
               </li>
               <li>
-                <a href="admin">
+                <a routerLink="/admin">
                   <img src="assets/admin.png" alt="">
                   <span>Admin</span>
                 </a>
               </li>
               <li>
-                <a href="login">
+                <a (click)="logout()">
                   <img src="assets/logout.png" alt="">
                   <span>Signout</span>
                 </a>

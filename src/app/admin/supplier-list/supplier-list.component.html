@@ -84,23 +84,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Cashbuild</td>
-                    <td>079457657</td>
-                    <td>info@cashbuild.co.za</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Tile Africa</td>
-                    <td>081342554</td>
-                    <td>business@tileafrica.co.za</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>CTM</td>
-                    <td>076435453</td>
-                    <td>info@ctm.co.za</td>
+                <tr *ngFor="let supplier of suppliers" (click)="onSelect(supplier)">
+                    <th scope="row">{{supplier.supplierId}}</th>
+                    <td>{{supplier.name}}</td>
+                    <td>{{supplier.tell}}</td>
+                    <td>{{supplier.email}}</td>
                 </tr>
             </tbody>
         </table>

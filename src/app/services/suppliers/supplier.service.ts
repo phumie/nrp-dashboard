@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { retry, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { Supplier } from '../classes/supplier';
+import { tap, retry } from 'rxjs/operators';
+
+import { Supplier } from 'src/app/classes/supplier/supplier';
 import { environment } from 'src/environments/environment.prod';
 
 const httpOptions = {
@@ -26,9 +27,10 @@ export class SupplierService {
   }
 
   getSupplier(id: number): Observable<Supplier> {
-    const url = `${this.clientURL}/?id=${id}`;
+    const url = `${this.clientURL}/${id}`;
     return this.http.get<Supplier>(url)
       .pipe(
+        retry(3),
         tap(_ => console.log('retrived supplier'))
       );
   }

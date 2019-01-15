@@ -7,9 +7,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ClientService {
 
   constructor(private http: HttpClient) { }

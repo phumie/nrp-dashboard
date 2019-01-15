@@ -53,22 +53,6 @@ const routes: Routes = [
   }
 ];
 
-// const routes: Routes = [
-//   {
-//     path: '',
-//     component: AdminComponent,
-//     children: [
-//       {
-//         path: '',
-//         children: [
-//           { path: 'client-list', component: ClientListComponent},
-//           { path: 'employee-list', component: EmployeeListComponent}
-//         ]
-//       }
-//     ]
-//   }
-// ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

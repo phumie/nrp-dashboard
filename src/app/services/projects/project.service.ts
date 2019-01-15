@@ -46,7 +46,7 @@ export class ProjectService {
     );
   }
 
-  addEmployee(project: Project): Observable<Project> {
+  addProject(project: Project): Observable<Project> {
     return this.http.post<Project>(this.projectsUrl, project, httpOptions)
       .pipe(
         retry(3),
@@ -54,7 +54,7 @@ export class ProjectService {
       );
   }
 
-  deleteEmployee(project: Project): Observable<Project> {
+  deleteProject(project: Project): Observable<Project> {
     const url = `${this.projectsUrl}/${project.projectId}`;
     return this.http.delete<Project>(url, httpOptions)
       .pipe(
@@ -63,7 +63,7 @@ export class ProjectService {
       );
   }
 
-  updateEmployee(project: Project): Observable<any> {
+  updateProject(project: Project): Observable<any> {
     return this.http.put(this.projectsUrl, project, httpOptions)
       .pipe(
         retry(3),

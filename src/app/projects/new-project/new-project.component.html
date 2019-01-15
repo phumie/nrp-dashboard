@@ -1,10 +1,4 @@
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-</head>
-    
-<body>
-    <div id="app">
+<div id="app">
         <div class="main-wrapper">
         <nav class="navbar navbar-expand-lg main-navbar">
             <h5>Home</h5>
@@ -78,10 +72,8 @@
             </ul>
             </aside>
         </div>
-        <!-- <div class="main-content"></div> -->
-        </div>
     </div>
-</body>
+</div>
 
 <div class="main-content">
     <div class="container-fluid">
@@ -93,59 +85,40 @@
         <br>
         <div class="tab-content" id="myTabContent" style="margin-top: 10px; margin-left: 10px">
             <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
-                <form>
+                <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
                     <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">Project Manager</label>
-                        <div class="col-sm-10">
-                            <select class="form-control selectpicker" id="select-employee" data-live-search="true">
-                                <option data-tokens="china" style="color:red">Phuti</option>
-                                <option data-tokens="malayasia" style="color: orange">Kat</option>
-                                <option data-tokens="singapore" style="color: green">Rapula</option>
-                                <option data-tokens="singapore" style="color: green">Phumie</option>
-                            </select>
+                            <label class="col-sm-2 col-form-label">Project Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" formControlName="projectName" class="form-control" placeholder="Project Name">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">Site Manager</label>
-                        <div class="col-sm-10">
-                            <select class="form-control selectpicker" id="select-employee" data-live-search="true">
-                                <option data-tokens="china" style="color:red">Phuti</option>
-                                <option data-tokens="malayasia" style="color: orange">Kat</option>
-                                <option data-tokens="singapore" style="color: green">Rapula</option>
-                                <option data-tokens="singapore" style="color: green">Phumie</option>
-                            </select>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Client Name</label>
+                            <div class="col-sm-10">
+                                <select formControlName="clientId" class="form-control selectpicker" id="select-client" data-live-search="true">
+                                    <option [value]="null">Select Client</option>
+                                    <option *ngFor="let client of clients" [value]="client.clientId">{{client.clientName}}</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">Project Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Name">
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Facility</label>
+                            <div class="col-sm-10">
+                            <input type="text" formControlName="facility" class="form-control" placeholder="Facility">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">Start Date</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="(dd-mm-yyyy)">
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <input type="text" formControlName="description" class="form-control" placeholder="Description">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">End Date</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="(dd-mm-yyyy)">
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label">Creation Date</label>
+                            <div class="col-sm-10">
+                                <input type="date" formControlName="creationDate" class="form-control">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">Facility</label>
-                        <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="facility">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label  class="col-sm-2 col-form-label">Description</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Description">
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-danger" id="createProject">Create Project</button>

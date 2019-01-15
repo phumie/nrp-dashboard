@@ -10,6 +10,7 @@ import { ManageClientsComponent } from './manage-clients/manage-clients.componen
 import { ManageEmployeesComponent } from './manage-employees/manage-employees.component';
 import { SupplierListComponent } from './supplier-list/supplier-list.component';
 import { ManageSuppliersComponent } from './manage-suppliers/manage-suppliers.component';
+import { EmployeeAddGuard } from '../guard/admin/employee-add.guard';
 
 const routes: Routes = [
   {
@@ -25,8 +26,15 @@ const routes: Routes = [
           {
             path: 'edit',
             children: [
-              { path: ':id', component: ManageEmployeesComponent },
-              { path: '', component: ManageEmployeesComponent }
+              {
+                path: ':id',
+                component: ManageEmployeesComponent
+              },
+              {
+                path: '',
+                canActivate: [EmployeeAddGuard],
+                component: ManageEmployeesComponent
+              }
             ]
           },
           { path: 'employee-list', component: EmployeeListComponent },

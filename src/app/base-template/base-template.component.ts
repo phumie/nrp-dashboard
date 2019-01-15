@@ -21,6 +21,7 @@ export class BaseTemplateComponent implements OnInit {
 
   ngOnInit() {
     this.employee = this.authService.currentUserValue;
+    console.log(this.employee);
   }
 
   logout(): void {
@@ -28,5 +29,4 @@ export class BaseTemplateComponent implements OnInit {
     this.authService.logout(this.employee.employeeId);
     this.router.navigate(['/login']);
   }
-
 }

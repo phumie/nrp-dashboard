@@ -25,10 +25,10 @@ export class NewProjectComponent implements OnInit {
   ngOnInit() {
     this.projectForm = this.formBuilder.group({
       projectName: ['', Validators.required],
-      clientId: [''],
+      clientId: ['', Validators.required],
       facility: ['', Validators.required],
       description: ['', Validators.required],
-      creationDate: ['']
+      creationDate: ['', Validators.required]
     });
     this.clientService.getClients()
       .subscribe(clients => this.clients = clients);

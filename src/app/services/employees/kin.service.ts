@@ -19,7 +19,7 @@ export class KinService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployees(): Observable<EmployeeKin[]> {
+  getEmployeesKin(): Observable<EmployeeKin[]> {
     return this.http.get<EmployeeKin[]>(this.employeeURL)
       .pipe(
         retry(3),
@@ -27,7 +27,7 @@ export class KinService {
       );
   }
 
-  getEmployee(id: number): Observable<EmployeeKin> {
+  getEmployeeKin(id: number): Observable<EmployeeKin> {
     const url = `${this.employeeURL}/?id=${id}`;
     return this.http.get<EmployeeKin>(url)
       .pipe(
@@ -36,7 +36,7 @@ export class KinService {
       );
   }
 
-  addEmployee(employeeKin: EmployeeKin): Observable<EmployeeKin> {
+  addEmployeeKin(employeeKin: EmployeeKin): Observable<EmployeeKin> {
     return this.http.post<EmployeeKin>(this.employeeURL, employeeKin, httpOptions)
       .pipe(
         retry(3),
@@ -44,7 +44,7 @@ export class KinService {
       );
   }
 
-  deleteEmployee(employeeID: number): Observable<EmployeeKin> {
+  deleteEmployeeKin(employeeID: number): Observable<EmployeeKin> {
     const url = `${this.employeeURL}/${employeeID}`;
     return this.http.delete<EmployeeKin>(url, httpOptions)
       .pipe(
@@ -53,7 +53,7 @@ export class KinService {
       );
   }
 
-  updateEmployee(employeeKin: EmployeeKin): Observable<any> {
+  updateEmployeeKin(employeeKin: EmployeeKin): Observable<any> {
     return this.http.put(this.employeeURL, employeeKin, httpOptions)
       .pipe(
         retry(3),

@@ -10,7 +10,7 @@ import { Event, Router, NavigationStart, NavigationEnd } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   showLoadingIndicator = true;
-  
+
     constructor(private _router: Router) {
       this._router.events.subscribe((routerEvent: Event) => {
         if (routerEvent instanceof NavigationStart) {

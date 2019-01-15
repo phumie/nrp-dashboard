@@ -7,5 +7,5 @@ export class EmployeePermissions {
     quotes: Permissions;
     reports: Permissions;
     admin: Permissions;
-    employeeId: number;
+    userLink: number;
 }

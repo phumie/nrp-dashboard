@@ -23,24 +23,24 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
 
   ngOnInit() {
     this.employeePermissionForm = this.formBuilder.group({
-      projectsRead: [''],
-      projectsWrite: [''],
-      projectsDelete: [''],
-      financeRead: [''],
-      financeWrite: [''],
-      financeDelete: [''],
-      rfqRead: [''],
-      rfqWrite: [''],
-      rfqDelete: [''],
-      quotesRead: [''],
-      quotesWrite: [''],
-      quotesDelete: [''],
-      reportsRead: [''],
-      reportsWrite: [''],
-      reportsDelete: [''],
-      adminRead: [''],
-      adminWrite: [''],
-      adminDelete: [''],
+      projectsRead: [false],
+      projectsWrite: [false],
+      projectsDelete: [false],
+      financeRead: [false],
+      financeWrite: [false],
+      financeDelete: [false],
+      rfqRead: [false],
+      rfqWrite: [false],
+      rfqDelete: [false],
+      quotesRead: [false],
+      quotesWrite: [false],
+      quotesDelete: [false],
+      reportsRead: [false],
+      reportsWrite: [false],
+      reportsDelete: [false],
+      adminRead: [false],
+      adminWrite: [false],
+      adminDelete: [false],
     });
   }
 
@@ -109,7 +109,7 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
       quotes: quotes,
       reports: reports,
       admin: admin,
-      employeeId: this.employee.employeeId
+      userLink: this.employee.employeeId
     };
     this.employeePermissionService.addEmployeePermissions(employeePermissions)
       .subscribe(

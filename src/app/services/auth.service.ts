@@ -47,13 +47,12 @@ export class AuthService {
   }
 
   logout(id: number): void {
-    const url = `${this.authUrl}/id`;
+    const url = `${this.authUrl}/${id}`;
+    sessionStorage.removeItem('user');
+    this.currentUserSubject.next(null);
     this.http.delete<any>(url, httpOptions)
       .pipe(
-        tap(_ => {
-          sessionStorage.removeItem('user');
-          this.currentUserSubject.next(null);
-        })
+        tap(data => console.log(data))
       );
   }
 }

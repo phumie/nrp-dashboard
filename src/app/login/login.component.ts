@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
     const password = this.form.password.value;
     this.authenticationService.clientLogin(username, password)
       .subscribe(
-        data => console.log(data),
+        _ => this.router.navigate(['/client-dashboard']),
         error => console.log(error)
       );
   }

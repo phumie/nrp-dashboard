@@ -33,6 +33,10 @@ const routes: Routes = [
     path: 'projects',
     loadChildren: './projects/projects.module#ProjectsModule'
   },
+  {
+    path: 'rfq',
+    loadChildren: './rfqs/rfqs.module#RfqsModule'
+  },
   // {
   //   path: 'admin-template',
   //   component: AdminTemplateComponent

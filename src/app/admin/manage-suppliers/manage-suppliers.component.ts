@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
-import { Supplier } from 'src/app/classes/supplier';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SupplierService } from 'src/app/services/supplier.service';
+
+import { SupplierService } from 'src/app/services/suppliers/supplier.service';
+import { Supplier } from 'src/app/classes/supplier/supplier';
+import { SupplierAccount } from 'src/app/classes/supplier/supplier-account';
+import { SupplierAccountService } from 'src/app/services/suppliers/supplier-account.service';
 
 @Component({
   selector: 'app-manage-suppliers',
@@ -11,19 +13,57 @@ import { SupplierService } from 'src/app/services/supplier.service';
 })
 export class ManageSuppliersComponent implements OnInit {
 
+  submitted = false;
   supplier: Supplier;
   supplierForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private supplierService: SupplierService
+    private supplierService: SupplierService,
+    private supplierAccountService: SupplierAccountService
   ) { }
 
-  // Will finish adding this in the morning
   ngOnInit() {
     this.supplierForm = this.formBuilder.group({
-      businessName: ['', Validators.required]
+      businessName: ['', Validators.required],
+      telephoneNumber: ['', Validators.required],
+      physicalAddress: ['', Validators.required],
+      email: ['', Validators.required],
+      bankName: ['', Validators.required],
+      accountNumber: ['', Validators.required],
+      branchCode: ['', Validators.required],
+      referenceNumber: ['', Validators.required]
     });
+  }
+
+  get form() {
+    return this.supplierForm.controls;
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+    if (this.supplierForm.invalid) {
+      return;
+    }
+
+    const supplier: Supplier = {
+      name: this.form.businessName.value,
+      address: this.form.businessName.value,
+      tell: this.form.telephoneNumber.value,
+      email: this.form.email.value
+    };
+    this.supplierService.addSupplier(supplier)
+      .subscribe(sup => {
+        const supplierAccount: SupplierAccount = {
+          referenceNumber: this.form.referenceNumber.value,
+          bankName: this.form.bankName.value,
+          bankAccount: this.form.accountNumber.value,
+          branchCode: this.form.branchCode.value,
+          supplierId: sup.supplierId
+        };
+        this.supplierAccountService.addSupplierAccount(supplierAccount)
+          .subscribe(data => console.log(data));
+      });
   }
 
 }

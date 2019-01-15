@@ -29,21 +29,23 @@ const routes: Routes = [
     path: 'admin',
     loadChildren : './admin/admin.module#AdminModule'
   },
+  {
+    path: 'projects',
+    loadChildren: './projects/projects.module#ProjectsModule'
+  },
   // {
   //   path: 'admin-template',
   //   component: AdminTemplateComponent
   // },
-  { path: 'projects', loadChildren: './projects/projects.module#ProjectsModule'},
   // { path: 'quotes', loadChildren: './quotes/quotes.module#QuotesModule'},
   // {path: 'reports', loadChildren: './reports/reports.module#ReportsModule'},
-  {path: 'finance', loadChildren: './finance/finance.module#FinanceModule'},
-  {path: 'feedback', loadChildren : './client-feedback/client-feedback.module#ClientFeedbackModule'},
-  {path: 'client-projects', loadChildren : './client-projects/client-projects.module#ClientProjectsModule'},
+  // {path: 'finance', loadChildren: './finance/finance.module#FinanceModule'},
+  // {path: 'feedback', loadChildren : './client-feedback/client-feedback.module#ClientFeedbackModule'},
+  // {path: 'client-projects', loadChildren : './client-projects/client-projects.module#ClientProjectsModule'},
   // // {path: 'new-feedback', loadChildren : './new-feedback/new-feedback.module#NewFeedbackModule'},
-  {path: 'client-dashboard', component: ClientDashboardComponent},
+  // {path: 'client-dashboard', component: ClientDashboardComponent},
   {
     path: '**',
-    canActivate: [AuthGuard],
     component: PageNotFoundComponent
   }
 ];

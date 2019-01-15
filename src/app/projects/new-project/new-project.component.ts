@@ -13,7 +13,6 @@ import { Client } from 'src/app/classes/client/client';
 export class NewProjectComponent implements OnInit {
 
   submitted = false;
-  project: Project;
   clients: Client[];
   projectForm: FormGroup;
 

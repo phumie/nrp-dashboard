@@ -15,7 +15,8 @@ export class AdminGuard implements CanLoad {
   canLoad(route: Route): boolean {
     const url = `/${route.path}`;
     const currentUser = this.authService.currentUserValue;
-    if (currentUser && (currentUser.userRights.admin.read || currentUser.userRights.admin.write)) {
+    if (currentUser && currentUser.userRights !== null && currentUser.userRights.admin !== null &&
+      (currentUser.userRights.admin.read || currentUser.userRights.admin.write)) {
       return true;
     }
 

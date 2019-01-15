@@ -59,7 +59,7 @@ export class ManageEmployeesKinComponent implements OnInit {
       idNumber: idNumber,
       employeeId: this.employee.employeeId
     };
-    this.employeeKinService.addEmployee(employeeKin)
+    this.employeeKinService.addEmployeeKin(employeeKin)
       .subscribe(
         data => console.log(data),
         error => console.log(error)

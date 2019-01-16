@@ -14,3 +14,11 @@ h6 {
 .main-content {
     margin-bottom: 20px;
 }
+
+.delete {
+    width: 150px;
+    border: none;
+    background-color: #FC3636;
+    color: #EBEBEB;
+    border-radius: 2PX;
+}

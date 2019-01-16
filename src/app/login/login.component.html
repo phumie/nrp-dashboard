@@ -8,8 +8,8 @@
             </div>
     
             <form [formGroup]="loginForm">
-                <input type="text" formControlName="username" id="login" class="fadeIn second" name="login" placeholder="username">
-                <input type="password" formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password">
+                <input type="text" formControlName="username" id="login" class="fadeIn second" name="login" placeholder="username" required>
+                <input type="password" formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password" required>
                 <button class="fadeIn fourth" (click)="employeeLogin()">EMPLOYEE</button>
                 <button class="fadeIn fourth"><a href="client-dashboard">ClIENT</a></button>
             </form>

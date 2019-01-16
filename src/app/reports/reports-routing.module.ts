@@ -5,7 +5,7 @@ import { ReportsComponent } from './reports/reports.component';
 
 
 const routes: Routes = [
-  // {path: '', component: ReportsComponent}
+  {path: '', scomponent: ReportsComponent}
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Route, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import * as $ from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,9 @@ export class AdminGuard implements CanLoad {
       return true;
     }
 
+    $(document).ready(function(){
+      alert("Access not permitted.");
+    });
     this.router.navigate([url]);
     return false;
   }

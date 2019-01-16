@@ -25,3 +25,32 @@ td a {
     text-decoration: none;
     color: black;
 }
+
+.input {
+    border: 1px solid #B9B9B9;
+    border-radius: 1px;
+}
+
+.search {
+    border: none;
+    background-color: white;
+}
+
+.add {
+    background-color: #135772;
+    border: none;
+    border-radius: 1px;
+}
+
+button a {
+    text-decoration: none;
+    color: #E6E6E6;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    margin-bottom: 10px;
+}

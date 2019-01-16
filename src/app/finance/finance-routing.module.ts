@@ -5,7 +5,7 @@ import { FinanceComponent } from './finance/finance.component';
 
 
 const routes: Routes = [
-  // {path: '', component: FinanceComponent}
+  {path: '', component: FinanceComponent}
 ];
 
 @NgModule({

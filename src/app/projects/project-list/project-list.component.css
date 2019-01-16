@@ -75,13 +75,40 @@ input {
     height: auto;
 }
 
-.add-search .btn {
+.add-search .create {
     float: right;
     height: auto;
-    height: 40px;
+    background-color: #FF2C2C;
+    border: none;
+    border-radius: 2px;
+    color: white;
 }
 
 .add-search .search, input {
     float: left;
+    margin-bottom: 10px;
+}
+
+.search {
+    border: none;
+    background-color: white;
+}
+
+.add {
+    background-color: #135772;
+    border: none;
+    border-radius: 1px;
+}
+
+button a {
+    text-decoration: none;
+    color: #E9E9E9;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     margin-bottom: 10px;
 }

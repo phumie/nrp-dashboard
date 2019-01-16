@@ -3,6 +3,8 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -40,6 +42,9 @@ export class LoginComponent implements OnInit {
   employeeLogin(): void {
     this.submitted = true;
     if (this.loginForm.invalid) {
+      $(document).ready(function(){
+          alert("Invalid login credentials. Please try again.");
+      });
       return ;
     }
 
@@ -58,6 +63,9 @@ export class LoginComponent implements OnInit {
   clientLogin(): void {
     this.submitted = true;
     if (this.loginForm.invalid) {
+      $(document).ready(function(){
+        alert("Invalid login credentials. Please try again.");
+      });
       return ;
     }
 

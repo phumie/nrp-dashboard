@@ -31,3 +31,11 @@ input {
 .main-content {
     margin-bottom: 20px;
 }
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 350px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    margin-bottom: 10px;
+}

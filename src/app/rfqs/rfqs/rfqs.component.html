@@ -109,12 +109,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr *ngFor="let rfq of rfqs">
+                            <!-- (click)="onSelect(employee)" -->
+                        <th scope="row">{{rfq.QuoteId}}</th>
+                        <td>{{rfq.Supplier.clientName}}</td>
+                        <td>{{rfq.date}}</td>
+                    </tr>
                     <tr>
                         <th scope="row">1</th>
                         <td>name</td>
                         <td>date</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th scope="row">2</th>
                         <td>name</td>
                         <td>date</td>
@@ -123,7 +129,7 @@
                         <th scope="row">3</th>
                         <td>name</td>
                         <td>date</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -136,9 +142,10 @@
                     <!-- <input type="text" class="form-control" placeholder="Name"> -->
                     <select id="inputState" class="form-control">
                         <option selected>Choose...</option>
+                        <option *ngFor="let client of clients">{{client.clientName}}</option>
+                        <!-- <option>name</option>
                         <option>name</option>
-                        <option>name</option>
-                        <option>name</option>
+                        <option>name</option> -->
                     </select>
                 </div>
 

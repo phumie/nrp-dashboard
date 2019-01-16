@@ -16,6 +16,18 @@
 	background-color: #574B90;
 }
 
+/* mobile menu */
+
+.menu {
+	height: 60px;
+	left: 250px;
+	right: 5px;
+	/* position: absolute; */
+	z-index: 890;
+    background-color: #314658;
+	color: white;	
+}
+
 /* layout */
 
 .main-sidebar {
@@ -129,35 +141,24 @@
 	position: relative;
 }
 
-/*section*/
+/* mobile display */
 
-.section {
-	position: relative;
-	z-index: 1;
+@media (max-width: 500px) {
+    .main-sidebar {
+        margin-left: -250px;
+	}
+
+	.navbar {
+		margin-left: -250px;
+	}
+
+	.main-content {
+		padding-left: 10px;
+	}
 }
-.section .section-header {
-	background-color: #fff;
-	-webkit-box-shadow: 0 0 40px rgba(0,0,0,.05);
-	        box-shadow: 0 0 40px rgba(0,0,0,.05);
-	border-radius: 3px;
-	padding: 20px;
-	display: inline-block;
-	width: 100%;
-	font-family: 'Montserrat';
-	margin-bottom: 20px;
-}
-.section .section-header div {
-	display: inline-block;
-	font-size: 24px;
-	margin-top: 3px;
-	float: left;
-}
-.section .section-header .float-right {
-	margin-top: 0;
-}
-.section .section-header .btn {
-	font-size: 12px;
-}
-.section .section-header + .section-body .section-title:first-child {
-	margin-top: 0;
+
+@media screen and (min-width: 380px){
+    .menu {
+        display: none;
+    }
 }

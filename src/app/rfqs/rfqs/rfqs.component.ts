@@ -33,6 +33,6 @@ export class RfqsComponent implements OnInit {
   getClients() : void {
     console.log("Retrieving clients");
     this.clientServices.getClients()
-      .subscribe(clients => this.clients = clients;
+      .subscribe(clients => this.clients = clients);
   }
 }

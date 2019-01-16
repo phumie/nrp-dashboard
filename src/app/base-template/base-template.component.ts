@@ -21,7 +21,6 @@ export class BaseTemplateComponent implements OnInit {
 
   ngOnInit() {
     this.employee = this.authService.currentUserValue;
-    console.log(this.employee);
   }
 
   logout(): void {

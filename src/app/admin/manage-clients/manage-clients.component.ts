@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/classes/employee/employee';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/services/clients/general.service';
 
 @Component({
   selector: 'app-manage-clients',
@@ -22,7 +23,8 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private clientGeneralService: GeneralService
     ) {
     this.subscription = this.clientService.getClient()
       .subscribe(client => this.client = client);
@@ -39,6 +41,9 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
   logout(): void {
     this.authService.logout(this.employee.employeeId);
     this.router.navigate(['/login']);
+  }
+
+  deleteEmployee(): void {
   }
 
 }

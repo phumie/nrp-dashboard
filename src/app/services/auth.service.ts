@@ -31,6 +31,7 @@ export class AuthService {
     return this.http.post<any>(url, { username: username, password: password }, httpOptions)
       .pipe(
         tap(user => {
+          console.log(user);
           sessionStorage.setItem('user', JSON.stringify(user));
           this.currentUserSubject.next(user);
         })
@@ -51,7 +52,7 @@ export class AuthService {
     const url = `${this.authUrl}/${id}`;
     sessionStorage.removeItem('user');
     this.currentUserSubject.next(null);
-    this.http.delete<any>(url, httpOptions)
+    this.http.delete<any>(this.authUrl, httpOptions)
       .pipe(
         tap(data => console.log(data))
       );

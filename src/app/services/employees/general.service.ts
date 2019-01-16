@@ -68,7 +68,8 @@ export class GeneralService {
   }
 
   updateEmployee(employee: Employee): Observable<any> {
-    return this.http.put(this.employeeURL, employee, httpOptions)
+    const url = `${this.employeeURL}/${employee.employeeId}`;
+    return this.http.put(url, employee, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('updated employee'))

@@ -4,6 +4,7 @@ import { Client } from 'src/app/classes/client/client';
 import { Contact } from 'src/app/classes/client/contact';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/services/clients/general.service';
 
 @Component({
   selector: 'app-client-list',
@@ -12,15 +13,27 @@ import { Router } from '@angular/router';
 })
 export class ClientListComponent implements OnInit {
 
-  client: Client;
+  clients: Client[];
   clientContact: Contact;
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private clientService: GeneralService
   ) { }
 
   ngOnInit() {
+    this.getClients();
+  }
+
+  getClients() {
+    this.clientService.getClients()
+      .subscribe(client => this.clients = client);
+  }
+
+  onSelect(client: Client) {
+    const url = `/admin/clients/edit/${client.clientId}`;
+    this.router.navigate([url]);
   }
 
 }

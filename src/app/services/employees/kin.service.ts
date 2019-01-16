@@ -54,7 +54,8 @@ export class KinService {
   }
 
   updateEmployeeKin(employeeKin: EmployeeKin): Observable<any> {
-    return this.http.put(this.employeeURL, employeeKin, httpOptions)
+    const url = `${this.employeeURL}/${employeeKin.employeeId}`;
+    return this.http.put(url, employeeKin, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('updated employee kin'))

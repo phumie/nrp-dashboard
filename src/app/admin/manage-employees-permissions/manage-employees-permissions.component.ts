@@ -4,6 +4,7 @@ import { PermissionsService } from 'src/app/services/employees/permissions.servi
 import { Employee } from 'src/app/classes/employee/employee';
 import { Permissions } from 'src/app/classes/permissions';
 import { EmployeePermissions } from 'src/app/classes/employee/employee-permissions';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manage-employees-permissions',
@@ -17,6 +18,7 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
   submitted = false;
 
   constructor(
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private employeePermissionService: PermissionsService
   ) { }
@@ -42,6 +44,19 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
       adminWrite: [false],
       adminDelete: [false],
     });
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.employeePermissionService.getEmployeesPermissions()
+        .subscribe(permissions => {
+          const permission = permissions.find(perm => {
+            return (perm.userLink === id);
+          });
+          if (permission) {
+            this.employeePermissionForm.patchValue(permission);
+          }
+        });
+    }
   }
 
   get form() {
@@ -111,6 +126,15 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
       admin: admin,
       userLink: this.employee.employeeId
     };
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.employeePermissionService.updateEmployeePermissions(employeePermissions)
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    }
     this.employeePermissionService.addEmployeePermissions(employeePermissions)
       .subscribe(
         data => console.log(data),

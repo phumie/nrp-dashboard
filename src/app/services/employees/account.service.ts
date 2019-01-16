@@ -49,7 +49,8 @@ export class AccountService {
   }
 
   updateEmployeeAcccount(employeeAccount: EmployeeAccount): Observable<any> {
-    return this.http.put(this.employeeAccountURL, employeeAccount, httpOptions)
+    const url = `${this.employeeAccountURL}/${employeeAccount.employeeAccountId}`;
+    return this.http.put(url, employeeAccount, httpOptions)
       .pipe(
         tap(_ => console.log('updated employee account'))
       );

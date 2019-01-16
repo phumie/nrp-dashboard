@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { KinService } from 'src/app/services/employees/kin.service';
 import { Employee } from 'src/app/classes/employee/employee';
 import { EmployeeKin } from 'src/app/classes/employee/employee-kin';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manage-employees-kin',
@@ -16,6 +17,7 @@ export class ManageEmployeesKinComponent implements OnInit {
   submitted = false;
 
   constructor(
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private employeeKinService: KinService
   ) { }
@@ -30,6 +32,19 @@ export class ManageEmployeesKinComponent implements OnInit {
       postalAddress: ['', Validators.required],
       idNumber: ['', Validators.required]
     });
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.employeeKinService.getEmployeesKin()
+        .subscribe(kins => {
+          const kin = kins.find(k => {
+            return (k.employeeId === id);
+          });
+          if (kin) {
+            this.employeeKinForm.patchValue(kin);
+          }
+        });
+    }
   }
 
   get form() {
@@ -42,28 +57,31 @@ export class ManageEmployeesKinComponent implements OnInit {
       return ;
     }
 
-    const firstName = this.form.firstName.value;
-    const lastName = this.form.lastName.value;
-    const contactNumber = this.form.contactNumber.value;
-    const alternativeNumber = this.form.alternativeNumber.value;
-    const physicalAddress = this.form.physicalAddress.value;
-    const postalAddress = this.form.postalAddress.value;
-    const idNumber = this.form.idNumber.value;
+    const employeeId = +this.route.snapshot.paramMap.get('id');
     const employeeKin: EmployeeKin = {
-      firstName: firstName,
-      lastName: lastName,
-      contactNumber: contactNumber,
-      alternativeNumber: alternativeNumber,
-      physicalAddress: physicalAddress,
-      postalAddress: postalAddress,
-      idNumber: idNumber,
-      employeeId: this.employee.employeeId
+      firstName: this.form.firstName.value,
+      lastName: this.form.lastName.value,
+      contactNumber: this.form.contactNumber.value,
+      alternativeNumber: this.form.alternativeNumber.value,
+      physicalAddress: this.form.physicalAddress.value,
+      postalAddress: this.form.postalAddress.value,
+      idNumber: this.form.idNumber.value,
+      employeeId: employeeId
     };
-    this.employeeKinService.addEmployeeKin(employeeKin)
-      .subscribe(
-        data => console.log(data),
-        error => console.log(error)
-      );
+
+    if (employeeId) {
+      this.employeeKinService.updateEmployeeKin(employeeKin)
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    } else {
+      this.employeeKinService.addEmployeeKin(employeeKin)
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    }
   }
 
 }

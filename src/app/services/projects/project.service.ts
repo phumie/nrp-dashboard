@@ -6,7 +6,8 @@ import { tap, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application:json'})
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+  withCredentials : true
 };
 
 @Injectable({
@@ -64,7 +65,8 @@ export class ProjectService {
   }
 
   updateProject(project: Project): Observable<any> {
-    return this.http.put(this.projectsUrl, project, httpOptions)
+    const url = `${this.projectsUrl}/${project.projectId}`;
+    return this.http.put(url, project, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('updated project'))

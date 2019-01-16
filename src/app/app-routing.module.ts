@@ -28,12 +28,17 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    canLoad: [AuthGuard],
+    canLoad: [AdminGuard],
     loadChildren : './admin/admin.module#AdminModule'
   },
   {
     path: 'projects',
     loadChildren: './projects/projects.module#ProjectsModule'
+  },
+  {
+    path: 'rfqs',
+    canLoad: [AuthGuard],
+    loadChildren: './rfqs/rfqs.module#RfqsModule'
   },
   // {
   //   path: 'admin-template',

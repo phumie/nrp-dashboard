@@ -49,7 +49,8 @@ export class ContactService {
   }
 
   updateClient(contact: Contact): Observable<any> {
-    return this.http.put(this.clientURL, contact, httpOptions)
+    const url = `${this.clientURL}/${contact.clientId}`;
+    return this.http.put(url, contact, httpOptions)
       .pipe(
         tap(_ => console.log('updated client contact'))
       );

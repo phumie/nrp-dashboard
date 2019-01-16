@@ -4,6 +4,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Employee } from 'src/app/classes/employee/employee';
 import { AccountService } from 'src/app/services/employees/account.service';
 import { EmployeeAccount } from 'src/app/classes/employee/employee-account';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manage-employees-account',
@@ -17,6 +18,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
   submitted = false;
 
   constructor(
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private accountService: AccountService
   ) { }
@@ -27,6 +29,19 @@ export class ManageEmployeesAccountComponent implements OnInit {
       accountNumber: ['', Validators.required],
       branchCode: ['', Validators.required]
     });
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.accountService.getEmployeeAccounts()
+        .subscribe(accounts => {
+          const account = accounts.find(acc => {
+            return (acc.employeeId === id);
+          });
+          if (account) {
+            this.employeeAccountForm.patchValue(account);
+          }
+        });
+    }
   }
 
   get form() {
@@ -40,21 +55,27 @@ export class ManageEmployeesAccountComponent implements OnInit {
       return ;
     }
 
-    const employeeID = this.employee.employeeId;
-    const bankName = this.form.bankName.value;
-    const accountNumber = this.form.accountNumber.value;
-    const branchCode = this.form.branchCode.value;
+    const id = +this.route.snapshot.paramMap.get('id');
     const employeeAccount: EmployeeAccount = {
-      bankName: bankName,
-      accountNumber: accountNumber,
-      branchName: branchCode,
-      employeeId: employeeID
+      bankName: this.form.bankName.value,
+      accountNumber: this.form.accountNumber.value,
+      branchCode: this.form.branchCode.value,
+      employeeId: id
     };
-    this.accountService.addEmployeeAccount(employeeAccount)
-      .subscribe(
-        data => console.log(data),
-        error => console.log(error)
-      );
+
+    if (id) {
+      this.accountService.updateEmployeeAcccount(employeeAccount)
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    } else {
+      this.accountService.addEmployeeAccount(employeeAccount)
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    }
   }
 
 }

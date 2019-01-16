@@ -71,28 +71,16 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Contact</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Vat Number</th>
+                    <th scope="col">Address</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td><a href="admin/clients/edit">Nedbank</a> </td>
-                    <td><a href="admin/clients/edit">011457657</a></td>
-                    <td><a href="admin/clients/edit">palesa@nedbank.co.za</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td><a href="admin/clients/edit">FNB</a></td>
-                    <td><a href="admin/clients/edit">011342554</a></td>
-                    <td><a href="admin/clients/edit">lerato@fnb.co.za</a></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td><a href="admin/clients/edit">Allan Gray</a></td>
-                    <td><a href="admin/clients/edit">012435453</a></td>
-                    <td><a href="admin/clients/edit">tom@allangray.co.za</a></td>
+                <tr *ngFor="let client of clients" (click)="onSelect(client)">
+                    <td scope="row">{{client.clientId}}</td>
+                    <th>{{client.clientName}}</th>
+                    <td>{{client.vatNumber}}</td>
+                    <td>{{client.address}}</td>
                 </tr>
             </tbody>
         </table>

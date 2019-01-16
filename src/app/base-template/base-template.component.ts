@@ -25,7 +25,6 @@ export class BaseTemplateComponent implements OnInit {
   }
 
   logout(): void {
-    console.log('logout');
     this.authService.logout(this.employee.employeeId);
     this.router.navigate(['/login']);
   }

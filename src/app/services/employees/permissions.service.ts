@@ -51,7 +51,8 @@ export class PermissionsService {
   }
 
   updateEmployeePermissions(employeeAccount: EmployeePermissions): Observable<any> {
-    return this.http.put(this.employeeAccountURL, employeeAccount, httpOptions)
+    const url = `${this.employeeAccountURL}/${employeeAccount.userLink}`;
+    return this.http.put(url, employeeAccount, httpOptions)
       .pipe(
         tap(_ => console.log('updated employee permissions'))
       );

@@ -19,6 +19,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BaseTemplateComponent } from './base-template/base-template.component';
 import { AdminTemplateComponent } from './admin-template/admin-template.component';
 import { ClientTemplateComponent } from './client-template/client-template.component';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -37,9 +38,7 @@ import { ClientTemplateComponent } from './client-template/client-template.compo
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RfqsModule,
-    FinanceModule,
-    ReportsModule,
+    HttpModule,
     AppRoutingModule,
   ],
 //   exports: [

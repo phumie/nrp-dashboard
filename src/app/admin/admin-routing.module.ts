@@ -19,44 +19,68 @@ const routes: Routes = [
       {
         path: '',
         component: AdminComponent
+      },
+      {
+        path: 'employees',
+        children: [
+          {
+            path: 'edit',
+            children: [
+              {
+                path: ':id',
+                component: ManageEmployeesComponent
+              },
+              {
+                path: '',
+                canActivate: [EmployeeAddGuard],
+                component: ManageEmployeesComponent
+              }
+            ]
+          },
+          { path: 'employee-list', component: EmployeeListComponent },
+          { path: '', component: EmployeeListComponent }
+        ]
+      },
+      {
+        path: 'clients',
+        children: [
+          {
+            path: 'edit',
+            children: [
+              {
+                path: ':id',
+                component: ManageClientsComponent
+              },
+              {
+                path: '',
+                component: ManageClientsComponent
+              }
+            ]
+          },
+          { path: 'client-list', component: ClientListComponent },
+          { path: '', component: ClientListComponent }
+        ]
+      },
+      {
+        path: 'suppliers',
+        children: [
+          {
+            path: 'edit',
+            children: [
+              {
+                path: ':id',
+                component: ManageSuppliersComponent
+              },
+              {
+                path: '',
+                component: ManageSuppliersComponent
+              }
+            ]
+          },
+          { path: 'supplier-list', component: SupplierListComponent },
+          { path: '', component: SupplierListComponent }
+        ]
       }
-      // {
-      //   path: 'employees',
-      //   children: [
-      //     {
-      //       path: 'edit',
-      //       children: [
-      //         {
-      //           path: ':id',
-      //           component: ManageEmployeesComponent
-      //         },
-      //         {
-      //           path: '',
-      //           canActivate: [EmployeeAddGuard],
-      //           component: ManageEmployeesComponent
-      //         }
-      //       ]
-      //     },
-      //     { path: 'employee-list', component: EmployeeListComponent },
-      //     { path: '', component: EmployeeListComponent }
-      //   ]
-      // },
-      // {
-      //   path: 'clients',
-      //   children: [
-      //     { path: 'edit', component: ManageClientsComponent },
-      //     { path: 'client-list', component: ClientListComponent },
-      //     { path: '', component: ClientListComponent }
-      //   ]
-      // },
-      // {
-      //   path: 'suppliers',
-      //   children: [
-      //     { path: 'edit', component: ManageSuppliersComponent },
-      //     { path: 'supplier-list', component: SupplierListComponent },
-      //     { path: '', component: SupplierListComponent }
-      //   ]
-      // }
     ]
   }
 ];

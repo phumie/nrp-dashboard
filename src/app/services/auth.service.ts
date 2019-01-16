@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+  withCredentials: true
 };
 
 @Injectable({
@@ -17,7 +18,7 @@ export class AuthService {
   private authUrl = `${environment.apiUrl}/authentication`;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('user')));
+    this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem('user'));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -26,7 +27,7 @@ export class AuthService {
   }
 
   clientLogin(username: string, password: string): Observable<any> {
-    const url = `${this.authUrl}/?id=0`;
+    const url = `${this.authUrl}/0`;
     return this.http.post<any>(url, { username: username, password: password }, httpOptions)
       .pipe(
         tap(user => {

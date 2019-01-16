@@ -52,7 +52,10 @@ export class NewProjectComponent implements OnInit {
       clientId: this.form.clientId.value
     };
     this.projectService.addProject(project)
-      .subscribe(data => console.log(data));
+      .subscribe(
+        data => console.log(data),
+        error => console.log(error)
+      );
   }
 
 }

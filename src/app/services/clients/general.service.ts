@@ -63,7 +63,8 @@ export class GeneralService {
   }
 
   updateClient(client: Client): Observable<any> {
-    return this.http.put(this.clientURL, client, httpOptions)
+    const url = `${this.clientURL}/${client.clientId}`;
+    return this.http.put(url, client, httpOptions)
       .pipe(
         tap(_ => console.log('updated client'))
       );

@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ClientService } from 'src/app/services/clients/client.service';
 import { GeneralService } from 'src/app/services/clients/general.service';
 import { Client } from 'src/app/classes/client/client';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manage-clients-general',
@@ -16,6 +17,7 @@ export class ManageClientsGeneralComponent implements OnInit {
   clientForm: FormGroup;
 
   constructor(
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private clientService: ClientService,
     private clientGeneralService: GeneralService
@@ -27,6 +29,12 @@ export class ManageClientsGeneralComponent implements OnInit {
       vatNumber: ['', Validators.required],
       physicalAddress: ['', Validators.required]
     });
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.clientGeneralService.getClient(id)
+        .subscribe(emp => this.clientForm.patchValue(emp));
+    }
   }
 
   get form() {
@@ -44,10 +52,20 @@ export class ManageClientsGeneralComponent implements OnInit {
       vatNumber: this.form.vatNumber.value,
       address: this.form.physicalAddress.value
     };
-    this.clientGeneralService.addClient(client)
-      .subscribe(
-        data => { this.clientService.storeClient(data); console.log(data); },
-        error => console.log(error)
-      );
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.clientGeneralService.updateClient(client)
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    } else {
+      this.clientGeneralService.addClient(client)
+        .subscribe(
+          data => { this.clientService.storeClient(data); console.log(data); },
+          error => console.log(error)
+        );
+    }
   }
 }

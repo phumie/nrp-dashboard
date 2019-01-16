@@ -14,9 +14,10 @@ export class EmployeeAddGuard implements CanActivate {
 
   canActivate(): boolean {
     const currentUser = this.authService.currentUserValue;
-    console.log(currentUser);
-    if (currentUser && currentUser.userRights.admin.write) {
-      return true;
+    if (currentUser && (currentUser.userRights != null)) {
+      if (currentUser.userRights.admin.write) {
+        return true;
+      }
     }
 
     this.router.navigate(['/admin/employees']);

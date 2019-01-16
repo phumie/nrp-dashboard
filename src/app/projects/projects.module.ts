@@ -13,6 +13,7 @@ import { DurationComponent } from './project-view/duration/duration.component';
 import { StatusComponent } from './project-view/status/status.component';
 import { QuotesComponent } from './project-view/quotes/quotes.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BudgetComponent,
     DurationComponent,
     StatusComponent,
-    QuotesComponent],
+    QuotesComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     ProjectsRoutingModule
   ],

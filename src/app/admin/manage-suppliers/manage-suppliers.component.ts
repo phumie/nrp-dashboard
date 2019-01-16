@@ -5,6 +5,7 @@ import { SupplierService } from 'src/app/services/suppliers/supplier.service';
 import { Supplier } from 'src/app/classes/supplier/supplier';
 import { SupplierAccount } from 'src/app/classes/supplier/supplier-account';
 import { SupplierAccountService } from 'src/app/services/suppliers/supplier-account.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manage-suppliers',
@@ -18,6 +19,7 @@ export class ManageSuppliersComponent implements OnInit {
   supplierForm: FormGroup;
 
   constructor(
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private supplierService: SupplierService,
     private supplierAccountService: SupplierAccountService
@@ -34,6 +36,12 @@ export class ManageSuppliersComponent implements OnInit {
       branchCode: ['', Validators.required],
       referenceNumber: ['', Validators.required]
     });
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.supplierService.getSupplier(id)
+        .subscribe(supplier => this.supplierForm.patchValue(supplier));
+    }
   }
 
   get form() {

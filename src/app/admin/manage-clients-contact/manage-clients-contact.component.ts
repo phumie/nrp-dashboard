@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClientService } from 'src/app/services/clients/client.service';
 import { ContactService } from 'src/app/services/clients/contact.service';
 import { Contact } from 'src/app/classes/client/contact';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manage-clients-contact',
@@ -17,8 +18,8 @@ export class ManageClientsContactComponent implements OnInit {
   clientContactForm: FormGroup;
 
   constructor(
+    private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private clientService: ClientService,
     private clientContactService: ContactService
   ) { }
 
@@ -31,6 +32,19 @@ export class ManageClientsContactComponent implements OnInit {
       email: ['', Validators.required],
       date: ['', Validators.required]
     });
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.clientContactService.getClientsContact()
+        .subscribe(contacts => {
+          const contact = contacts.find(cnt => {
+            return (cnt.clientId === id);
+          });
+          if (contact) {
+            this.clientContactForm.patchValue(contact);
+          }
+        });
+    }
   }
 
   get form() {
@@ -43,6 +57,7 @@ export class ManageClientsContactComponent implements OnInit {
       return;
     }
 
+    const clientId = +this.route.snapshot.paramMap.get('id');
     const contact: Contact = {
       firstName: this.form.firstName.value,
       lastName: this.form.lastName.value,
@@ -50,13 +65,22 @@ export class ManageClientsContactComponent implements OnInit {
       telNumber: this.form.telephomeNumber.value,
       email: this.form.email.value,
       date: this.form.date.value,
-      clientId: this.client.clientId
+      clientId: clientId
     };
-    this.clientContactService.addClientContact(contact)
-      .subscribe(
-        data => console.log(data),
-        error => console.log(error)
-      );
+
+    if (clientId) {
+      this.clientContactService.updateClient(contact)
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    } else {
+      this.clientContactService.addClientContact(contact)
+        .subscribe(
+          data => console.log(data),
+          error => console.log(error)
+        );
+    }
   }
 
 }

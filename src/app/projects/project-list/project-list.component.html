@@ -80,15 +80,15 @@
 
     <div class="card-columns">
         <div class="card">
-            <h3 style="color:green">12</h3>
+            <h3 style="color:green">{{inProgress}}</h3>
             <p>projects in progress</p>
         </div>
         <div class="card">
-            <h3 style="color:red">5</h3>
+            <h3 style="color:red">{{overDue}}</h3>
             <p>projects overdue</p>
         </div>
         <div class="card">
-            <h3>3</h3>
+            <h3>{{pending}}</h3>
             <p>projects pending</p>
         </div>
     </div>
@@ -152,31 +152,10 @@
             <tr *ngFor="let project of projects" (click)="onSelect(project)">
                 <th scope="row">{{project.projectId}}</th>
                 <td>{{project.title}}</td>
-                <td>{{client.clientName}}</td>
-                <td>{{employee.email}}</td>
+                <td>{{project.title}}</td>
+                <td>{{project.date}}</td>
+                <td>progress</td>
             </tr>
-
-            <tr>
-            <td><a href="projects/:id">id</a></td>
-            <td><a href="projects/:id">name</a></td>
-            <td><a href="projects/:id">start</a></td>
-            <td><a href="projects/:id">end</a></td>
-            <td>status</td>
-            </tr>
-            <tr>
-            <td><a href="projects/:id">id</a></td>
-            <td><a href="projects/:id">name</a></td>
-            <td><a href="projects/:id">start</a></td>
-            <td><a href="projects/:id">end</a></td>
-            <td>status</td>
-            </tr>
-        <tr>
-            <td><a href="project-view">id</a></td>
-            <td><a href="project-view">name</a></td>
-            <td><a href="project-view">start</a></td>
-            <td><a href="project-view">end</a></td>
-            <td>status</td>
-        </tr>
         </tbody>
     </table>
 </div>

@@ -31,7 +31,7 @@ import { HttpModule } from '@angular/http';
     PageNotFoundComponent,
     BaseTemplateComponent,
     AdminTemplateComponent,
-    ClientTemplateComponent
+    ClientTemplateComponent,
   ],
   imports: [
     BrowserModule,

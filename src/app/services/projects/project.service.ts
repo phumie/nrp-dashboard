@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Project } from 'src/app/classes/projects/project';
 import { tap, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
@@ -15,12 +15,18 @@ const httpOptions = {
 })
 export class ProjectService {
 
+  projectShare = new BehaviorSubject(null);
+  currentProject = this.projectShare.asObservable();
+  setProject(project: Project) {
+    this.projectShare.next(project);
+  }
+
   private projectsUrl = `${environment.apiUrl}/project`;
 
   constructor(private http: HttpClient) { }
 
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(this.projectsUrl)
+    return this.http.get<Project[]>(this.projectsUrl, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('Fetched project'))

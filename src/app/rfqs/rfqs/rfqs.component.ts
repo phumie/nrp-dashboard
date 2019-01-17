@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
-
+import { Rfq } from '../../classes/rfq/rfq';
+import { Client } from '../../classes/client/client';
+import { GeneralService } from '../../services/clients/general.service';
+import { RfqService } from '../../services/rfq.service';
 
 @Component({
   selector: 'app-rfqs',
@@ -9,9 +11,33 @@ import * as $ from 'jquery';
 })
 export class RfqsComponent implements OnInit {
 
-  constructor() { }
+  rfqs: Rfq[];
+  clients: Client[];
+
+  constructor(
+    private rfqServices: RfqService,
+    private clientServices: GeneralService
+  ) { }
 
   ngOnInit() {
+    this.getRfqs();
+    this.getClients();
   }
 
+  getRfqs() : void {
+    console.log("Retrieving rfqs");
+    this.rfqServices.getRfqs()
+      .subscribe(rfqs => {
+        console.log(rfqs);
+        this.rfqs = rfqs
+      });
+  }
+
+  getClients() : void {
+    console.log("Retrieving clients");
+    this.clientServices.getClients()
+      .subscribe(clients => {
+        this.clients = clients
+      });
+  }
 }

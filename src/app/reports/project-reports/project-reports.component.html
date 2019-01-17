@@ -1,0 +1,128 @@
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <h5>Home</h5>
+      </nav>
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="dashboard">NRP PORTAL</a>
+          </div>
+          <div class="sidebar-user">
+            <div class="sidebar-user-picture">
+              <img alt="image" src="assets/profile.png">
+            </div>
+            <div class="sidebar-user-details">
+              <div class="user-name">Phumie Nevhutala</div>
+              <div class="user-role">Administrator</div>
+            </div>
+          </div>
+
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li>
+              <a href="dashboard">
+                <img src="assets/home.png" alt="">
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="menu-header">MENU</li>
+            <li>
+              <a href="projects">
+                <img src="assets/project.png" alt="">
+                <span>Projects</span>
+              </a>
+            </li>
+            <li>
+              <a href="finance">
+                <img src="assets/finance.png" alt="">
+                <span>Finance</span>
+              </a>
+            </li>
+            <li>
+              <a href="reports">
+                <img src="assets/report.png" alt="">
+                <span>Reports</span>
+              </a>
+            </li>
+            <li>
+              <a href="quotes">
+                <img src="assets/quote.png" alt="">
+                <span>Quotes</span>
+              </a>
+            </li>
+            <li>
+              <a href="rfqs">
+                <img src="assets/quote.png" alt="">
+                <span>RFQs</span>
+              </a>
+            </li>
+            <li>
+              <a href="admin-template">
+                <img src="assets/admin.png" alt="">
+                <span>Admin</span>
+              </a>
+            </li>
+            <li>
+              <a href="login">
+                <img src="assets/logout.png" alt="">
+                <span>Signout</span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+</body>
+
+<div class="main-content">
+  <h5>PROJECTS LIST</h5>
+  <table class="table table-hover" style="margin-top: 10px; width: 100%;">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Names</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let project of projects" (click)="onSelect(project)">
+            <th scope="row">{{project.projectId}}</th>
+            <td>{{project.title}}</td>
+            <td>{{employee.contactNumber}}</td>
+            <td>{{employee.email}}</td>
+        </tr>
+        <tr>
+        <td><a href="projects/:id">id</a></td>
+        <td><a href="projects/:id">name</a></td>
+        <td><a href="projects/:id">start</a></td>
+        <td><a href="projects/:id">end</a></td>
+        <td>status</td>
+        </tr>
+        <tr>
+        <td><a href="projects/:id">id</a></td>
+        <td><a href="projects/:id">name</a></td>
+        <td><a href="projects/:id">start</a></td>
+        <td><a href="projects/:id">end</a></td>
+        <td>status</td>
+        </tr>
+    <tr>
+        <td><a href="project-view">id</a></td>
+        <td><a href="project-view">name</a></td>
+        <td><a href="project-view">start</a></td>
+        <td><a href="project-view">end</a></td>
+        <td>status</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

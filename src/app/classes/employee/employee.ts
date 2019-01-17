@@ -9,7 +9,7 @@ export class Employee {
     alternativeNumber?: string;
     physicalAddress: string;
     postalAddress: string;
-    said: number;
+    idNumber: number;
     email: string;
     userRights?: EmployeePermissions;
 }

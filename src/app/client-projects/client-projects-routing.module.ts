@@ -5,19 +5,18 @@ import { ClientProjectsComponent } from './client-projects/client-projects.compo
 import { ClientProjectViewComponent } from './client-project-view/client-project-view.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   children: [
-  //     {
-  //       path: '',
-  //       children: [
-  //         // {path: 'new-project', component: NewProjectComponent},
-  //         { path: ':id', component: ClientProjectViewComponent},
-  //         { path: '', component: ClientProjectsComponent }
-  //       ],
-  //     }
-  //   ]
-  // }
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        children: [
+          { path: ':id', component: ClientProjectViewComponent},
+          { path: '', component: ClientProjectsComponent }
+        ],
+      }
+    ]
+  }
 ];
 
 @NgModule({

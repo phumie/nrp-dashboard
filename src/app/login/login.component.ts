@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
   employeeLogin(): void {
     this.submitted = true;
     if (this.loginForm.invalid) {
-      $(document).ready(function(){
-          alert("Invalid login credentials. Please try again.");
+      $(document).ready(function() {
+          alert('Invalid login credentials. Please try again.');
       });
       return ;
     }
@@ -63,8 +63,8 @@ export class LoginComponent implements OnInit {
   clientLogin(): void {
     this.submitted = true;
     if (this.loginForm.invalid) {
-      $(document).ready(function(){
-        alert("Invalid login credentials. Please try again.");
+      $(document).ready(function() {
+        alert('Invalid login credentials. Please try again.');
       });
       return ;
     }

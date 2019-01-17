@@ -102,8 +102,11 @@ button a {
 }
 
 .table-wrapper-scroll-y {
+    position: relative;
+    top: 10px;
     display: block;
     max-height: 350px;
+    width: 100%;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     margin-bottom: 10px;

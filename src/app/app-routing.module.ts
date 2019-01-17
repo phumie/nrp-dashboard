@@ -46,12 +46,14 @@ const routes: Routes = [
     canLoad: [AuthGuard],
     loadChildren: './finance/finance.module#FinanceModule'
   },
-  // {
-  //   path: 'admin-template',
-  //   component: AdminTemplateComponent
-  // },
-  // { path: 'quotes', loadChildren: './quotes/quotes.module#QuotesModule'},
-  // {path: 'reports', loadChildren: './reports/reports.module#ReportsModule'},
+  {
+    path: 'quotes',
+    loadChildren: './quotes/quotes.module#QuotesModule'
+  },
+  {
+    path: 'reports',
+    loadChildren: './reports/reports.module#ReportsModule'
+  },
   {
     path: 'feedback',
     loadChildren : './client-feedback/client-feedback.module#ClientFeedbackModule'

@@ -19,8 +19,8 @@
               <img alt="image" src="assets/profile.png">
               </div>
               <div class="sidebar-user-details">
-              <div class="user-name">Phumie Nevhutala</div>
-              <div class="user-role">Administrator</div>
+                    <div class="user-name">{{authenticationService.currentUserValue.firstName}} {{authenticationService.currentUserValue.lastName}}</div>
+                    <div class="user-role">Client</div>
               </div>
           </div>
 
@@ -66,16 +66,38 @@
         <p><b>Phuti Matle</b></p>
         <p>Site Manager</p>
         <p><b>Katleho Khanye</b></p>
-        <p>Project Duration</p>
-        <p><b>10 November 2018 - 16 November 2016 (6 Days)</b></p>
+        
+        
         <br>
-        <p><b>PROJECT PROGRESS</b></p>
-        <div class="progress">
-            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        <p><b>PROJECT TIMEFRAMES</b></p>
+        <div>
+            <table class="table table-hover" style="margin-top: 10px; width: 100%;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Stage</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Start</th>
+                            <th scope="col">End</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let time of timelines">
+                        <td>{{time.stage}}</td>
+                        <td>{{time.description}}</td>
+                        <td>{{time.startDate | date: 'dd MMMM yyy'}}</td>
+                        <td>{{time.endDate | date: 'dd MMMM yyy'}}</td>
+                       
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+            <!--<div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>-->
         </div>
     </nav>
 
-    <div class="card-columns">
+    <!--<div class="card-columns">
         <div class="card">
             <div class="icon">
                 <img src="assets/quote.png" data-toggle="modal" data-target=".bd-quotes-modal-lg">
@@ -106,5 +128,5 @@
             </div>
             <a data-toggle="modal" data-target=".bd-status-modal-lg">STATUS</a>
         </div>
-    </div>
+    </div>-->
 </div>

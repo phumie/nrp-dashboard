@@ -2,7 +2,7 @@ import { Client } from '../client/client';
 import {RfqItem } from './rfqItems';
 
 export class Rfq {
-    QuoteId: number;
+    quoteId: number;
     accepted: boolean;
     responseDate: Date;
     referenceNumber: string;

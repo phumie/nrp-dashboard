@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { RfqsComponent } from './rfqs/rfqs.component';
 import { AuthGuard } from '../guard/auth.guard';
-import { NewRfqComponent } from './new-rfq/new-rfq.component';
 
 const routes: Routes = [
   {
@@ -14,8 +13,7 @@ const routes: Routes = [
         path: '',
         canActivateChild: [AuthGuard],
         children: [
-          { path: '', component: RfqsComponent },
-          { path: 'new-rfq', component: NewRfqComponent }
+          { path: '', component: RfqsComponent }
         ]
       }
     ]

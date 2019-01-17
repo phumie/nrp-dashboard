@@ -20,9 +20,6 @@ import { EmployeePermissions } from 'src/app/classes/employee/employee-permissio
 export class ManageEmployeesComponent implements OnInit, OnDestroy {
 
   employee: Employee;
-  employeeAccount: EmployeeAccount;
-  employeeKin: EmployeeKin;
-  employeePermissions: EmployeePermissions;
   subscription: Subscription;
 
   constructor(

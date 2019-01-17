@@ -33,7 +33,7 @@ export class ManageClientsGeneralComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.clientGeneralService.getClient(id)
-        .subscribe(emp => this.clientForm.patchValue(emp));
+        .subscribe(emp => { this.clientForm.patchValue(emp); console.log(emp); });
     }
   }
 

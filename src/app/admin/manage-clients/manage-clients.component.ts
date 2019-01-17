@@ -27,7 +27,10 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
     private clientGeneralService: GeneralService
     ) {
     this.subscription = this.clientService.getClient()
-      .subscribe(client => this.client = client);
+      .subscribe(client => {
+        this.client = client;
+        console.log('Client Object : ' + client);
+      });
   }
 
   ngOnInit() {
@@ -41,9 +44,6 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
   logout(): void {
     this.authService.logout(this.employee.employeeId);
     this.router.navigate(['/login']);
-  }
-
-  deleteEmployee(): void {
   }
 
 }

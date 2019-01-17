@@ -20,8 +20,8 @@ export class AdminGuard implements CanLoad {
       return true;
     }
 
-    $(document).ready(function(){
-      alert("Access not permitted.");
+    $(document).ready(function() {
+      alert('Access not permitted.');
     });
     this.router.navigate([url]);
     return false;

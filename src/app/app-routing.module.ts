@@ -42,7 +42,7 @@ const routes: Routes = [
     loadChildren: './rfqs/rfqs.module#RfqsModule'
   },
   {
-    path: 'finance', 
+    path: 'finance',
     canLoad: [AuthGuard],
     loadChildren: './finance/finance.module#FinanceModule'
   },

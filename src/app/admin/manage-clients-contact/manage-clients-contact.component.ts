@@ -58,23 +58,38 @@ export class ManageClientsContactComponent implements OnInit {
     }
 
     const clientId = +this.route.snapshot.paramMap.get('id');
-    const contact: Contact = {
-      firstName: this.form.firstName.value,
-      lastName: this.form.lastName.value,
-      cellNumber: this.form.contactNumber.value,
-      telNumber: this.form.telephomeNumber.value,
-      email: this.form.email.value,
-      date: this.form.date.value,
-      clientId: clientId
-    };
-
+    const firstName = this.form.firstName.value;
+    const lastName = this.form.lastName.value;
+    const cellNumber = this.form.contactNumber.value;
+    const telNumber = this.form.telephoneNumber.value;
+    const email = this.form.email.value;
+    const date = this.form.date.value;
     if (clientId) {
+      const contact: Contact = {
+        firstName: firstName,
+        lastName: lastName,
+        cellNumber: cellNumber,
+        telNumber: telNumber,
+        email: email,
+        date: date,
+        clientId: clientId
+      };
+
       this.clientContactService.updateClient(contact)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
     } else {
+      const contact: Contact = {
+        firstName: firstName,
+        lastName: lastName,
+        cellNumber: cellNumber,
+        telNumber: telNumber,
+        email: email,
+        date: date,
+        clientId: this.client.clientId
+      };
       this.clientContactService.addClientContact(contact)
         .subscribe(
           data => console.log(data),

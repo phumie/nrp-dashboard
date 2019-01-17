@@ -15,6 +15,7 @@ export class ClientListComponent implements OnInit {
 
   clients: Client[];
   clientContact: Contact;
+  totalClients: number = 0;  
 
   constructor(
     private router: Router,

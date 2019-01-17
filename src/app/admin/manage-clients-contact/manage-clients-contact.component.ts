@@ -5,6 +5,7 @@ import { ClientService } from 'src/app/services/clients/client.service';
 import { ContactService } from 'src/app/services/clients/contact.service';
 import { Contact } from 'src/app/classes/client/contact';
 import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-manage-clients-contact',
@@ -74,12 +75,19 @@ export class ManageClientsContactComponent implements OnInit {
           data => console.log(data),
           error => console.log(error)
         );
+        $(document).ready(function(){
+          alert("Client information updated.");
+        });
     } else {
       this.clientContactService.addClientContact(contact)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
+
+        $(document).ready(function(){
+          alert("New client added.");
+        });
     }
   }
 

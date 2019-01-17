@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import * as $ from 'jquery';
 
 import { EmployeeService } from 'src/app/services/employees/employee.service';
 import { Employee } from 'src/app/classes/employee/employee';
@@ -43,6 +44,9 @@ export class ManageEmployeesComponent implements OnInit, OnDestroy {
 
   deleteEmployee(): void {
     this.employeeGeneralService.deleteEmployee(this.employee).subscribe();
+    $(document).ready(function(){
+        alert("Employee deleted!");
+    });
   }
 
 }

@@ -4,6 +4,7 @@ import { KinService } from 'src/app/services/employees/kin.service';
 import { Employee } from 'src/app/classes/employee/employee';
 import { EmployeeKin } from 'src/app/classes/employee/employee-kin';
 import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-manage-employees-kin',
@@ -75,12 +76,18 @@ export class ManageEmployeesKinComponent implements OnInit {
           data => console.log(data),
           error => console.log(error)
         );
+        $(document).ready(function(){
+          alert("Employee information updated.");
+        });
     } else {
       this.employeeKinService.addEmployeeKin(employeeKin)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
+        $(document).ready(function(){
+          alert("Employee added.");
+        });
     }
   }
 

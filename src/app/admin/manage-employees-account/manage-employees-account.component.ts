@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import * as $ from 'jquery';
 
 import { Employee } from 'src/app/classes/employee/employee';
 import { AccountService } from 'src/app/services/employees/account.service';
@@ -69,12 +70,18 @@ export class ManageEmployeesAccountComponent implements OnInit {
           data => console.log(data),
           error => console.log(error)
         );
+        $(document).ready(function(){
+          alert("Employee information updated.");
+        });
     } else {
       this.accountService.addEmployeeAccount(employeeAccount)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
+        $(document).ready(function(){
+          alert("Employee added.");
+        });
     }
   }
 

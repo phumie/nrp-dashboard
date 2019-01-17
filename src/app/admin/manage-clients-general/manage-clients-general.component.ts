@@ -4,6 +4,7 @@ import { ClientService } from 'src/app/services/clients/client.service';
 import { GeneralService } from 'src/app/services/clients/general.service';
 import { Client } from 'src/app/classes/client/client';
 import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-manage-clients-general',
@@ -60,12 +61,18 @@ export class ManageClientsGeneralComponent implements OnInit {
           data => console.log(data),
           error => console.log(error)
         );
+        $(document).ready(function(){
+          alert("Client information updated.");
+        });
     } else {
       this.clientGeneralService.addClient(client)
         .subscribe(
           data => { this.clientService.storeClient(data); console.log(data); },
           error => console.log(error)
         );
+        $(document).ready(function(){
+          alert("New client added.");
+        });
     }
   }
 }

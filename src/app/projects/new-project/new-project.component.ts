@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProjectService } from 'src/app/services/projects/project.service';
 import { GeneralService } from 'src/app/services/clients/general.service';
 import { Client } from 'src/app/classes/client/client';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-new-project',
@@ -56,6 +57,10 @@ export class NewProjectComponent implements OnInit {
         data => console.log(data),
         error => console.log(error)
       );
+
+      $(document).ready(function(){
+        alert("New project created.");
+      });
   }
 
 }

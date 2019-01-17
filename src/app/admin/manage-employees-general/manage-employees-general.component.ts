@@ -6,6 +6,7 @@ import { Employee } from 'src/app/classes/employee/employee';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-manage-employees-general',
@@ -73,12 +74,18 @@ export class ManageEmployeesGeneralComponent implements OnInit {
           data => this.employeeService.storeEmployee(data),
           error => console.log(error)
         );
+        $(document).ready(function(){
+          alert("Employee information updated.");
+        });
     } else {
       this.employeeGeneralService.addEmployee(employee)
         .subscribe(
           data => this.employeeService.storeEmployee(data),
           error => console.log(error)
       );
+      $(document).ready(function(){
+        alert("Employee added");
+      });
     }
   }
 }

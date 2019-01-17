@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Project } from 'src/app/classes/projects/project';
 import { tap, retry } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
+import { Timeline } from 'src/app/classes/projects/timeline';
+import { ProjectContent } from 'src/app/classes/projects/projectContent';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
-  withCredentials : true
+  headers: new HttpHeaders({'Content-Type': 'application:json'})
 };
 
 @Injectable({
@@ -15,24 +16,36 @@ const httpOptions = {
 })
 export class ProjectService {
 
-  projectShare = new BehaviorSubject(null);
-  currentProject = this.projectShare.asObservable();
-  setProject(project: Project) {
-    this.projectShare.next(project);
-  }
-
   private projectsUrl = `${environment.apiUrl}/project`;
 
   constructor(private http: HttpClient) { }
 
+  newFeedBack(project: ProjectContent): Observable<ProjectContent> {
+    return this.http.post<ProjectContent>(`${environment.apiUrl}/projectcontent`, project)
+      .pipe(
+        retry(3),
+        tap(_ => console.log('added project'))
+      );
+  }
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(this.projectsUrl, httpOptions)
+    return this.http.get<Project[]>(this.projectsUrl)
       .pipe(
         retry(3),
         tap(_ => console.log('Fetched project'))
     );
   }
-
+  getProjectContent() : Observable<ProjectContent[]> {
+    return this.http.get<ProjectContent[]>(`${environment.apiUrl}/projectcontent`).pipe(
+      retry(3),
+        tap(_ => console.log('Fetched project'))
+    );
+  }
+  getTimelines() : Observable<Timeline[]> {
+    return this.http.get<Timeline[]>(`${environment.apiUrl}/timeline`).pipe(
+      retry(3),
+        tap(_ => console.log('Fetched project'))
+    );
+  }
   getProject(id: number): Observable<Project> {
     const url = `${this.projectsUrl}/${id}`;
     return this.http.get<Project>(url)
@@ -53,7 +66,7 @@ export class ProjectService {
     );
   }
 
-  addProject(project: Project): Observable<Project> {
+  addEmployee(project: Project): Observable<Project> {
     return this.http.post<Project>(this.projectsUrl, project, httpOptions)
       .pipe(
         retry(3),
@@ -61,7 +74,7 @@ export class ProjectService {
       );
   }
 
-  deleteProject(project: Project): Observable<Project> {
+  deleteEmployee(project: Project): Observable<Project> {
     const url = `${this.projectsUrl}/${project.projectId}`;
     return this.http.delete<Project>(url, httpOptions)
       .pipe(
@@ -70,9 +83,8 @@ export class ProjectService {
       );
   }
 
-  updateProject(project: Project): Observable<any> {
-    const url = `${this.projectsUrl}/${project.projectId}`;
-    return this.http.put(url, project, httpOptions)
+  updateEmployee(project: Project): Observable<any> {
+    return this.http.put(this.projectsUrl, project, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('updated project'))

@@ -1,3 +1,5 @@
+import { Project } from "./project";
+
 export class Timeline {
     timelineId: number;
     stage: string;
@@ -7,4 +9,6 @@ export class Timeline {
     extenstion?: Date;
     projectId: number;
     projectStatusId: number;
+    
+    project: Project;
 }

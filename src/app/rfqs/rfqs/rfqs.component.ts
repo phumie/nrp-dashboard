@@ -24,20 +24,20 @@ export class RfqsComponent implements OnInit {
     this.getClients();
   }
 
-  getRfqs() : void {
-    console.log("Retrieving rfqs");
+  getRfqs(): void {
+    console.log('Retrieving rfqs');
     this.rfqServices.getRfqs()
       .subscribe(rfqs => {
         console.log(rfqs);
-        this.rfqs = rfqs
+        this.rfqs = rfqs;
       });
   }
 
-  getClients() : void {
-    console.log("Retrieving clients");
+  getClients(): void {
+    console.log('Retrieving clients');
     this.clientServices.getClients()
       .subscribe(clients => {
-        this.clients = clients
+        this.clients = clients;
       });
   }
 }

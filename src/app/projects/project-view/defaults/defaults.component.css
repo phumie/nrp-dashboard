@@ -1,0 +1,8 @@
+.new {
+    border: none;
+    border-radius: 2px;
+    color: white;
+    background-color: #3A71B9;
+    margin-bottom: 10px;
+    cursor: pointer;
+}

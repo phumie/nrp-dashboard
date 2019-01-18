@@ -24,3 +24,20 @@ input {
 .search:hover {
     background-color: #42D3FF;
 }
+
+.feedback-img {
+    height: 70px;
+    width: 70px;
+    margin: 10px;
+}
+
+.expand-img {
+    height: calc(100% - 5px);
+    width: calc(100% - 5px);
+}
+
+.new-feedback {
+    background-color: #135772;
+    border: none;
+    border-radius: 1px;
+}

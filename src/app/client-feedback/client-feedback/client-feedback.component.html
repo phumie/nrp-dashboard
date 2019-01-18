@@ -19,8 +19,8 @@
                 <img alt="image" src="assets/profile.png">
                 </div>
                 <div class="sidebar-user-details">
-                <div class="user-name">Phumie Nevhutala</div>
-                <div class="user-role">Administrator</div>
+                    <div class="user-name">Name and Surname</div>
+                    <div class="user-role">Role</div>
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                 </a>
                 </li>
                 <li>
-                <a routerLink="/client-login">
+                <a routerLink="/login">
                     <img src="assets/logout.png" alt="">
                     <span>Signout</span>
                 </a>
@@ -62,11 +62,6 @@
   
   <div class="main-content">
         <h5 align="center">FEEDBACK LIST</h5>
-        <form>
-            <button type="button" class="btn btn-danger" style="margin-top:10px">
-                <a routerLink="/client-feedback/new-feedback">NEW FEEDBACK</a>
-            </button>
-        </form>
         <form>
             <input type="text">
             <button class="search">Search</button>
@@ -84,34 +79,91 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a data-toggle="modal" data-target="#feedbackModal">19</a></td>
-                    <td><a data-toggle="modal" data-target="#feedbackModal">Unfinished Work</a></td>
-                    <td><a data-toggle="modal" data-target="#feedbackModal">FNB Paint Job</a></td>
-                    <td><a data-toggle="modal" data-target="#feedbackModal">2018-01-24</a></td>
+                    <td><a>19</a></td>
+                    <td><a data-toggle="modal" data-target=".bd-client-feedback-modal-lg">Unfinished Work</a></td>
+                    <td><a data-toggle="modal" data-target=".bd-client-feedback-modal-lg">FNB Paint Job</a></td>
+                    <td><a data-toggle="modal" data-target=".bd-client-feedback-modal-lg">2018-01-24</a></td>
                 </tr>
             </tbody>
         </table>  
-    </div>
-   
-    <!-- Modal -->
-    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="feedbackModalLabel">FEEDBACK TITLE</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    </div> 
+    <form>
+        <button type="button" class="new-feedback" style="margin-top:10px">
+            <a routerLink="/client-feedback/new-feedback">NEW FEEDBACK</a>
+        </button>
+    </form>   
+  </div>
+
+  <div class="modal fade bd-client-feedback-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h6 class="modal-title" id="exampleModalLabel">Feedback</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-                </button>
+            </button>
             </div>
             <div class="modal-body">
-                The content for the feedback the clients send to NRP will be here.
+                <form>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">PROJECT</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="FNB Paint Job" readonly>
+                        </div>
+                    </div>
+                </form>
+                <form>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">TYPE</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="Complaint" readonly>
+                        </div>
+                    </div>
+                </form>
+                <form>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">TITLE</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" value="Unfinished paint job" readonly>
+                        </div>
+                    </div>
+                </form>
+                <form>
+                    <div class="form-group row">
+                        <label  class="col-sm-2 col-form-label">MESSAGE</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control" value="message" readonly>The shade of peach that was used does not match the one from the swatch we agreed on. This needs to be changed.
+                            </textarea>
+                        </div>
+                    </div>
+                </form>
+                <img src="assets/painting.jpg" class="feedback-img" data-toggle="modal" data-target="#exampleModal">
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <img src="assets/painting.jpg" class="expand-img">
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
+
+            <form>
+                <div class="form-group">
+                    <label  class="col-sm-2 col-form-label">RESPONSE</label>
+                    <div class="col-sm-10">
+                    <textarea class="form-control" readonly>The paint color error will be sorted on the 26th of January. Thank you for the feedback.</textarea>
+                    </div>
+                </div>
+            </form>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
-            </div>
         </div>
     </div>
-  </div>
+</div>
 
- 
+

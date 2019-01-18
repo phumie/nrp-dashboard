@@ -17,3 +17,18 @@ td {
     height: calc(100% - 5px);
     width: calc(100% - 5px);
 }
+
+table {
+    margin-top: 10px;
+}
+
+.search {
+    border: none;
+    background-color: white;
+    color: grey;
+}
+
+.input {
+    border-radius: 2px;
+    border: 1px solid #9E9E9E;
+}

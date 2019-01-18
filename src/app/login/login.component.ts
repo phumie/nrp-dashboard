@@ -53,6 +53,9 @@ export class LoginComponent implements OnInit {
     this.authenticationService.employeeLogin(username, password)
       .subscribe(
         data => {
+          if (data == null){
+            alert('Invalid login credentials. Please try again.');
+          }
           console.log(data);
           this.router.navigate([this.returnUrl]);
         },
@@ -63,9 +66,7 @@ export class LoginComponent implements OnInit {
   clientLogin(): void {
     this.submitted = true;
     if (this.loginForm.invalid) {
-      $(document).ready(function() {
         alert('Invalid login credentials. Please try again.');
-      });
       return ;
     }
 

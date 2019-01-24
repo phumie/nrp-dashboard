@@ -16,6 +16,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
   @Input() employee: Employee;
   employeeAccountForm: FormGroup;
   submitted = false;
+  accountId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +39,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
             return (acc.employeeId === id);
           });
           if (account) {
+            this.accountId = account.employeeAccountId;
             this.employeeAccountForm.patchValue(account);
           }
         });
@@ -56,25 +58,37 @@ export class ManageEmployeesAccountComponent implements OnInit {
     }
 
     const id = +this.route.snapshot.paramMap.get('id');
-    const employeeAccount: EmployeeAccount = {
-      bankName: this.form.bankName.value,
-      accountNumber: this.form.accountNumber.value,
-      branchCode: this.form.branchCode.value,
-      employeeId: id
-    };
-
     if (id) {
+
+      const employeeAccount: EmployeeAccount = {
+        bankName: this.form.bankName.value,
+        accountNumber: this.form.accountNumber.value,
+        branchCode: this.form.branchCode.value,
+        employeeId: id,
+        employeeAccountId: this.accountId
+      };
+
       this.accountService.updateEmployeeAcccount(employeeAccount)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
+
     } else {
+
+      const employeeAccount: EmployeeAccount = {
+        bankName: this.form.bankName.value,
+        accountNumber: this.form.accountNumber.value,
+        branchCode: this.form.branchCode.value,
+        employeeId: id
+      };
+
       this.accountService.addEmployeeAccount(employeeAccount)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
+
     }
   }
 

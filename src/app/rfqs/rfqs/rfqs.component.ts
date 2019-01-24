@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Rfq } from '../../classes/rfq/rfq';
 import { Client } from '../../classes/client/client';
-import { GeneralService } from '../../services/clients/general.service';
+import { GeneralServiceClient } from '../../services/clients/general.service';
 import { RfqService } from '../../services/rfq.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class RfqsComponent implements OnInit {
 
   constructor(
     private rfqServices: RfqService,
-    private clientServices: GeneralService
+    private clientServices: GeneralServiceClient
   ) { }
 
   ngOnInit() {

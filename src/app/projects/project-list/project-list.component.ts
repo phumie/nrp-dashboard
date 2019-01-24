@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'src/app/classes/client/client';
 import { Project } from 'src/app/classes/projects/project';
-import { GeneralService } from 'src/app/services/clients/general.service';
+import { GeneralServiceClient } from 'src/app/services/clients/general.service';
 import { ProjectService } from 'src/app/services/projects/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -20,7 +20,7 @@ export class ProjectListComponent implements OnInit {
   pending: number = 0;
 
   constructor(
-    private clientService: GeneralService,
+    private clientService: GeneralServiceClient,
     private projectService: ProjectService,
     private router: Router
   ) { }

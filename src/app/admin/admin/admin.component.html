@@ -68,15 +68,30 @@
 
     <div class="card-columns">
         <div class="card stats">
-            <h3 style="color:green">25</h3>
+            <div *ngIf="loadedEmployees">
+                <h3 style="color:green">{{employeesCount}}</h3>
+            </div>
+            <div *ngIf="!loadedEmployees">
+                <h3 style="color:green">0</h3>
+            </div>
             <p>Employees</p>
         </div>
         <div class="card stats">
-            <h3 style="color:red">5</h3>
+            <div *ngIf="loadedClients">
+                <h3 style="color:red">{{clientsCount}}</h3>
+            </div>
+            <div *ngIf="!loadedClients">
+                <h3 style="color:red">0</h3>
+            </div>
             <p>Clients</p>
         </div>
         <div class="card stats">
-            <h3>7</h3>
+            <div *ngIf="loadedSuppliers">
+                <h3>{{suppliersCount}}</h3>
+            </div>
+            <div *ngIf="!loadedSuppliers">
+                <h3>0</h3>
+            </div>
             <p>Suppliers</p>
         </div>
     </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/classes/projects/project';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProjectService } from 'src/app/services/projects/project.service';
-import { GeneralService } from 'src/app/services/clients/general.service';
+import { GeneralServiceClient } from 'src/app/services/clients/general.service';
 import { Client } from 'src/app/classes/client/client';
 
 @Component({
@@ -18,7 +18,7 @@ export class NewProjectComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private clientService: GeneralService,
+    private clientService: GeneralServiceClient,
     private projectService: ProjectService
   ) { }
 

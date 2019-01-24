@@ -53,6 +53,7 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
             return (perm.userLink === id);
           });
           if (permission) {
+            console.log(permission);
             this.employeePermissionForm.patchValue(permission);
           }
         });
@@ -117,6 +118,8 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
       write: adminWrite,
       delete: adminDelete
     };
+
+    const id = +this.route.snapshot.paramMap.get('id');
     const employeePermissions: EmployeePermissions = {
       projects: projects,
       finance: finance,
@@ -124,22 +127,24 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
       quotes: quotes,
       reports: reports,
       admin: admin,
-      userLink: this.employee.employeeId
+      userLink: this.employee.employeeId,
     };
 
-    const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.employeePermissionService.updateEmployeePermissions(employeePermissions)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
-    }
-    this.employeePermissionService.addEmployeePermissions(employeePermissions)
+    } else {
+      this.employeePermissionService.addEmployeePermissions(employeePermissions)
       .subscribe(
         data => console.log(data),
         error => console.log(error)
       );
+
+    }
+
   }
 
 }

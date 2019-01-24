@@ -14,6 +14,7 @@ export class ManageEmployeesKinComponent implements OnInit {
 
   @Input() employee: Employee;
   employeeKinForm: FormGroup;
+  employeeKinId: number;
   submitted = false;
 
   constructor(
@@ -42,6 +43,7 @@ export class ManageEmployeesKinComponent implements OnInit {
           });
           if (kin) {
             this.employeeKinForm.patchValue(kin);
+            this.employeeKinId = kin.employeeKinId;
           }
         });
     }
@@ -58,24 +60,38 @@ export class ManageEmployeesKinComponent implements OnInit {
     }
 
     const employeeId = +this.route.snapshot.paramMap.get('id');
-    const employeeKin: EmployeeKin = {
-      firstName: this.form.firstName.value,
-      lastName: this.form.lastName.value,
-      contactNumber: this.form.contactNumber.value,
-      alternativeNumber: this.form.alternativeNumber.value,
-      physicalAddress: this.form.physicalAddress.value,
-      postalAddress: this.form.postalAddress.value,
-      idNumber: this.form.idNumber.value,
-      employeeId: employeeId
-    };
-
     if (employeeId) {
+
+      const employeeKin: EmployeeKin = {
+        firstName: this.form.firstName.value,
+        lastName: this.form.lastName.value,
+        contactNumber: this.form.contactNumber.value,
+        alternativeNumber: this.form.alternativeNumber.value,
+        physicalAddress: this.form.physicalAddress.value,
+        postalAddress: this.form.postalAddress.value,
+        idNumber: this.form.idNumber.value,
+        employeeId: employeeId,
+        employeeKinId: this.employeeKinId
+      };
+
       this.employeeKinService.updateEmployeeKin(employeeKin)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
     } else {
+
+      const employeeKin: EmployeeKin = {
+        firstName: this.form.firstName.value,
+        lastName: this.form.lastName.value,
+        contactNumber: this.form.contactNumber.value,
+        alternativeNumber: this.form.alternativeNumber.value,
+        physicalAddress: this.form.physicalAddress.value,
+        postalAddress: this.form.postalAddress.value,
+        idNumber: this.form.idNumber.value,
+        employeeId: employeeId
+      };
+
       this.employeeKinService.addEmployeeKin(employeeKin)
         .subscribe(
           data => console.log(data),

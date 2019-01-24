@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ClientService } from 'src/app/services/clients/client.service';
-import { GeneralService } from 'src/app/services/clients/general.service';
+import { GeneralServiceClient } from 'src/app/services/clients/general.service';
 import { Client } from 'src/app/classes/client/client';
 import { ActivatedRoute } from '@angular/router';
 
@@ -20,7 +20,7 @@ export class ManageClientsGeneralComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private clientService: ClientService,
-    private clientGeneralService: GeneralService
+    private clientGeneralService: GeneralServiceClient
   ) { }
 
   ngOnInit() {

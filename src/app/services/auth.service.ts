@@ -18,7 +18,7 @@ export class AuthService {
   private authUrl = `${environment.apiUrl}/authentication`;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<any>(sessionStorage.getItem('user'));
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('user')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 

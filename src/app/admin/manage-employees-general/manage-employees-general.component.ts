@@ -54,26 +54,42 @@ export class ManageEmployeesGeneralComponent implements OnInit {
       return;
     }
 
-    const employee: Employee = {
-      firstName: this.form.firstName.value,
-      maidenName: this.form.maidenName.value,
-      lastName: this.form.lastName.value,
-      contactNumber: this.form.contactNumber.value,
-      alternativeNumber: this.form.alternativeNumber.value,
-      physicalAddress: this.form.physicalAddress.value,
-      postalAddress: this.form.postalAddress.value,
-      said: this.form.said.value,
-      email: this.form.email.value
-    };
-
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
+
+      const employee: Employee = {
+        firstName: this.form.firstName.value,
+        maidenName: this.form.maidenName.value,
+        lastName: this.form.lastName.value,
+        contactNumber: this.form.contactNumber.value,
+        alternativeNumber: this.form.alternativeNumber.value,
+        physicalAddress: this.form.physicalAddress.value,
+        postalAddress: this.form.postalAddress.value,
+        said: this.form.said.value,
+        email: this.form.email.value,
+        employeeId: id
+      };
+
       this.employeeGeneralService.updateEmployee(employee)
         .subscribe(
           data => this.employeeService.storeEmployee(data),
           error => console.log(error)
         );
+
     } else {
+
+      const employee: Employee = {
+        firstName: this.form.firstName.value,
+        maidenName: this.form.maidenName.value,
+        lastName: this.form.lastName.value,
+        contactNumber: this.form.contactNumber.value,
+        alternativeNumber: this.form.alternativeNumber.value,
+        physicalAddress: this.form.physicalAddress.value,
+        postalAddress: this.form.postalAddress.value,
+        said: this.form.said.value,
+        email: this.form.email.value
+      };
+
       this.employeeGeneralService.addEmployee(employee)
         .subscribe(
           data => this.employeeService.storeEmployee(data),

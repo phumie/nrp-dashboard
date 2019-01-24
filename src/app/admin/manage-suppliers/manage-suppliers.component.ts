@@ -54,24 +54,50 @@ export class ManageSuppliersComponent implements OnInit {
       return;
     }
 
-    const supplier: Supplier = {
-      name: this.form.businessName.value,
-      address: this.form.businessName.value,
-      tell: this.form.telephoneNumber.value,
-      email: this.form.email.value
-    };
-    this.supplierService.addSupplier(supplier)
-      .subscribe(sup => {
-        const supplierAccount: SupplierAccount = {
-          referenceNumber: this.form.referenceNumber.value,
-          bankName: this.form.bankName.value,
-          bankAccount: this.form.accountNumber.value,
-          branchCode: this.form.branchCode.value,
-          supplierId: sup.supplierId
-        };
-        this.supplierAccountService.addSupplierAccount(supplierAccount)
-          .subscribe(data => console.log(data));
-      });
-  }
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      const supplier: Supplier = {
+        name: this.form.businessName.value,
+        address: this.form.businessName.value,
+        tell: this.form.telephoneNumber.value,
+        email: this.form.email.value,
+        supplierId: id
+      };
 
+      this.supplierService.updateSupplier(supplier)
+        .subscribe(sup => {
+          const supplierAccount: SupplierAccount = {
+            referenceNumber: this.form.referenceNumber.value,
+            bankName: this.form.bankName.value,
+            bankAccount: this.form.accountNumber.value,
+            branchCode: this.form.branchCode.value,
+            supplierId: sup.supplierId,
+          };
+          this.supplierAccountService.updateSupplierAccount(supplierAccount)
+            .subscribe(data => console.log(data));
+        });
+    } else {
+
+      const supplier: Supplier = {
+        name: this.form.businessName.value,
+        address: this.form.businessName.value,
+        tell: this.form.telephoneNumber.value,
+        email: this.form.email.value
+      };
+
+      this.supplierService.addSupplier(supplier)
+        .subscribe(sup => {
+          const supplierAccount: SupplierAccount = {
+            referenceNumber: this.form.referenceNumber.value,
+            bankName: this.form.bankName.value,
+            bankAccount: this.form.accountNumber.value,
+            branchCode: this.form.branchCode.value,
+            supplierId: sup.supplierId
+          };
+          this.supplierAccountService.addSupplierAccount(supplierAccount)
+            .subscribe(data => console.log(data));
+        });
+
+    }
+  }
 }

@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/classes/employee/employee';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { GeneralService } from 'src/app/services/clients/general.service';
+import { GeneralServiceClient } from 'src/app/services/clients/general.service';
 
 @Component({
   selector: 'app-manage-clients',
@@ -24,7 +24,7 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
     private router: Router,
     private authService: AuthService,
     private clientService: ClientService,
-    private clientGeneralService: GeneralService
+    private clientGeneralService: GeneralServiceClient
     ) {
     this.subscription = this.clientService.getClient()
       .subscribe(client => {

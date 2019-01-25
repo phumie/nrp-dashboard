@@ -15,6 +15,7 @@ export class ManageClientsContactComponent implements OnInit {
 
   @Input() client: Client;
   submitted = false;
+  clientContactId: number;
   clientContactForm: FormGroup;
 
   constructor(
@@ -41,6 +42,7 @@ export class ManageClientsContactComponent implements OnInit {
             return (cnt.clientId === id);
           });
           if (contact) {
+            this.clientContactId = contact.clientContactId;
             this.clientContactForm.patchValue(contact);
           }
         });
@@ -64,7 +66,9 @@ export class ManageClientsContactComponent implements OnInit {
     const telNumber = this.form.telephoneNumber.value;
     const email = this.form.email.value;
     const date = this.form.date.value;
-    if (clientId) {
+
+    if (clientId && this.clientContactId) {
+
       const contact: Contact = {
         firstName: firstName,
         lastName: lastName,
@@ -72,7 +76,8 @@ export class ManageClientsContactComponent implements OnInit {
         telNumber: telNumber,
         email: email,
         date: date,
-        clientId: clientId
+        clientId: clientId,
+        clientContactId: this.clientContactId
       };
 
       this.clientContactService.updateClient(contact)
@@ -80,7 +85,9 @@ export class ManageClientsContactComponent implements OnInit {
           data => console.log(data),
           error => console.log(error)
         );
+
     } else {
+
       const contact: Contact = {
         firstName: firstName,
         lastName: lastName,
@@ -95,6 +102,7 @@ export class ManageClientsContactComponent implements OnInit {
           data => console.log(data),
           error => console.log(error)
         );
+
     }
   }
 

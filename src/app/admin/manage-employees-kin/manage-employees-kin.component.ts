@@ -61,7 +61,7 @@ export class ManageEmployeesKinComponent implements OnInit {
     }
 
     const employeeId = +this.route.snapshot.paramMap.get('id');
-    if (employeeId) {
+    if (employeeId && this.employeeKinId) {
 
       const employeeKin: EmployeeKin = {
         firstName: this.form.firstName.value,
@@ -90,7 +90,7 @@ export class ManageEmployeesKinComponent implements OnInit {
         physicalAddress: this.form.physicalAddress.value,
         postalAddress: this.form.postalAddress.value,
         said: this.form.idNumber.value,
-        employeeId: this.employee.employeeId
+        employeeId: employeeId
       };
 
       this.employeeKinService.addEmployeeKin(employeeKin)

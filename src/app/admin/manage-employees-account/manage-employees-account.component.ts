@@ -58,9 +58,8 @@ export class ManageEmployeesAccountComponent implements OnInit {
     }
 
     const id = +this.route.snapshot.paramMap.get('id');
-    if (id) {
+    if (id && this.accountId) {
 
-      console.log(this.accountId);
       const employeeAccount: EmployeeAccount = {
         bankName: this.form.bankName.value,
         accountNumber: this.form.accountNumber.value,

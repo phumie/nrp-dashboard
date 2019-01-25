@@ -1,5 +1,5 @@
 export class EmployeeAccount {
-    employeeAccountId?: number;
+    employeeAccountsId?: number;
     bankName: string;
     accountNumber: string;
     branchCode: string;

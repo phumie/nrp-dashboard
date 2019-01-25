@@ -39,7 +39,8 @@ export class ManageEmployeesAccountComponent implements OnInit {
             return (acc.employeeId === id);
           });
           if (account) {
-            this.accountId = account.employeeAccountId;
+            console.log(account);
+            this.accountId = account.employeeAccountsId;
             this.employeeAccountForm.patchValue(account);
           }
         });
@@ -58,6 +59,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
     }
 
     const id = +this.route.snapshot.paramMap.get('id');
+    console.log(this.accountId);
     if (id && this.accountId) {
 
       const employeeAccount: EmployeeAccount = {
@@ -65,7 +67,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
         accountNumber: this.form.accountNumber.value,
         branchCode: this.form.branchCode.value,
         employeeId: id,
-        employeeAccountId: this.accountId
+        employeeAccountsId: this.accountId
       };
 
       this.accountService.updateEmployeeAcccount(employeeAccount)

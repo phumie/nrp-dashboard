@@ -28,8 +28,8 @@ export class ManageClientsContactComponent implements OnInit {
     this.clientContactForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      contactNumber: ['', Validators.required],
-      telephoneNumber: ['', Validators.required],
+      cell: ['', Validators.required],
+      tell: ['', Validators.required],
       email: ['', Validators.required],
       date: ['', Validators.required]
     });
@@ -42,7 +42,8 @@ export class ManageClientsContactComponent implements OnInit {
             return (cnt.clientId === id);
           });
           if (contact) {
-            this.clientContactId = contact.clientContactId;
+            console.log(contact);
+            this.clientContactId = contact.clientContactInfoId;
             this.clientContactForm.patchValue(contact);
           }
         });
@@ -62,8 +63,8 @@ export class ManageClientsContactComponent implements OnInit {
     const clientId = +this.route.snapshot.paramMap.get('id');
     const firstName = this.form.firstName.value;
     const lastName = this.form.lastName.value;
-    const cellNumber = this.form.contactNumber.value;
-    const telNumber = this.form.telephoneNumber.value;
+    const cellNumber = this.form.cell.value;
+    const telNumber = this.form.tell.value;
     const email = this.form.email.value;
     const date = this.form.date.value;
 
@@ -72,12 +73,12 @@ export class ManageClientsContactComponent implements OnInit {
       const contact: Contact = {
         firstName: firstName,
         lastName: lastName,
-        cellNumber: cellNumber,
-        telNumber: telNumber,
+        cell: cellNumber,
+        tell: telNumber,
         email: email,
         date: date,
         clientId: clientId,
-        clientContactId: this.clientContactId
+        clientContactInfoId: this.clientContactId
       };
 
       this.clientContactService.updateClient(contact)
@@ -91,12 +92,13 @@ export class ManageClientsContactComponent implements OnInit {
       const contact: Contact = {
         firstName: firstName,
         lastName: lastName,
-        cellNumber: cellNumber,
-        telNumber: telNumber,
+        cell: cellNumber,
+        tell: telNumber,
         email: email,
         date: date,
         clientId: clientId ? clientId : this.client.clientId
       };
+
       this.clientContactService.addClientContact(contact)
         .subscribe(
           data => console.log(data),

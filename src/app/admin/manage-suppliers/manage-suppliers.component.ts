@@ -16,6 +16,7 @@ export class ManageSuppliersComponent implements OnInit {
 
   submitted = false;
   supplier: Supplier;
+  supplierAccountId: number;
   supplierForm: FormGroup;
 
   constructor(

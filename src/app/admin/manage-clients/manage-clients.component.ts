@@ -29,7 +29,6 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
     this.subscription = this.clientService.getClient()
       .subscribe(client => {
         this.client = client;
-        console.log('Client Object : ' + client);
       });
   }
 

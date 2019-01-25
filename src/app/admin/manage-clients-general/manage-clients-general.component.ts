@@ -27,13 +27,13 @@ export class ManageClientsGeneralComponent implements OnInit {
     this.clientForm = this.formBuilder.group({
       clientName: ['', Validators.required],
       vatNumber: ['', Validators.required],
-      physicalAddress: ['', Validators.required]
+      address: ['', Validators.required]
     });
 
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.clientGeneralService.getClient(id)
-        .subscribe(emp => { this.clientForm.patchValue(emp); console.log(emp); });
+        .subscribe(emp => this.clientForm.patchValue(emp));
     }
   }
 
@@ -50,7 +50,7 @@ export class ManageClientsGeneralComponent implements OnInit {
     const client: Client = {
       clientName: this.form.clientName.value,
       vatNumber: this.form.vatNumber.value,
-      address: this.form.physicalAddress.value
+      address: this.form.address.value
     };
 
     const id = +this.route.snapshot.paramMap.get('id');

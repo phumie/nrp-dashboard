@@ -6,7 +6,8 @@ import { SupplierAccount } from 'src/app/classes/supplier/supplier-account';
 import { environment } from 'src/environments/environment';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+  withCredentials: true
 };
 
 @Injectable({
@@ -53,7 +54,7 @@ export class SupplierAccountService {
   }
 
   updateSupplierAccount(supplierAccount: SupplierAccount): Observable<any> {
-    const url = `${this.supplierUrl}/${supplierAccount.supplierId}`;
+    const url = `${this.supplierUrl}/${supplierAccount.supplierAccountId}`;
     return this.http.put(this.supplierUrl, supplierAccount, httpOptions)
       .pipe(
         retry(3),

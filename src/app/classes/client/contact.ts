@@ -1,11 +1,11 @@
 export class Contact {
-    clientContactId?: number;
+    clientContactInfoId?: number;
     firstName: string;
     lastName: string;
     email: string;
-    cellNumber: string;
-    telNumber: string;
+    cell: string;
+    tell: string;
     acquisitionNumber?: string;
-    date?: Date;
+    date: Date;
     clientId: number;
 }

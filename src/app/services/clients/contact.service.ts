@@ -54,7 +54,7 @@ export class ContactService {
   }
 
   updateClient(contact: Contact): Observable<any> {
-    const url = `${this.clientURL}/${contact.clientId}`;
+    const url = `${this.clientURL}/${contact.clientContactInfoId}`;
     return this.http.put(url, contact, httpOptions)
       .pipe(
         retry(3),

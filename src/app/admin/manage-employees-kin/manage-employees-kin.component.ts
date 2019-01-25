@@ -31,7 +31,7 @@ export class ManageEmployeesKinComponent implements OnInit {
       alternativeNumber: ['', Validators.required],
       physicalAddress: ['', Validators.required],
       postalAddress: ['', Validators.required],
-      idNumber: ['', Validators.required]
+      said: ['', Validators.required]
     });
 
     const id = +this.route.snapshot.paramMap.get('id');
@@ -70,16 +70,18 @@ export class ManageEmployeesKinComponent implements OnInit {
         alternativeNumber: this.form.alternativeNumber.value,
         physicalAddress: this.form.physicalAddress.value,
         postalAddress: this.form.postalAddress.value,
-        said: this.form.idNumber.value,
+        said: this.form.said.value,
         employeeId: employeeId,
         employeeKinId: this.employeeKinId
       };
+      console.log(employeeKin);
 
       this.employeeKinService.updateEmployeeKin(employeeKin)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
+
     } else {
 
       const employeeKin: EmployeeKin = {
@@ -89,7 +91,7 @@ export class ManageEmployeesKinComponent implements OnInit {
         alternativeNumber: this.form.alternativeNumber.value,
         physicalAddress: this.form.physicalAddress.value,
         postalAddress: this.form.postalAddress.value,
-        said: this.form.idNumber.value,
+        said: this.form.said.value,
         employeeId: employeeId ? employeeId : this.employee.employeeId
       };
 

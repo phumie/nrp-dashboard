@@ -42,7 +42,7 @@ export class AccountService {
   }
 
   deleteEmployeeAccount(employeeAccount: EmployeeAccount): Observable<EmployeeAccount> {
-    const url = `${this.employeeAccountURL}/${employeeAccount.employeeAccountId}`;
+    const url = `${this.employeeAccountURL}/${employeeAccount.employeeAccountsId}`;
     return this.http.delete<EmployeeAccount>(url, httpOptions)
       .pipe(
         tap(_ => console.log('deleted employee account'))
@@ -50,7 +50,7 @@ export class AccountService {
   }
 
   updateEmployeeAcccount(employeeAccount: EmployeeAccount): Observable<any> {
-    const url = `${this.employeeAccountURL}/${employeeAccount.employeeAccountId}`;
+    const url = `${this.employeeAccountURL}/${employeeAccount.employeeAccountsId}`;
     return this.http.put(url, employeeAccount, httpOptions)
       .pipe(
         tap(_ => console.log('updated employee account'))

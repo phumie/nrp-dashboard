@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { tap, retry } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { EmployeeAccount } from 'src/app/classes/employee/employee-account';
@@ -22,6 +22,7 @@ export class AccountService {
   getEmployeeAccounts(): Observable<EmployeeAccount[]> {
     return this.http.get<EmployeeAccount[]>(this.employeeAccountURL)
       .pipe(
+        retry(3),
         tap(_ => console.log('retrived employee accounts'))
       );
   }
@@ -30,6 +31,7 @@ export class AccountService {
     const url = `${this.employeeAccountURL}/${id}`;
     return this.http.get<EmployeeAccount>(url)
       .pipe(
+        retry(3),
         tap(_ => console.log('retrived employee account'))
       );
   }
@@ -37,6 +39,7 @@ export class AccountService {
   addEmployeeAccount(employeeAccount: EmployeeAccount): Observable<EmployeeAccount> {
     return this.http.post<EmployeeAccount>(this.employeeAccountURL, employeeAccount, httpOptions)
       .pipe(
+        retry(3),
         tap(_ => console.log('added employee account'))
       );
   }
@@ -45,6 +48,7 @@ export class AccountService {
     const url = `${this.employeeAccountURL}/${employeeAccount.employeeAccountsId}`;
     return this.http.delete<EmployeeAccount>(url, httpOptions)
       .pipe(
+        retry(3),
         tap(_ => console.log('deleted employee account'))
       );
   }
@@ -53,6 +57,7 @@ export class AccountService {
     const url = `${this.employeeAccountURL}/${employeeAccount.employeeAccountsId}`;
     return this.http.put(url, employeeAccount, httpOptions)
       .pipe(
+        retry(3),
         tap(_ => console.log('updated employee account'))
       );
   }

@@ -15,19 +15,20 @@ const httpOptions = {
 })
 export class SupplierService {
 
-  private clientURL = `${environment.apiUrl}/supplier`;
+  private supplierURL = `${environment.apiUrl}/supplier`;
 
   constructor(private http: HttpClient) { }
 
   getSuppliers(): Observable<Supplier[]> {
-    return this.http.get<Supplier[]>(this.clientURL)
+    return this.http.get<Supplier[]>(this.supplierURL)
       .pipe(
+        retry(3),
         tap(_ => console.log('retrived suppliers'))
       );
   }
 
   getSupplier(id: number): Observable<Supplier> {
-    const url = `${this.clientURL}/${id}`;
+    const url = `${this.supplierURL}/${id}`;
     return this.http.get<Supplier>(url)
       .pipe(
         retry(3),
@@ -40,7 +41,7 @@ export class SupplierService {
       return of([]);
     }
 
-    const url = `${this.clientURL}/?name=${searchTerm.trim()}`;
+    const url = `${this.supplierURL}/?name=${searchTerm.trim()}`;
     return this.http.get<Supplier[]>(url)
       .pipe(
         retry(3),
@@ -49,7 +50,7 @@ export class SupplierService {
   }
 
   addSupplier(supplier: Supplier): Observable<Supplier> {
-    return this.http.post<Supplier>(this.clientURL, supplier, httpOptions)
+    return this.http.post<Supplier>(this.supplierURL, supplier, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('added supplier'))
@@ -57,7 +58,7 @@ export class SupplierService {
   }
 
   deleteSupplier(supplierId: number): Observable<Supplier> {
-    const url = `${this.clientURL}/${supplierId}`;
+    const url = `${this.supplierURL}/${supplierId}`;
     return this.http.delete<Supplier>(url, httpOptions)
       .pipe(
         retry(3),
@@ -65,8 +66,9 @@ export class SupplierService {
       );
   }
 
-  updateSupplier(client: Supplier): Observable<any> {
-    return this.http.put(this.clientURL, client, httpOptions)
+  updateSupplier(supplier: Supplier): Observable<any> {
+    const url = `${this.supplierURL}/${supplier.supplierId}`;
+    return this.http.put(this.supplierURL, supplier, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('updated supplier'))

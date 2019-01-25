@@ -23,6 +23,7 @@ export class GeneralServiceClient {
   getClients(): Observable<Client[]> {
     return this.http.get<Client[]>(this.clientURL)
       .pipe(
+        retry(3),
         tap(_ => console.log('retrived clients'))
       );
   }
@@ -31,6 +32,7 @@ export class GeneralServiceClient {
     const url = `${this.clientURL}/${id}`;
     return this.http.get<Client>(url)
       .pipe(
+        retry(3),
         tap(_ => console.log('retrived client'))
       );
   }
@@ -51,6 +53,7 @@ export class GeneralServiceClient {
   addClient(client: Client): Observable<Client> {
     return this.http.post<Client>(this.clientURL, client, httpOptions)
       .pipe(
+        retry(3),
         tap(_ => console.log('added client'))
       );
   }
@@ -59,6 +62,7 @@ export class GeneralServiceClient {
     const url = `${this.clientURL}/${clientId}`;
     return this.http.delete<Client>(url, httpOptions)
       .pipe(
+        retry(3),
         tap(_ => console.log('deleted client'))
       );
   }
@@ -67,6 +71,7 @@ export class GeneralServiceClient {
     const url = `${this.clientURL}/${client.clientId}`;
     return this.http.put(url, client, httpOptions)
       .pipe(
+        retry(3),
         tap(_ => console.log('updated client'))
       );
   }

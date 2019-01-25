@@ -14,12 +14,12 @@ const httpOptions = {
 })
 export class SupplierAccountService {
 
-  private clientURL = `${environment.apiUrl}/supplierAccount`;
+  private supplierUrl = `${environment.apiUrl}/supplierAccount`;
 
   constructor(private http: HttpClient) { }
 
   getSuppliersAccount(): Observable<SupplierAccount[]> {
-    return this.http.get<SupplierAccount[]>(this.clientURL)
+    return this.http.get<SupplierAccount[]>(this.supplierUrl)
       .pipe(
         retry(3),
         tap(_ => console.log('retrived suppliers accounts'))
@@ -27,7 +27,7 @@ export class SupplierAccountService {
   }
 
   getSupplierAccount(id: number): Observable<SupplierAccount> {
-    const url = `${this.clientURL}/${id}`;
+    const url = `${this.supplierUrl}/${id}`;
     return this.http.get<SupplierAccount>(url)
       .pipe(
         retry(3),
@@ -36,7 +36,7 @@ export class SupplierAccountService {
   }
 
   addSupplierAccount(supplier: SupplierAccount): Observable<SupplierAccount> {
-    return this.http.post<SupplierAccount>(this.clientURL, supplier, httpOptions)
+    return this.http.post<SupplierAccount>(this.supplierUrl, supplier, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('added supplier'))
@@ -44,7 +44,7 @@ export class SupplierAccountService {
   }
 
   deleteSupplierAccount(supplierId: number): Observable<SupplierAccount> {
-    const url = `${this.clientURL}/${supplierId}`;
+    const url = `${this.supplierUrl}/${supplierId}`;
     return this.http.delete<SupplierAccount>(url, httpOptions)
       .pipe(
         retry(3),
@@ -52,8 +52,9 @@ export class SupplierAccountService {
       );
   }
 
-  updateSupplierAccount(client: SupplierAccount): Observable<any> {
-    return this.http.put(this.clientURL, client, httpOptions)
+  updateSupplierAccount(supplierAccount: SupplierAccount): Observable<any> {
+    const url = `${this.supplierUrl}/${supplierAccount.supplierId}`;
+    return this.http.put(this.supplierUrl, supplierAccount, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('updated supplier'))

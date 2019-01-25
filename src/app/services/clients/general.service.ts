@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
 import { Client } from 'src/app/classes/client/client';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+  withCredentials: true
 };
 
 @Injectable({

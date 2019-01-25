@@ -56,6 +56,7 @@ export class ManageEmployeesKinComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     if (this.employeeKinForm.invalid) {
+      console.log('failed');
       return ;
     }
 
@@ -69,7 +70,7 @@ export class ManageEmployeesKinComponent implements OnInit {
         alternativeNumber: this.form.alternativeNumber.value,
         physicalAddress: this.form.physicalAddress.value,
         postalAddress: this.form.postalAddress.value,
-        idNumber: this.form.idNumber.value,
+        said: this.form.idNumber.value,
         employeeId: employeeId,
         employeeKinId: this.employeeKinId
       };
@@ -88,8 +89,8 @@ export class ManageEmployeesKinComponent implements OnInit {
         alternativeNumber: this.form.alternativeNumber.value,
         physicalAddress: this.form.physicalAddress.value,
         postalAddress: this.form.postalAddress.value,
-        idNumber: this.form.idNumber.value,
-        employeeId: employeeId
+        said: this.form.idNumber.value,
+        employeeId: this.employee.employeeId
       };
 
       this.employeeKinService.addEmployeeKin(employeeKin)

@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralService } from 'src/app/services/employees/general.service';
 import { Employee } from 'src/app/classes/employee/employee';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AccountService } from 'src/app/services/employees/account.service';
-import { KinService } from 'src/app/services/employees/kin.service';
-import { PermissionsService } from 'src/app/services/employees/permissions.service';
-import { EmployeeAccount } from 'src/app/classes/employee/employee-account';
-import { EmployeeKin } from 'src/app/classes/employee/employee-kin';
-import { EmployeePermissions } from 'src/app/classes/employee/employee-permissions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -28,9 +22,8 @@ export class EmployeeListComponent implements OnInit {
   }
 
   getEmployees(): void {
-    console.log('Retrieving employees');
       this.employeeService.getEmployees()
-      .subscribe(employees => this.employees = employees);
+        .subscribe(employees => this.employees = employees);
   }
 
   onSelect(employee: Employee): void {

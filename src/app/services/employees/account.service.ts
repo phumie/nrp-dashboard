@@ -6,7 +6,8 @@ import { environment } from 'src/environments/environment';
 import { EmployeeAccount } from 'src/app/classes/employee/employee-account';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+  withCredentials: true
 };
 
 @Injectable({

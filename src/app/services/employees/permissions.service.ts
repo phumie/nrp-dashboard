@@ -6,9 +6,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EmployeePermissions } from 'src/app/classes/employee/employee-permissions';
 import { environment } from 'src/environments/environment';
 
-
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+  withCredentials: true
 };
 
 @Injectable({

@@ -20,5 +20,5 @@ export class RfqService {
         retry(3),
         tap(_ => console.log('Fetched Rfqs'))
     );
-  }  
+  }
 }

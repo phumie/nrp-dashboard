@@ -60,6 +60,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
 
+      console.log(this.accountId);
       const employeeAccount: EmployeeAccount = {
         bankName: this.form.bankName.value,
         accountNumber: this.form.accountNumber.value,
@@ -80,7 +81,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
         bankName: this.form.bankName.value,
         accountNumber: this.form.accountNumber.value,
         branchCode: this.form.branchCode.value,
-        employeeId: id
+        employeeId: this.employee.employeeId
       };
 
       this.accountService.addEmployeeAccount(employeeAccount)

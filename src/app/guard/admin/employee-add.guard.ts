@@ -19,8 +19,7 @@ export class EmployeeAddGuard implements CanActivate {
         return true;
       }
     }
-    console.log('Strange');
-    console.log(currentUser);
+
     this.router.navigate(['/admin/employees']);
     return false;
   }

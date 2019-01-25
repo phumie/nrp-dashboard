@@ -28,7 +28,7 @@ export class ClientListComponent implements OnInit {
 
   getClients() {
     this.clientService.getClients()
-      .subscribe(client => this.clients = client);
+      .subscribe(clients => this.clients = clients);
   }
 
   onSelect(client: Client) {

@@ -7,6 +7,6 @@ export class EmployeeKin {
     alternativeNumber: string;
     physicalAddress: string;
     postalAddress: string;
-    idNumber: string;
+    said: string;
     employeeId: number;
 }

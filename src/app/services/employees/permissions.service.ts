@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { tap, retry } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { EmployeePermissions } from 'src/app/classes/employee/employee-permissions';
 import { environment } from 'src/environments/environment';
 
-
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+  withCredentials: true
 };
 
 @Injectable({
@@ -23,14 +23,16 @@ export class PermissionsService {
   getEmployeesPermissions(): Observable<EmployeePermissions[]> {
     return this.http.get<EmployeePermissions[]>(this.employeeAccountURL)
       .pipe(
+        retry(3),
         tap(_ => console.log('retrieved employees permissions'))
       );
   }
 
   getEmployeePermissions(id: number): Observable<EmployeePermissions> {
-    const url = `${this.employeeAccountURL}/?id=${id}`;
+    const url = `${this.employeeAccountURL}/${id}`;
     return this.http.get<EmployeePermissions>(url)
       .pipe(
+        retry(3),
         tap(_ => console.log('retrived employee permissions'))
       );
   }
@@ -46,6 +48,7 @@ export class PermissionsService {
     const url = `${this.employeeAccountURL}/${employeeId}`;
     return this.http.delete<EmployeePermissions>(url, httpOptions)
       .pipe(
+        retry(3),
         tap(_ => console.log('deleted employee permissions'))
       );
   }
@@ -54,6 +57,7 @@ export class PermissionsService {
     const url = `${this.employeeAccountURL}/${employeeAccount.userLink}`;
     return this.http.put(url, employeeAccount, httpOptions)
       .pipe(
+        retry(3),
         tap(_ => console.log('updated employee permissions'))
       );
   }

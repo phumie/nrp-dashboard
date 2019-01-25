@@ -53,7 +53,6 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
             return (perm.userLink === id);
           });
           if (permission) {
-            console.log(permission);
             this.employeePermissionForm.patchValue(permission);
           }
         });

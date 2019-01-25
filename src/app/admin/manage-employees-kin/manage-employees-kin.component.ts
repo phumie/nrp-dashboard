@@ -31,7 +31,7 @@ export class ManageEmployeesKinComponent implements OnInit {
       alternativeNumber: ['', Validators.required],
       physicalAddress: ['', Validators.required],
       postalAddress: ['', Validators.required],
-      idNumber: ['', Validators.required]
+      said: ['', Validators.required]
     });
 
     const id = +this.route.snapshot.paramMap.get('id');
@@ -56,11 +56,12 @@ export class ManageEmployeesKinComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     if (this.employeeKinForm.invalid) {
+      console.log('failed');
       return ;
     }
 
     const employeeId = +this.route.snapshot.paramMap.get('id');
-    if (employeeId) {
+    if (employeeId && this.employeeKinId) {
 
       const employeeKin: EmployeeKin = {
         firstName: this.form.firstName.value,
@@ -69,16 +70,18 @@ export class ManageEmployeesKinComponent implements OnInit {
         alternativeNumber: this.form.alternativeNumber.value,
         physicalAddress: this.form.physicalAddress.value,
         postalAddress: this.form.postalAddress.value,
-        idNumber: this.form.idNumber.value,
+        said: this.form.said.value,
         employeeId: employeeId,
         employeeKinId: this.employeeKinId
       };
+      console.log(employeeKin);
 
       this.employeeKinService.updateEmployeeKin(employeeKin)
         .subscribe(
           data => console.log(data),
           error => console.log(error)
         );
+
     } else {
 
       const employeeKin: EmployeeKin = {
@@ -88,8 +91,8 @@ export class ManageEmployeesKinComponent implements OnInit {
         alternativeNumber: this.form.alternativeNumber.value,
         physicalAddress: this.form.physicalAddress.value,
         postalAddress: this.form.postalAddress.value,
-        idNumber: this.form.idNumber.value,
-        employeeId: employeeId
+        said: this.form.said.value,
+        employeeId: employeeId ? employeeId : this.employee.employeeId
       };
 
       this.employeeKinService.addEmployeeKin(employeeKin)

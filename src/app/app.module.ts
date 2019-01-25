@@ -1,15 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ProjectsModule } from './projects/projects.module';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import {AdminModule} from './admin/admin.module';
-import {RfqsModule} from './rfqs/rfqs.module';
-import {QuotesModule} from './quotes/quotes.module';
-import {FinanceModule} from './finance/finance.module';
-import {ReportsModule} from './reports/reports.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -35,15 +31,15 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
     AppRoutingModule,
   ],
-//   exports: [
-// BaseTemplateComponent
-//   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

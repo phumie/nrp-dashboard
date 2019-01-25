@@ -7,7 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EmployeeKin } from 'src/app/classes/employee/employee-kin';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json' }),
+  withCredentials: true
 };
 
 @Injectable({
@@ -28,7 +29,7 @@ export class KinService {
   }
 
   getEmployeeKin(id: number): Observable<EmployeeKin> {
-    const url = `${this.employeeURL}/?id=${id}`;
+    const url = `${this.employeeURL}/${id}`;
     return this.http.get<EmployeeKin>(url)
       .pipe(
         retry(3),
@@ -44,8 +45,8 @@ export class KinService {
       );
   }
 
-  deleteEmployeeKin(employeeID: number): Observable<EmployeeKin> {
-    const url = `${this.employeeURL}/${employeeID}`;
+  deleteEmployeeKin(employeeKinId: number): Observable<EmployeeKin> {
+    const url = `${this.employeeURL}/${employeeKinId}`;
     return this.http.delete<EmployeeKin>(url, httpOptions)
       .pipe(
         retry(3),
@@ -54,7 +55,7 @@ export class KinService {
   }
 
   updateEmployeeKin(employeeKin: EmployeeKin): Observable<any> {
-    const url = `${this.employeeURL}/${employeeKin.employeeId}`;
+    const url = `${this.employeeURL}/${employeeKin.employeeKinId}`;
     return this.http.put(url, employeeKin, httpOptions)
       .pipe(
         retry(3),

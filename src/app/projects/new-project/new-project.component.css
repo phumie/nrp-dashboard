@@ -9,3 +9,7 @@
     border-radius: 2px;
     color: white;
 }
+
+button {
+    cursor: pointer;
+}

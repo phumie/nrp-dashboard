@@ -6,8 +6,7 @@ import { ProjectViewComponent } from './project-view/project-view.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { AuthGuard } from '../guard/auth.guard';
 // import { BaseTemplateComponent } from '../base-template/base-template.component';
-
-
+import { ViewTimelineComponent } from './view-timeline/view-timeline.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +18,8 @@ const routes: Routes = [
         children: [
           {path: 'new-project', component: NewProjectComponent},
           { path: ':id', component: ProjectViewComponent},
-          { path: '', component: ProjectListComponent }
+          {path: 'view-timeline', component: ViewTimelineComponent},
+          { path: '', component: ProjectListComponent }          
         ],
       }
     ]

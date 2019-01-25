@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DefaultsComponent } from './defaults.component';
+import { SnagsComponent } from './snags.component';
 
-describe('DefaultsComponent', () => {
-  let component: DefaultsComponent;
-  let fixture: ComponentFixture<DefaultsComponent>;
+describe('SnagsComponent', () => {
+  let component: SnagsComponent;
+  let fixture: ComponentFixture<SnagsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DefaultsComponent ]
+      declarations: [ SnagsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DefaultsComponent);
+    fixture = TestBed.createComponent(SnagsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

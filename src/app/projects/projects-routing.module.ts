@@ -14,12 +14,24 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        canActivateChild: [AuthGuard],
+        // canActivateChild: [AuthGuard],
         children: [
-          {path: 'new-project', component: NewProjectComponent},
-          { path: ':id', component: ProjectViewComponent},
-          {path: 'view-timeline', component: ViewTimelineComponent},
-          { path: '', component: ProjectListComponent }          
+          {
+            path: 'new-project',
+            component: NewProjectComponent
+          },
+          {
+            path: 'view-timeline',
+            component: ViewTimelineComponent
+          },
+          {
+            path: ':id',
+            component: ProjectViewComponent
+          },
+          {
+            path: '',
+            component: ProjectListComponent
+          }
         ],
       }
     ]

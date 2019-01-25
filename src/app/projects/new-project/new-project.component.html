@@ -89,13 +89,13 @@
                     <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Project Name</label>
                             <div class="col-sm-10">
-                                <input type="text" formControlName="projectName" class="form-control" placeholder="Project Name">
+                                <input type="text" formControlName="projectName" class="form-control" placeholder="Project Name" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Client Name</label>
                             <div class="col-sm-10">
-                                <select formControlName="clientId" class="form-control selectpicker" id="select-client" data-live-search="true">
+                                <select formControlName="clientId" class="form-control selectpicker" id="select-client" data-live-search="true" required>
                                     <option [value]="null">Select Client</option>
                                     <option *ngFor="let client of clients" [value]="client.clientId">{{client.clientName}}</option>
                                 </select>
@@ -104,19 +104,19 @@
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Facility</label>
                             <div class="col-sm-10">
-                            <input type="text" formControlName="facility" class="form-control" placeholder="Facility">
+                            <input type="text" formControlName="facility" class="form-control" placeholder="Facility" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Description</label>
                             <div class="col-sm-10">
-                                <input type="text" formControlName="description" class="form-control" placeholder="Description">
+                                <input type="text" formControlName="description" class="form-control" placeholder="Description" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label  class="col-sm-2 col-form-label">Creation Date</label>
                             <div class="col-sm-10">
-                                <input type="date" formControlName="creationDate" class="form-control">
+                                <input type="date" formControlName="creationDate" class="form-control" required>
                             </div>
                         </div>
                     <div class="form-group row">

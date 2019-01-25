@@ -53,8 +53,14 @@ export class NewProjectComponent implements OnInit {
     };
     this.projectService.addProject(project)
       .subscribe(
-        data => console.log(data),
-        error => console.log(error)
+        data => {
+          alert("Project added successfully"),
+          window.location.reload()
+        },
+        error => {
+          alert("Error adding new project. Please try again."),
+          window.location.reload()
+        }
       );
   }
 

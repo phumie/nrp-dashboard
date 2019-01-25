@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DurationComponent } from './duration.component';
+import { ViewTimelineComponent } from './view-timeline.component';
 
-describe('DurationComponent', () => {
-  let component: DurationComponent;
-  let fixture: ComponentFixture<DurationComponent>;
+describe('ViewTimelineComponent', () => {
+  let component: ViewTimelineComponent;
+  let fixture: ComponentFixture<ViewTimelineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DurationComponent ]
+      declarations: [ ViewTimelineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DurationComponent);
+    fixture = TestBed.createComponent(ViewTimelineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

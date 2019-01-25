@@ -39,7 +39,6 @@ export class ManageEmployeesAccountComponent implements OnInit {
             return (acc.employeeId === id);
           });
           if (account) {
-            console.log(account);
             this.accountId = account.employeeAccountsId;
             this.employeeAccountForm.patchValue(account);
           }
@@ -59,7 +58,6 @@ export class ManageEmployeesAccountComponent implements OnInit {
     }
 
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(this.accountId);
     if (id && this.accountId) {
 
       const employeeAccount: EmployeeAccount = {

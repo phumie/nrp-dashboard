@@ -27,7 +27,7 @@ export class ContactService {
   }
 
   getClientContact(id: number): Observable<Contact> {
-    const url = `${this.clientURL}/?id=${id}`;
+    const url = `${this.clientURL}/${id}`;
     return this.http.get<Contact>(url)
       .pipe(
         tap(_ => console.log('retrived client contact'))

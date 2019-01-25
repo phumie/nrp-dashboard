@@ -29,7 +29,7 @@ export class KinService {
   }
 
   getEmployeeKin(id: number): Observable<EmployeeKin> {
-    const url = `${this.employeeURL}/?id=${id}`;
+    const url = `${this.employeeURL}/${id}`;
     return this.http.get<EmployeeKin>(url)
       .pipe(
         retry(3),

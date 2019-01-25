@@ -28,7 +28,7 @@ export class PermissionsService {
   }
 
   getEmployeePermissions(id: number): Observable<EmployeePermissions> {
-    const url = `${this.employeeAccountURL}/?id=${id}`;
+    const url = `${this.employeeAccountURL}/${id}`;
     return this.http.get<EmployeePermissions>(url)
       .pipe(
         tap(_ => console.log('retrived employee permissions'))

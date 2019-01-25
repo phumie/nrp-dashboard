@@ -27,7 +27,7 @@ export class AccountService {
   }
 
   getEmployeeAccount(id: number): Observable<EmployeeAccount> {
-    const url = `${this.employeeAccountURL}/?id=${id}`;
+    const url = `${this.employeeAccountURL}/${id}`;
     return this.http.get<EmployeeAccount>(url)
       .pipe(
         tap(_ => console.log('retrived employee account'))

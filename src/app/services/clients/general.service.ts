@@ -28,7 +28,7 @@ export class GeneralServiceClient {
   }
 
   getClient(id: number): Observable<Client> {
-    const url = `${this.clientURL}/?id=${id}`;
+    const url = `${this.clientURL}/${id}`;
     return this.http.get<Client>(url)
       .pipe(
         tap(_ => console.log('retrived client'))

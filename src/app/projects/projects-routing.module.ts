@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        // canActivateChild: [AuthGuard],
+        canActivateChild: [AuthGuard],
         children: [
           {
             path: 'new-project',

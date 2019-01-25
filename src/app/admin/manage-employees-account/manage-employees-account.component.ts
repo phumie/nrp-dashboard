@@ -80,7 +80,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
         bankName: this.form.bankName.value,
         accountNumber: this.form.accountNumber.value,
         branchCode: this.form.branchCode.value,
-        employeeId: this.employee.employeeId
+        employeeId: id ? id : this.employee.employeeId
       };
 
       this.accountService.addEmployeeAccount(employeeAccount)

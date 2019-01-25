@@ -90,7 +90,7 @@ export class ManageEmployeesKinComponent implements OnInit {
         physicalAddress: this.form.physicalAddress.value,
         postalAddress: this.form.postalAddress.value,
         said: this.form.idNumber.value,
-        employeeId: employeeId
+        employeeId: employeeId ? employeeId : this.employee.employeeId
       };
 
       this.employeeKinService.addEmployeeKin(employeeKin)

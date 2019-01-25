@@ -95,7 +95,7 @@ export class ManageClientsContactComponent implements OnInit {
         telNumber: telNumber,
         email: email,
         date: date,
-        clientId: this.client.clientId
+        clientId: clientId ? clientId : this.client.clientId
       };
       this.clientContactService.addClientContact(contact)
         .subscribe(

@@ -1,5 +1,5 @@
 h5 {
-    margin: 10px;
+    margin: 20px;
 }
 
 .new {
@@ -24,12 +24,21 @@ h5 {
     color: white;
 }
 .date-gallery .card {
+    margin-top: 10px;
     border: none;
     display: block;
     max-height: 320px;
     overflow-y: auto;
+    overflow-x: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    /* -ms-overflow-style: -ms-autohiding-scrollbar; */
+}
+
+.date {
+    border: none;
+}
+
+.gallery {
+    border: none;
 }
 
 .snags-feedback {
@@ -43,7 +52,16 @@ h5 {
 }
 
 img {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     margin: 5px;
+}
+
+table {
+    width: 100%;
+}
+
+table th {
+    background-color: rgb(42, 43, 43);
+    color: white;
 }

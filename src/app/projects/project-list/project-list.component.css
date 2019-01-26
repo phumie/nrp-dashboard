@@ -101,6 +101,17 @@ button a {
     color: #FFFDFD;
 }
 
+/* table */
+
+table {
+    width: 100%;
+}
+
+table th {
+    background-color: rgb(42, 43, 43);
+    color: white;
+}
+
 .table-wrapper-scroll-y {
     position: relative;
     top: 10px;

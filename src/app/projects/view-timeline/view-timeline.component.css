@@ -1,3 +1,7 @@
+h5 {
+    margin: 10px;
+}
+
 .new {
     border: none;
     border-radius: 2px;
@@ -5,5 +9,40 @@
     background-color: #3A71B9;
     margin-bottom: 10px;
     cursor: pointer;
+    width: 100px;
+    float: right;
 }
 
+.date-gallery {
+    height: 400px;
+    padding: 10px;
+}
+
+.date-gallery button {
+    border: none;
+    background-color: #3A71B9;
+    color: white;
+}
+.date-gallery .card {
+    border: none;
+    display: block;
+    max-height: 320px;
+    overflow-y: auto;
+    /* -ms-overflow-style: -ms-autohiding-scrollbar; */
+}
+
+.snags-feedback {
+    margin: 10px;
+    border: none;
+}
+
+.card {
+    padding: 10px;
+    border-radius: 2px;
+}
+
+img {
+    height: 70px;
+    width: 70px;
+    margin: 5px;
+}

@@ -10,6 +10,8 @@ import { HttpModule } from '@angular/http';
 import { ViewTimelineComponent } from './view-timeline/view-timeline.component';
 import { SnagsComponent } from './view-timeline/snags/snags.component';
 import { GalleryComponent } from './view-timeline/gallery/gallery.component';
+import { ClientFeedbackComponent } from './view-timeline/client-feedback/client-feedback.component';
+import { NewUpdateComponent } from './view-timeline/new-update/new-update.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { GalleryComponent } from './view-timeline/gallery/gallery.component';
     ViewTimelineComponent,
     SnagsComponent,
     GalleryComponent,
+    ClientFeedbackComponent,
+    NewUpdateComponent,
   ],
   imports: [
     CommonModule,

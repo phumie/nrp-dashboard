@@ -23,6 +23,14 @@
 	float: right;
 }
 
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 455px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    margin-bottom: 10px;
+}
+
 /* mobile menu */
 
 .menu {

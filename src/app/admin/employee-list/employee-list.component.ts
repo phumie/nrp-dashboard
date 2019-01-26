@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GeneralService } from 'src/app/services/employees/general.service';
 import { Employee } from 'src/app/classes/employee/employee';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -14,6 +15,7 @@ export class EmployeeListComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private authService: AuthService,
     private employeeService: GeneralService
     ) { }
 
@@ -29,6 +31,12 @@ export class EmployeeListComponent implements OnInit {
   onSelect(employee: Employee): void {
     const url = `/admin/employees/edit/${employee.employeeId}`;
     this.router.navigate([url]);
+  }
+
+  logout(): void {
+    const employee = this.authService.currentUserValue;
+    this.authService.logout(employee.employeeId);
+    this.router.navigate(['/login']);
   }
 
 }

@@ -46,7 +46,7 @@
                     </a>
                     </li>
                     <li>
-                    <a routerLink="/login">
+                    <a (click)="logout()">
                         <img src="assets/logout.png" alt="">
                         <span>Signout</span>
                     </a>
@@ -71,17 +71,24 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Vat Number</th>
+                        <th scope="col">Client Name</th>
                         <th scope="col">Address</th>
+                        <th scope="col">Contact Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Cell Number</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let client of clients" (click)="onSelect(client)">
                         <td scope="row">{{client.clientId}}</td>
                         <th>{{client.clientName}}</th>
-                        <td>{{client.vatNumber}}</td>
-                        <td>{{client.address}}</td>
+                        <th>{{client.address}}</th>
+                        <td *ngIf="client.contact">{{client.contact.firstName}} {{client.contact.lastName}}</td>
+                        <td *ngIf="client.contact">{{client.contact.email}}</td>
+                        <td *ngIf="client.contact">{{client.contact.cell}}</td>
+                        <td *ngIf="!client.contact">n/a</td>
+                        <td *ngIf="!client.contact">n/a</td>
+                        <td *ngIf="!client.contact">n/a</td>
                     </tr>
                 </tbody>
             </table>

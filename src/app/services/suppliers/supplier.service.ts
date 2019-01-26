@@ -69,7 +69,7 @@ export class SupplierService {
 
   updateSupplier(supplier: Supplier): Observable<any> {
     const url = `${this.supplierURL}/${supplier.supplierId}`;
-    return this.http.put(this.supplierURL, supplier, httpOptions)
+    return this.http.put(url, supplier, httpOptions)
       .pipe(
         retry(3),
         tap(_ => console.log('updated supplier'))

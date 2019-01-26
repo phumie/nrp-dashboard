@@ -28,6 +28,7 @@ h5 {
     display: block;
     max-height: 320px;
     overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     /* -ms-overflow-style: -ms-autohiding-scrollbar; */
 }
 
@@ -42,7 +43,7 @@ h5 {
 }
 
 img {
-    height: 70px;
-    width: 70px;
+    height: 80px;
+    width: 80px;
     margin: 5px;
 }

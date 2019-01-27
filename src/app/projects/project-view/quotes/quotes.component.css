@@ -1,0 +1,24 @@
+/* quotes */
+
+table {
+    margin-top: 10px;
+}
+
+.search {
+    border: none;
+    background-color: white;
+    color: grey;
+}
+
+.input {
+    border-radius: 4px;
+    border: 1px solid #9E9E9E;
+}
+
+.upload {
+    background-color: #FF2C2C;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    width: 200px;
+}

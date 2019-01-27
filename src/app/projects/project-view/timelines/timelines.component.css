@@ -1,0 +1,28 @@
+.card {
+    border: none;
+    margin-top: 10px;
+}
+
+.card img {
+    /* float: left; */
+    height: 15px;
+    width: 15px;
+}
+
+/* progress bar */
+
+.progress {
+    animation:animate 1 4s;
+    position: relative;
+    height: 10px;
+    -webkit-animation:animate 1 4s;
+    border-radius: 2px;
+  }
+  @keyframes animate{
+    0%{
+      width: 0;
+    }
+    100%{
+      width: 100%;
+    }
+  }

@@ -2,17 +2,6 @@ h5 {
     margin: 20px;
 }
 
-.new {
-    border: none;
-    border-radius: 2px;
-    color: white;
-    background-color: #3A71B9;
-    margin-bottom: 10px;
-    cursor: pointer;
-    width: 100px;
-    float: right;
-}
-
 .date-gallery {
     height: 400px;
     padding: 10px;
@@ -42,26 +31,11 @@ h5 {
 }
 
 .snags-feedback {
-    margin: 10px;
+    margin-top: 10px;
     border: none;
 }
 
 .card {
     padding: 10px;
     border-radius: 2px;
-}
-
-img {
-    height: 60px;
-    width: 60px;
-    margin: 5px;
-}
-
-table {
-    width: 100%;
-}
-
-table th {
-    background-color: rgb(42, 43, 43);
-    color: white;
 }

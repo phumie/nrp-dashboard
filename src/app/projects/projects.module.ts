@@ -12,6 +12,14 @@ import { SnagsComponent } from './view-timeline/snags/snags.component';
 import { GalleryComponent } from './view-timeline/gallery/gallery.component';
 import { ClientFeedbackComponent } from './view-timeline/client-feedback/client-feedback.component';
 import { NewUpdateComponent } from './view-timeline/new-update/new-update.component';
+import { MenuSelectionComponent } from './project-view/menu-selection/menu-selection.component';
+import { PhaseDurationProgressComponent } from './project-view/phase-duration-progress/phase-duration-progress.component';
+import { TimelinesComponent } from './project-view/timelines/timelines.component';
+import { ResourcesComponent } from './project-view/resources/resources.component';
+import { QuotesComponent } from './project-view/quotes/quotes.component';
+import { FeedbackListComponent } from './view-timeline/feedback-list/feedback-list.component';
+import { SnagsListComponent } from './view-timeline/snags-list/snags-list.component';
+import { DateDetailsComponent } from './view-timeline/date-details/date-details.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +31,14 @@ import { NewUpdateComponent } from './view-timeline/new-update/new-update.compon
     GalleryComponent,
     ClientFeedbackComponent,
     NewUpdateComponent,
+    MenuSelectionComponent,
+    PhaseDurationProgressComponent,
+    TimelinesComponent,
+    ResourcesComponent,
+    QuotesComponent,
+    FeedbackListComponent,
+    SnagsListComponent,
+    DateDetailsComponent,
   ],
   imports: [
     CommonModule,

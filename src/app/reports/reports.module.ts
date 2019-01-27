@@ -12,9 +12,10 @@ import { FleetReportsComponent } from './fleet-reports/fleet-reports.component';
 import { FuelReportsComponent } from './fuel-reports/fuel-reports.component';
 import { ProjectFeedbackComponent } from './project-feedback/project-feedback.component';
 import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
+import { ViewReportComponent } from './project-reports/view-report/view-report.component';
 
 @NgModule({
-  declarations: [ReportsComponent, ProjectReportsComponent, FinancialReportsComponent, SiteReportsComponent, DailyReportsComponent, WeeklyReportsComponent, FleetReportsComponent, FuelReportsComponent, ProjectFeedbackComponent, ViewFeedbackComponent],
+  declarations: [ReportsComponent, ProjectReportsComponent, FinancialReportsComponent, SiteReportsComponent, DailyReportsComponent, WeeklyReportsComponent, FleetReportsComponent, FuelReportsComponent, ProjectFeedbackComponent, ViewFeedbackComponent, ViewReportComponent],
   imports: [
     CommonModule,
     ReportsRoutingModule

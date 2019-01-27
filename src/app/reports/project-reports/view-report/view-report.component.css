@@ -1,0 +1,40 @@
+.card {
+    border: none;
+    padding: 10px;
+}
+
+.card .updates {
+    height: calc(90% - 5px);
+    overflow-y: auto;
+}
+
+.card hr {
+    height: 2px;
+    background-color: rgb(146, 13, 13);
+    margin: 0px;
+}
+
+.card img {
+    height: 150px;
+    width: 150px;
+    float: left;
+}
+
+.card p {
+    float: left;
+}
+
+.card .content {
+    margin-left: 15px;
+    padding: 0px;
+}
+
+.generate {
+    border: none;
+    border-radius: 2px;
+    /* color: white; */
+    /* background-color: rgb(5, 38, 59); */
+    cursor: pointer;
+    margin: 5px;
+    width: 200px;
+}

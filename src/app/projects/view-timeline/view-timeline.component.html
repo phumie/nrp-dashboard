@@ -81,29 +81,7 @@
   <div class="row">
     <div class="col-sm-6">
         <div class="card date-gallery date">
-            <h6 align="center">DATE DETAILS</h6>
-            <div class="form-group">
-                <label class="col-form-label">Start Date</label>
-                <input type="date" class="form-control" id="start-date" placeholder="dd-mm-yyyy">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label">End Date</label>
-                <input type="date" class="form-control" id="end-date" placeholder="dd-mm-yyyy">
-            </div>
-            <div class="form-group">
-                <label class="col-form-label">Time Extension</label>
-                <input type="date" class="form-control" id="time-extension" placeholder="dd-mm-yyyy">
-            </div>
-
-            <div class="form-group">
-                <label class="col-form-label">Timeline Status</label>
-                <select class="form-control">
-                    <option>Select...</option>
-                    <option value="">In Progress</option>
-                    <option value="">Complete</option>
-                    <option value="">Overdue</option>
-                </select>
-            </div>
+            <app-date-details></app-date-details>
         </div>
     </div>
 
@@ -111,77 +89,19 @@
         <div class="card date-gallery gallery">
             <h6 align="center">PROJECT UPDATE GALLERY</h6>
             <button data-toggle="modal" data-target=".bd-new-update-modal-lg" data-toggle="modal" data-target=".bd-new-update-modal-lg">NEW UPDATE</button>
-            <div class="card images">
-                <div class="row">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                    <img src="assets/painting.jpg" data-toggle="modal" data-target=".bd-gallery-modal-lg" data-toggle="modal" data-target=".bd-gallery-modal-lg">
-                </div>
-            </div>            
+            <app-gallery style="margin-top:10px"></app-gallery>
         </div>
     </div>
 </div>
 
 <div class="card snags-feedback">
-    <h6 align="center">SNAGS</h6>
-    <div class="table-wrapper-scroll-y">
-        <table class="table-striped table-bordered" cellspacing="0">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Wrong restroom door handle.</td>
-                    <td>12-11-2018</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <button class="new" data-toggle="modal" data-target=".bd-new-default-modal-lg" data-toggle="modal" data-target=".bd-new-default-modal-lg">NEW SNAG</button>
+    <app-snags-list></app-snags-list>
 </div>
 
 <div class="card snags-feedback">
-    <h6 align="center">FEEDBACK</h6>
-    <div class="table-wrapper-scroll-y">
-        <table class="table-striped table-bordered" cellspacing="0">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Feedback Title</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td data-toggle="modal" data-target=".bd-feedback-modal-lg">Incomplete paint job.</td>
-                    <td data-toggle="modal" data-target=".bd-feedback-modal-lg">15-01-2018</td>
-                    <td data-toggle="modal" data-target=".bd-feedback-modal-lg">Complaint</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td data-toggle="modal" data-target=".bd-feedback-modal-lg">Incomplete paint job.</td>
-                    <td data-toggle="modal" data-target=".bd-feedback-modal-lg">15-01-2018</td>
-                    <td data-toggle="modal" data-target=".bd-feedback-modal-lg">Complaint</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <app-feedback-list></app-feedback-list>
 </div>
 
 <app-snags></app-snags>
 <app-client-feedback></app-client-feedback>
 <app-new-update></app-new-update>
-<app-gallery></app-gallery>

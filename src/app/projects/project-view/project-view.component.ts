@@ -15,27 +15,47 @@ export class ProjectViewComponent implements OnInit {
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
+    var options = false;
+
     $("#timeline-div").show();
     $("#resources-div").hide();
     $("#quotes-div").hide();
+    $("#menu").hide();
     
     $(document).ready(function(){
       $("#timeline").click(function(){
         $("#timeline-div").show();
         $("#resources-div").hide();
         $("#quotes-div").hide();
+        $("#menu").hide();
+        options = false;
       });
 
       $("#resources").click(function(){
         $("#resources-div").show();
         $("#timeline-div").hide();
         $("#quotes-div").hide();
+        $("#menu").hide();
+        options = false;
       });
 
       $("#quotes").click(function(){
         $("#quotes-div").show();
         $("#resources-div").hide();
         $("#timeline-div").hide();
+        $("#menu").hide();
+        options = false;
+      });
+
+      $("#options").click(function(){
+        if (options == false){
+          $("#menu").show();
+          options = true;
+        }  
+        else if (options == true){
+          $("#menu").hide();
+          options = false;
+        }  
       });
     });
     this.projectService.currentProject.subscribe(project => this.project = project);

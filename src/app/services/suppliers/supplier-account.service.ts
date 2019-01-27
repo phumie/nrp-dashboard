@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class SupplierAccountService {
 
-  private supplierUrl = `${environment.apiUrl}/supplierAccount`;
+  private supplierUrl = `${environment.apiUrl}/externalSupplierAccount`;
 
   constructor(private http: HttpClient) { }
 
@@ -40,7 +40,7 @@ export class SupplierAccountService {
     return this.http.post<SupplierAccount>(this.supplierUrl, supplier, httpOptions)
       .pipe(
         retry(3),
-        tap(_ => console.log('added supplier'))
+        tap(_ => console.log('added supplier account'))
       );
   }
 
@@ -49,16 +49,16 @@ export class SupplierAccountService {
     return this.http.delete<SupplierAccount>(url, httpOptions)
       .pipe(
         retry(3),
-        tap(_ => console.log('deleted supplier'))
+        tap(_ => console.log('deleted supplier account'))
       );
   }
 
   updateSupplierAccount(supplierAccount: SupplierAccount): Observable<any> {
     const url = `${this.supplierUrl}/${supplierAccount.supplierAccountId}`;
-    return this.http.put(this.supplierUrl, supplierAccount, httpOptions)
+    return this.http.put(url, supplierAccount, httpOptions)
       .pipe(
         retry(3),
-        tap(_ => console.log('updated supplier'))
+        tap(_ => console.log('updated supplier account'))
       );
   }
 }

@@ -5,6 +5,7 @@ import { ClientService } from 'src/app/services/clients/client.service';
 import { ContactService } from 'src/app/services/clients/contact.service';
 import { Contact } from 'src/app/classes/client/contact';
 import { ActivatedRoute } from '@angular/router';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-manage-clients-contact',
@@ -42,9 +43,10 @@ export class ManageClientsContactComponent implements OnInit {
             return (cnt.clientId === id);
           });
           if (contact) {
-            console.log(contact);
+            const date = formatDate(contact.date, 'yyyy-MM-dd', 'en-ZA');
             this.clientContactId = contact.clientContactInfoId;
             this.clientContactForm.patchValue(contact);
+            this.form.date.setValue(date);
           }
         });
     }
@@ -66,7 +68,7 @@ export class ManageClientsContactComponent implements OnInit {
     const cellNumber = this.form.cell.value;
     const telNumber = this.form.tell.value;
     const email = this.form.email.value;
-    const date = this.form.date.value;
+    const date: Date = this.form.date.value;
 
     if (clientId && this.clientContactId) {
 

@@ -5,6 +5,7 @@ import { Contact } from 'src/app/classes/client/contact';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { GeneralServiceClient } from 'src/app/services/clients/general.service';
+import { ContactService } from 'src/app/services/clients/contact.service';
 
 @Component({
   selector: 'app-client-list',
@@ -14,12 +15,13 @@ import { GeneralServiceClient } from 'src/app/services/clients/general.service';
 export class ClientListComponent implements OnInit {
 
   clients: Client[];
-  clientContact: Contact;
+  clientsContact: Contact[];
 
   constructor(
     private router: Router,
     private authService: AuthService,
-    private clientService: GeneralServiceClient
+    private clientService: GeneralServiceClient,
+    private clientContactService: ContactService
   ) { }
 
   ngOnInit() {
@@ -27,13 +29,29 @@ export class ClientListComponent implements OnInit {
   }
 
   getClients() {
-    this.clientService.getClients()
-      .subscribe(clients => this.clients = clients);
+    this.clientService.getClients().subscribe(clients => {
+      this.clientContactService.getClientsContact().subscribe(contacts => {
+        contacts.forEach(contact => {
+          clients.forEach(client => {
+            if (client.clientId === contact.clientId) {
+              client.contact = contact;
+            }
+          });
+        });
+        this.clients = clients;
+      });
+    });
   }
 
   onSelect(client: Client) {
     const url = `/admin/clients/edit/${client.clientId}`;
     this.router.navigate([url]);
+  }
+
+  logout(): void {
+    const employee = this.authService.currentUserValue;
+    this.authService.logout(employee.employeeId);
+    this.router.navigate(['/login']);
   }
 
 }

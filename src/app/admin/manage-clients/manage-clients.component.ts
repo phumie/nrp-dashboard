@@ -24,7 +24,6 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
     private router: Router,
     private authService: AuthService,
     private clientService: ClientService,
-    private clientGeneralService: GeneralServiceClient
     ) {
     this.subscription = this.clientService.getClient()
       .subscribe(client => {

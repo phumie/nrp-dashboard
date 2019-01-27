@@ -37,7 +37,6 @@ const routes: Routes = [
               }
             ]
           },
-          { path: 'employee-list', component: EmployeeListComponent },
           { path: '', component: EmployeeListComponent }
         ]
       },
@@ -57,7 +56,6 @@ const routes: Routes = [
               }
             ]
           },
-          { path: 'client-list', component: ClientListComponent },
           { path: '', component: ClientListComponent }
         ]
       },
@@ -77,7 +75,6 @@ const routes: Routes = [
               }
             ]
           },
-          { path: 'supplier-list', component: SupplierListComponent },
           { path: '', component: SupplierListComponent }
         ]
       }

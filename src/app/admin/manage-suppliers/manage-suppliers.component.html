@@ -46,7 +46,7 @@
                     </a>
                     </li>
                     <li>
-                    <a routerLink="/login">
+                    <a (click)="logout()">
                         <img src="assets/logout.png" alt="">
                         <span>Signout</span>
                     </a>
@@ -63,19 +63,19 @@
         <div class="form-group row">
             <label  class="col-sm-2 col-form-label">Business Name</label>
             <div class="col-sm-10">
-                <input type="text" formControlName="businessName" class="form-control" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && form.businessName.errors }">
+                <input type="text" formControlName="name" class="form-control" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && form.name.errors }">
             </div>
         </div>
         <div class="form-group row">
             <label  class="col-sm-2 col-form-label">Tell Number</label>
             <div class="col-sm-10">
-                <input type="number" formControlName="telephoneNumber" class="form-control" placeholder="Telephone No." [ngClass]="{ 'is-invalid': submitted && form.telephoneNumber.errors }">
+                <input type="number" formControlName="tell" class="form-control" placeholder="Telephone No." [ngClass]="{ 'is-invalid': submitted && form.tell.errors }">
             </div>
         </div>
         <div class="form-group row">
             <label  class="col-sm-2 col-form-label">Physical Address</label>
             <div class="col-sm-10">
-                <input type="text" formControlName="physicalAddress" class="form-control" placeholder="Physical Address" [ngClass]="{ 'is-invalid': submitted && form.physicalAddress.errors }">
+                <input type="text" formControlName="address" class="form-control" placeholder="Physical Address" [ngClass]="{ 'is-invalid': submitted && form.address.errors }">
             </div>
         </div>
         <div class="form-group row">
@@ -94,7 +94,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Account Number</label>
             <div class="col-sm-10">
-                <input type="number" formControlName="accountNumber" class="form-control" placeholder="Account Number" [ngClass]="{ 'is-invalid': submitted && form.accountNumber.errors }">
+                <input type="number" formControlName="bankAccount" class="form-control" placeholder="Account Number" [ngClass]="{ 'is-invalid': submitted && form.bankAccount.errors }">
             </div>
         </div>
         <div class="form-group row">

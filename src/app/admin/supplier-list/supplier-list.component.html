@@ -52,7 +52,7 @@
                     </a>
                     </li>
                     <li>
-                    <a routerLink="/login">
+                    <a (click)="logout()">
                         <img src="assets/logout.png" alt="">
                         <span>Signout</span>
                     </a>
@@ -94,7 +94,7 @@
         </div>
 
         <form>
-            <button type="button" class="add">
+            <button type="button" class="btn btn-primary btn-sm">
                 <a routerLink="/admin/suppliers/edit">ADD SUPPLIER</a>
             </button>
         </form>

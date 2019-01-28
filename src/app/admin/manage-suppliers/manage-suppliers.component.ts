@@ -7,6 +7,7 @@ import { SupplierAccount } from 'src/app/classes/supplier/supplier-account';
 import { SupplierAccountService } from 'src/app/services/suppliers/supplier-account.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { Employee } from 'src/app/classes/employee/employee';
 
 @Component({
   selector: 'app-manage-suppliers',
@@ -17,7 +18,9 @@ export class ManageSuppliersComponent implements OnInit {
 
   sending = false;
   deleting = false;
+  loaded = false;
   submitted = false;
+  employee: Employee;
   supplier: Supplier;
   supplierForm: FormGroup;
   supplierAccountId: number;
@@ -57,10 +60,15 @@ export class ManageSuppliersComponent implements OnInit {
               if (account) {
                 this.supplierAccountId = account.supplierAccountId;
                 this.supplierForm.patchValue(account);
+                this.loaded = true;
               }
             });
         });
+    } else {
+      this.loaded = true;
     }
+
+    this.employee = this.authService.currentUserValue;
   }
 
   get form() {

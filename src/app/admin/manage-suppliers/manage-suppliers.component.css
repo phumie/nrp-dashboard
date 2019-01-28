@@ -12,3 +12,10 @@ h6 {
     width: 170px;
     height: 45px;
 }
+
+.loader {
+    height: 200px;
+    position: relative;
+    left: 40%;
+    top: 190px;
+}

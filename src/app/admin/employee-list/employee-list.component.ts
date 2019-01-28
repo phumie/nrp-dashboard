@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class EmployeeListComponent implements OnInit {
 
   loaded = false;
+  user: Employee;
   employees: Employee[];
 
   constructor(
@@ -22,6 +23,7 @@ export class EmployeeListComponent implements OnInit {
 
   ngOnInit() {
     this.getEmployees();
+    this.user = this.authService.currentUserValue;
   }
 
   getEmployees(): void {

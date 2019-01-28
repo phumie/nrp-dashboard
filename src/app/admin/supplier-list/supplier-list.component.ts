@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SupplierService } from 'src/app/services/suppliers/supplier.service';
 import { Supplier } from 'src/app/classes/supplier/supplier';
 import { AuthService } from 'src/app/services/auth.service';
+import { Employee } from 'src/app/classes/employee/employee';
 
 @Component({
   selector: 'app-supplier-list',
@@ -12,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SupplierListComponent implements OnInit {
 
   loaded = false;
+  user: Employee;
   suppliers: Supplier[];
 
   constructor(
@@ -22,6 +24,7 @@ export class SupplierListComponent implements OnInit {
 
   ngOnInit() {
     this.getClient();
+    this.user = this.authService.currentUserValue;
   }
 
   getClient(): void {

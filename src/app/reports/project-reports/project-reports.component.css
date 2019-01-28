@@ -12,6 +12,10 @@ table th {
     color: white;
 }
 
+table td {
+    cursor: pointer;
+}
+
 .card {
     text-align: center;
     padding: 20px;

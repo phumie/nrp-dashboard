@@ -5,5 +5,5 @@ export class Client {
     clientName: string;
     vatNumber: string;
     address: string;
-    contact: Contact;
+    contact?: Contact;
 }

@@ -18,6 +18,7 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
   employeePermissionForm: FormGroup;
   permissionsId: number;
   submitted = false;
+  sending = false;
   loaded = false;
 
   constructor(
@@ -113,14 +114,22 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
       admin: admin
     };
 
+    this.sending = true;
     if (id && this.permissionsId) {
       employeePermissions.userLink = id;
       this.employeePermissionService.updateEmployeePermissions(employeePermissions)
-        .subscribe(data => console.log(data));
+        .subscribe(
+          _ => this.sending = false,
+          error => console.log(error));
     } else {
       employeePermissions.userLink = this.employee.employeeId;
       this.employeePermissionService.addEmployeePermissions(employeePermissions)
-      .subscribe();
+      .subscribe(
+        _ => this.sending = false,
+        error => {
+          this.sending = false;
+          console.log(error);
+        });
     }
 
   }

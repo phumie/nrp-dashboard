@@ -62,8 +62,10 @@ const routes: Routes = [
     path: 'client-projects',
     loadChildren : './client-projects/client-projects.module#ClientProjectsModule'
   },
-  // {path: 'new-feedback', loadChildren : './new-feedback/new-feedback.module#NewFeedbackModule'},
-  {path: 'client-dashboard', component: ClientDashboardComponent},
+  {
+    path: 'client-dashboard',
+    component: ClientDashboardComponent
+  },
   {
     path: '**',
     component: PageNotFoundComponent

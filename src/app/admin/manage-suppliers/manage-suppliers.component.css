@@ -5,8 +5,10 @@ h6 {
 
 .submit {
     width: 150px;
-    border: none;
-    background-color: #356196;
-    color: #EBEBEB;
-    border-radius: 2px;
+    height: 45px;
+}
+
+.delete {
+    width: 170px;
+    height: 45px;
 }

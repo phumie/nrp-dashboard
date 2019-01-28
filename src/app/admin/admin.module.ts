@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin/admin.component';
@@ -41,6 +42,7 @@ import { ManageClientsGeneralComponent } from './manage-clients-general/manage-c
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     AdminRoutingModule
   ]
 })

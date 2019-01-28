@@ -15,7 +15,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ManageEmployeesGeneralComponent implements OnInit {
 
+  loaded = false;
   submitted = false;
+  sending = false;
   employeeForm: FormGroup;
 
   constructor(
@@ -42,7 +44,10 @@ export class ManageEmployeesGeneralComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.employeeGeneralService.getEmployee(id)
-        .subscribe(emp => this.employeeForm.patchValue(emp));
+        .subscribe(emp => {
+          this.employeeForm.patchValue(emp);
+          this.loaded = true;
+        });
     }
 
     const user: Employee = this.authService.currentUserValue;
@@ -95,10 +100,17 @@ export class ManageEmployeesGeneralComponent implements OnInit {
       employeeId: id
     };
 
+    this.sending = true;
     this.employeeGeneralService.updateEmployee(employee)
       .subscribe(
-        data => this.employeeService.storeEmployee(data),
-        error => console.log(error)
+        data => {
+          this.employeeService.storeEmployee(data);
+          this.sending = false;
+        },
+        error => {
+          console.log(error);
+          this.sending = false;
+        }
       );
   }
 
@@ -115,10 +127,17 @@ export class ManageEmployeesGeneralComponent implements OnInit {
       email: this.form.email.value
     };
 
+    this.sending = true;
     this.employeeGeneralService.addEmployee(employee)
       .subscribe(
-        data => this.employeeService.storeEmployee(data),
-        error => console.log(error)
+        data => {
+          this.employeeService.storeEmployee(data);
+          this.sending = false;
+        },
+        error => {
+          console.log(error);
+          this.sending = false;
+        }
     );
   }
 }

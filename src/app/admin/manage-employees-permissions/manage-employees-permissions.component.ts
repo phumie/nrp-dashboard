@@ -18,6 +18,7 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
   employeePermissionForm: FormGroup;
   permissionsId: number;
   submitted = false;
+  loaded = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -66,6 +67,7 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
         .subscribe(permissions => {
           this.permissionsId = permissions.userLink;
           this.employeePermissionForm.patchValue(permissions);
+          this.loaded = true;
         });
     }
 

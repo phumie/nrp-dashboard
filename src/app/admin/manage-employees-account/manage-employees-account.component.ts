@@ -17,6 +17,8 @@ export class ManageEmployeesAccountComponent implements OnInit {
   @Input() employee: Employee;
   employeeAccountForm: FormGroup;
   submitted = false;
+  loaded = false;
+  submitting = false;
   accountId: number;
 
   constructor(
@@ -37,6 +39,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
     if (id) {
       this.accountService.getEmployeeAccounts()
         .subscribe(accounts => {
+          this.loaded = true;
           const account = accounts.find(acc => {
             return (acc.employeeId === id);
           });
@@ -81,10 +84,14 @@ export class ManageEmployeesAccountComponent implements OnInit {
         employeeAccountsId: this.accountId
       };
 
+      this.submitting = true;
       this.accountService.updateEmployeeAcccount(employeeAccount)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+          _ => this.submitting = false,
+          error => {
+            this.submitting = false;
+            console.log(error);
+          }
         );
 
     } else {
@@ -96,10 +103,17 @@ export class ManageEmployeesAccountComponent implements OnInit {
         employeeId: id ? id : this.employee.employeeId
       };
 
+      this.submitting = true;
       this.accountService.addEmployeeAccount(employeeAccount)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+          data => {
+            this.submitting = false;
+            console.log(data);
+          },
+          error => {
+            this.submitting = false;
+            console.log(error);
+          }
         );
 
     }

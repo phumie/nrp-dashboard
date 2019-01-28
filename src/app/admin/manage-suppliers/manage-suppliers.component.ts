@@ -16,6 +16,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ManageSuppliersComponent implements OnInit {
 
   submitted = false;
+  supplier: Supplier;
   supplierForm: FormGroup;
   supplierAccount: SupplierAccount;
 
@@ -44,6 +45,7 @@ export class ManageSuppliersComponent implements OnInit {
     if (id) {
       this.supplierService.getSupplier(id)
         .subscribe(supplier => {
+          this.supplier = supplier;
           this.supplierForm.patchValue(supplier);
           this.supplierAccountService.getSuppliersAccount()
             .subscribe(supplierAccounts => {
@@ -61,6 +63,15 @@ export class ManageSuppliersComponent implements OnInit {
 
   get form() {
     return this.supplierForm.controls;
+  }
+
+  deleteSupplier(): void {
+    if (this.supplier) {
+      this.supplierService.deleteSupplier(this.supplier.supplierId).subscribe(
+        _ => this.router.navigate(['/admin/supplers']),
+        error => console.log(error)
+      );
+    }
   }
 
   logout(): void {
@@ -95,6 +106,7 @@ export class ManageSuppliersComponent implements OnInit {
 
     this.supplierService.addSupplier(supplier)
       .subscribe(sup => {
+        this.supplier = sup;
         const supplierAccount: SupplierAccount = {
           referenceNumber: this.form.referenceNumber.value,
           bankName: this.form.bankName.value,

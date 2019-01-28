@@ -58,7 +58,7 @@
 </div>
 
 <div class="main-content">
-    <div class="container-fluid">
+    <div class="container-fluid" *ngIf="loaded">
         <h5>EMPLOYEES LIST</h5>
         <form>
             <input type="text"class="input"> 
@@ -91,5 +91,8 @@
                 <a routerLink="/admin/employees/edit">ADD EMPLOYEE</a>
             </button>
         </form>
+    </div>
+    <div *ngIf="!loaded" class="loader">
+        <mat-spinner></mat-spinner>
     </div>
 </div>

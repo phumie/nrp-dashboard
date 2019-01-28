@@ -21,3 +21,8 @@ h6 {
     position: relative;
     left: 10px;
 }
+
+mat-spinner {
+    width: 5px;
+    height: 5px;
+}

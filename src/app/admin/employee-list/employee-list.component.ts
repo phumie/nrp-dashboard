@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class EmployeeListComponent implements OnInit {
 
+  loaded = false;
   employees: Employee[];
 
   constructor(
@@ -25,7 +26,10 @@ export class EmployeeListComponent implements OnInit {
 
   getEmployees(): void {
       this.employeeService.getEmployees()
-        .subscribe(employees => this.employees = employees);
+        .subscribe(employees => {
+          this.employees = employees;
+          this.loaded = true;
+        });
   }
 
   onSelect(employee: Employee): void {

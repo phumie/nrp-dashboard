@@ -17,6 +17,8 @@ export class ManageEmployeesKinComponent implements OnInit {
   employeeKinForm: FormGroup;
   employeeKinId: number;
   submitted = false;
+  sending = false;
+  loaded = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -40,6 +42,7 @@ export class ManageEmployeesKinComponent implements OnInit {
     if (id) {
       this.employeeKinService.getEmployeesKin()
         .subscribe(kins => {
+          this.loaded = true;
           const kin = kins.find(k => {
             return (k.employeeId === id);
           });
@@ -92,10 +95,14 @@ export class ManageEmployeesKinComponent implements OnInit {
         employeeKinId: this.employeeKinId
       };
 
+      this.sending = true;
       this.employeeKinService.updateEmployeeKin(employeeKin)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+          _ => this.sending = false,
+          error => {
+            console.log(error);
+            this.sending = false;
+          }
         );
 
     } else {
@@ -111,10 +118,14 @@ export class ManageEmployeesKinComponent implements OnInit {
         employeeId: employeeId ? employeeId : this.employee.employeeId
       };
 
+      this.sending = true;
       this.employeeKinService.addEmployeeKin(employeeKin)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+          _ => this.sending = false,
+          error => {
+            console.log(error);
+            this.sending = false;
+          }
         );
     }
   }

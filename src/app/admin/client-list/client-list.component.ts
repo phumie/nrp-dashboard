@@ -14,6 +14,7 @@ import { ContactService } from 'src/app/services/clients/contact.service';
 })
 export class ClientListComponent implements OnInit {
 
+  loaded = false;
   clients: Client[];
   clientsContact: Contact[];
 
@@ -39,6 +40,7 @@ export class ClientListComponent implements OnInit {
           });
         });
         this.clients = clients;
+        this.loaded = true;
       });
     });
   }

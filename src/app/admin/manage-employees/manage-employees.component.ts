@@ -15,8 +15,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ManageEmployeesComponent implements OnInit, OnDestroy {
 
-  employee: Employee;
   allowed = false;
+  loading = false;
+  employee: Employee;
   subscription: Subscription;
 
   constructor(
@@ -49,6 +50,7 @@ export class ManageEmployeesComponent implements OnInit, OnDestroy {
 
   deleteEmployee(): void {
     if (this.employee) {
+      this.loading = true;
       this.employeeGeneralService.deleteEmployee(this.employee).subscribe(
         _ => this.router.navigate(['/admin/employees']),
         error => console.log(error)

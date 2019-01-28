@@ -1,40 +1,11 @@
-.card {
-    border: none;
-    padding: 10px;
-}
-
-.card .updates {
-    height: calc(90% - 5px);
-    overflow-y: auto;
-}
-
-.card hr {
-    height: 2px;
-    background-color: rgb(146, 13, 13);
-    margin: 0px;
-}
-
-.card img {
-    height: 150px;
-    width: 150px;
-    float: left;
-}
-
-.card p {
-    float: left;
-}
-
-.card .content {
-    margin-left: 15px;
-    padding: 0px;
-}
-
 .generate {
+    background-color: rgb(197, 35, 35);
     border: none;
     border-radius: 2px;
-    /* color: white; */
-    /* background-color: rgb(5, 38, 59); */
+    width: 150px;
+    color: rgb(245, 245, 245);
     cursor: pointer;
-    margin: 5px;
-    width: 200px;
+    margin:auto;
+    margin-top: 10px;
+    display:block;
 }

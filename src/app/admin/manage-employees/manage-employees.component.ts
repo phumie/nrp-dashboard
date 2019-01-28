@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { EmployeeService } from 'src/app/services/employees/employee.service';
 import { Employee } from 'src/app/classes/employee/employee';
@@ -16,10 +16,12 @@ import { AuthService } from 'src/app/services/auth.service';
 export class ManageEmployeesComponent implements OnInit, OnDestroy {
 
   employee: Employee;
+  allowed = false;
   subscription: Subscription;
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private authService: AuthService,
     private employeeService: EmployeeService,
     private employeeGeneralService: GeneralService
@@ -29,7 +31,16 @@ export class ManageEmployeesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.employeeGeneralService.getEmployee(id)
+        .subscribe(employee => this.employee = employee);
+    }
 
+    const user = this.authService.currentUserValue;
+    if (user.userRights.admin.delete) {
+      this.allowed = true;
+    }
   }
 
   ngOnDestroy() {
@@ -37,7 +48,12 @@ export class ManageEmployeesComponent implements OnInit, OnDestroy {
   }
 
   deleteEmployee(): void {
-    this.employeeGeneralService.deleteEmployee(this.employee).subscribe();
+    if (this.employee) {
+      this.employeeGeneralService.deleteEmployee(this.employee).subscribe(
+        _ => this.router.navigate(['/admin/employees']),
+        error => console.log(error)
+      );
+    }
   }
 
   logout(): void {

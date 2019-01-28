@@ -5,6 +5,7 @@ import { Employee } from 'src/app/classes/employee/employee';
 import { AccountService } from 'src/app/services/employees/account.service';
 import { EmployeeAccount } from 'src/app/classes/employee/employee-account';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-manage-employees-account',
@@ -20,6 +21,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private authService: AuthService,
     private formBuilder: FormBuilder,
     private accountService: AccountService
   ) { }
@@ -44,6 +46,17 @@ export class ManageEmployeesAccountComponent implements OnInit {
           }
         });
     }
+
+    const user: Employee = this.authService.currentUserValue;
+    if (user.userRights.admin.write === false) {
+      this.disableEdit();
+    }
+  }
+
+  disableEdit(): void {
+    this.form.bankName.disable();
+    this.form.accountNumber.disable();
+    this.form.branchCode.disable();
   }
 
   get form() {

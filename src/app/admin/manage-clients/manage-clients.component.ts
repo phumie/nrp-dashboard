@@ -5,7 +5,7 @@ import { ClientService } from 'src/app/services/clients/client.service';
 import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/classes/employee/employee';
 import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { GeneralServiceClient } from 'src/app/services/clients/general.service';
 
 @Component({
@@ -22,8 +22,10 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private authService: AuthService,
     private clientService: ClientService,
+    private clientGeneralService: GeneralServiceClient
     ) {
     this.subscription = this.clientService.getClient()
       .subscribe(client => {
@@ -33,10 +35,25 @@ export class ManageClientsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.employee = this.authService.currentUserValue;
+
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.clientGeneralService.getClient(id)
+        .subscribe(client => this.client = client);
+    }
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  deleteClient(): void {
+    if (this.client) {
+      this.clientGeneralService.deleteClient(this.client.clientId).subscribe(
+        _ => this.router.navigate(['/admin/clients']),
+        error => console.log(error)
+      );
+    }
   }
 
   logout(): void {

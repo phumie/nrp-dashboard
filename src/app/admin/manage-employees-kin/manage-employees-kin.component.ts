@@ -4,6 +4,7 @@ import { KinService } from 'src/app/services/employees/kin.service';
 import { Employee } from 'src/app/classes/employee/employee';
 import { EmployeeKin } from 'src/app/classes/employee/employee-kin';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-manage-employees-kin',
@@ -19,6 +20,7 @@ export class ManageEmployeesKinComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private authService: AuthService,
     private formBuilder: FormBuilder,
     private employeeKinService: KinService
   ) { }
@@ -47,6 +49,21 @@ export class ManageEmployeesKinComponent implements OnInit {
           }
         });
     }
+
+    const user: Employee = this.authService.currentUserValue;
+    if (user.userRights.admin.write === false) {
+      this.disableEdit();
+    }
+  }
+
+  disableEdit(): void {
+    this.form.firstName.disable();
+    this.form.lastName.disable();
+    this.form.contactNumber.disable();
+    this.form.alternativeNumber.disable();
+    this.form.physicalAddress.disable();
+    this.form.postalAddress.disable();
+    this.form.said.disable();
   }
 
   get form() {
@@ -74,7 +91,6 @@ export class ManageEmployeesKinComponent implements OnInit {
         employeeId: employeeId,
         employeeKinId: this.employeeKinId
       };
-      console.log(employeeKin);
 
       this.employeeKinService.updateEmployeeKin(employeeKin)
         .subscribe(

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Route, Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,7 @@ export class AdminGuard implements CanLoad {
     private authService: AuthService
     ) {}
 
-  canLoad(route: Route): boolean {
-    const url = `/${route.path}`;
+  canLoad(): boolean {
     const currentUser = this.authService.currentUserValue;
     if (currentUser) {
       if (currentUser.userRights) {

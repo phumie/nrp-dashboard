@@ -51,6 +51,8 @@ export class ManageEmployeesKinComponent implements OnInit {
             this.employeeKinId = kin.employeeKinId;
           }
         });
+    } else {
+      this.loaded = true;
     }
 
     const user: Employee = this.authService.currentUserValue;

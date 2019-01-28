@@ -5,7 +5,7 @@
             <input type="text" formControlName="firstName" class="form-control" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && form.firstName.errors }">
             <div *ngIf="form.firstName.errors?.required && form.firstName.touched" class="error">
                 *Required
-              </div>
+            </div>
         </div>
     </div>
     <div class="form-group row">

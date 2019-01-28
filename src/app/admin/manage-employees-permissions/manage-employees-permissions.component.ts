@@ -70,6 +70,8 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
           this.employeePermissionForm.patchValue(permissions);
           this.loaded = true;
         });
+    } else {
+      this.loaded = true;
     }
 
     const user: Employee = this.authService.currentUserValue;

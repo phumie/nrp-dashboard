@@ -48,6 +48,8 @@ export class ManageEmployeesAccountComponent implements OnInit {
             this.employeeAccountForm.patchValue(account);
           }
         });
+    } else {
+      this.loaded = true;
     }
 
     const user: Employee = this.authService.currentUserValue;

@@ -7,6 +7,7 @@ import { SupplierAccount } from 'src/app/classes/supplier/supplier-account';
 import { SupplierAccountService } from 'src/app/services/suppliers/supplier-account.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { Employee } from 'src/app/classes/employee/employee';
 
 @Component({
   selector: 'app-manage-suppliers',
@@ -15,9 +16,14 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ManageSuppliersComponent implements OnInit {
 
+  sending = false;
+  deleting = false;
+  loaded = false;
   submitted = false;
+  employee: Employee;
+  supplier: Supplier;
   supplierForm: FormGroup;
-  supplierAccount: SupplierAccount;
+  supplierAccountId: number;
 
   constructor(
     private router: Router,
@@ -44,6 +50,7 @@ export class ManageSuppliersComponent implements OnInit {
     if (id) {
       this.supplierService.getSupplier(id)
         .subscribe(supplier => {
+          this.supplier = supplier;
           this.supplierForm.patchValue(supplier);
           this.supplierAccountService.getSuppliersAccount()
             .subscribe(supplierAccounts => {
@@ -51,16 +58,39 @@ export class ManageSuppliersComponent implements OnInit {
                 return (acc.supplierId === id);
               });
               if (account) {
-                this.supplierAccount = account;
+                this.supplierAccountId = account.supplierAccountId;
                 this.supplierForm.patchValue(account);
+                this.loaded = true;
               }
             });
         });
+    } else {
+      this.loaded = true;
     }
+
+    this.employee = this.authService.currentUserValue;
   }
 
   get form() {
     return this.supplierForm.controls;
+  }
+
+  deleteSupplier(): void {
+    this.deleting = true;
+    if (this.supplier) {
+      this.supplierService.deleteSupplier(this.supplier.supplierId).subscribe(
+        _ => {
+          this.router.navigate(['/admin/suppliers']);
+          this.deleting = false;
+        },
+        error => {
+          console.log(error);
+          this.deleting = false;
+        }
+      );
+    } else {
+      this.deleting = false;
+    }
   }
 
   logout(): void {
@@ -93,8 +123,10 @@ export class ManageSuppliersComponent implements OnInit {
       email: this.form.email.value
     };
 
+    this.sending = true;
     this.supplierService.addSupplier(supplier)
       .subscribe(sup => {
+        this.supplier = sup;
         const supplierAccount: SupplierAccount = {
           referenceNumber: this.form.referenceNumber.value,
           bankName: this.form.bankName.value,
@@ -103,7 +135,17 @@ export class ManageSuppliersComponent implements OnInit {
           supplierId: sup.supplierId
         };
 
-        this.supplierAccountService.addSupplierAccount(supplierAccount).subscribe();
+        this.supplierAccountService.addSupplierAccount(supplierAccount).subscribe(
+          _ => this.sending = false,
+          error => {
+            this.sending = false;
+            console.log(error);
+          }
+        );
+      },
+      error => {
+        this.sending = false;
+        console.log(error);
       });
 
   }
@@ -117,8 +159,14 @@ export class ManageSuppliersComponent implements OnInit {
       email: this.form.email.value
     };
 
+    this.sending = true;
     this.supplierService.updateSupplier(supplier)
-      .subscribe(data => console.log(data));
+      .subscribe(
+        _ => this.sending = false,
+        error => {
+          this.sending = false;
+          console.log(error);
+        });
 
   }
 
@@ -128,14 +176,27 @@ export class ManageSuppliersComponent implements OnInit {
       bankName: this.form.bankName.value,
       bankAccount: this.form.bankAccount.value,
       branchCode: this.form.branchCode.value,
-      supplierId: id,
-      supplierAccountId: this.supplierAccount.supplierAccountId
+      supplierId: id
     };
 
-    if (this.supplierAccount.supplierAccountId) {
-      this.supplierAccountService.updateSupplierAccount(supplierAccount).subscribe();
+    this.sending = true;
+    if (this.supplierAccountId) {
+      supplierAccount.supplierAccountId = this.supplierAccountId;
+      this.supplierAccountService.updateSupplierAccount(supplierAccount).subscribe(
+        _ => this.sending = false,
+          error => {
+            this.sending = false;
+            console.log(error);
+          }
+      );
     } else {
-      this.supplierAccountService.addSupplierAccount(supplierAccount).subscribe();
+      this.supplierAccountService.addSupplierAccount(supplierAccount).subscribe(
+        _ => this.sending = false,
+          error => {
+            this.sending = false;
+            console.log(error);
+          }
+      );
     }
 
   }

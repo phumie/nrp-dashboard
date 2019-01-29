@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { GeneralServiceClient } from 'src/app/services/clients/general.service';
 import { ContactService } from 'src/app/services/clients/contact.service';
+import { Employee } from 'src/app/classes/employee/employee';
 
 @Component({
   selector: 'app-client-list',
@@ -14,7 +15,9 @@ import { ContactService } from 'src/app/services/clients/contact.service';
 })
 export class ClientListComponent implements OnInit {
 
+  loaded = false;
   clients: Client[];
+  employee: Employee;
   clientsContact: Contact[];
 
   constructor(
@@ -26,6 +29,7 @@ export class ClientListComponent implements OnInit {
 
   ngOnInit() {
     this.getClients();
+    this.employee = this.authService.currentUserValue;
   }
 
   getClients() {
@@ -39,6 +43,7 @@ export class ClientListComponent implements OnInit {
           });
         });
         this.clients = clients;
+        this.loaded = true;
       });
     });
   }

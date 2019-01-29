@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { BaseTemplateComponent } from './base-template/base-template.component';
 import { AdminTemplateComponent } from './admin-template/admin-template.component';
 import { AuthGuard } from './guard/auth.guard';
-import { AdminGuard } from './guard/admin.guard';
+import { AdminGuard } from './guard/admin/admin.guard';
 
 
 const routes: Routes = [
@@ -62,8 +62,10 @@ const routes: Routes = [
     path: 'client-projects',
     loadChildren : './client-projects/client-projects.module#ClientProjectsModule'
   },
-  // {path: 'new-feedback', loadChildren : './new-feedback/new-feedback.module#NewFeedbackModule'},
-  {path: 'client-dashboard', component: ClientDashboardComponent},
+  {
+    path: 'client-dashboard',
+    component: ClientDashboardComponent
+  },
   {
     path: '**',
     component: PageNotFoundComponent

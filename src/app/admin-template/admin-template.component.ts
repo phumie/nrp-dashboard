@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Employee } from '../classes/employee/employee';
 
 @Component({
   selector: 'app-admin-template',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminTemplateComponent implements OnInit {
 
-  constructor() { }
+  employee: Employee;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.employee = this.authService.currentUserValue;
   }
 
 }

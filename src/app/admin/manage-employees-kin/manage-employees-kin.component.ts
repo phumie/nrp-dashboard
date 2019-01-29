@@ -4,6 +4,7 @@ import { KinService } from 'src/app/services/employees/kin.service';
 import { Employee } from 'src/app/classes/employee/employee';
 import { EmployeeKin } from 'src/app/classes/employee/employee-kin';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-manage-employees-kin',
@@ -16,9 +17,12 @@ export class ManageEmployeesKinComponent implements OnInit {
   employeeKinForm: FormGroup;
   employeeKinId: number;
   submitted = false;
+  sending = false;
+  loaded = false;
 
   constructor(
     private route: ActivatedRoute,
+    private authService: AuthService,
     private formBuilder: FormBuilder,
     private employeeKinService: KinService
   ) { }
@@ -38,6 +42,7 @@ export class ManageEmployeesKinComponent implements OnInit {
     if (id) {
       this.employeeKinService.getEmployeesKin()
         .subscribe(kins => {
+          this.loaded = true;
           const kin = kins.find(k => {
             return (k.employeeId === id);
           });
@@ -46,7 +51,24 @@ export class ManageEmployeesKinComponent implements OnInit {
             this.employeeKinId = kin.employeeKinId;
           }
         });
+    } else {
+      this.loaded = true;
     }
+
+    const user: Employee = this.authService.currentUserValue;
+    if (user.userRights.admin.write === false) {
+      this.disableEdit();
+    }
+  }
+
+  disableEdit(): void {
+    this.form.firstName.disable();
+    this.form.lastName.disable();
+    this.form.contactNumber.disable();
+    this.form.alternativeNumber.disable();
+    this.form.physicalAddress.disable();
+    this.form.postalAddress.disable();
+    this.form.said.disable();
   }
 
   get form() {
@@ -74,12 +96,15 @@ export class ManageEmployeesKinComponent implements OnInit {
         employeeId: employeeId,
         employeeKinId: this.employeeKinId
       };
-      console.log(employeeKin);
 
+      this.sending = true;
       this.employeeKinService.updateEmployeeKin(employeeKin)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+          _ => this.sending = false,
+          error => {
+            console.log(error);
+            this.sending = false;
+          }
         );
 
     } else {
@@ -95,10 +120,14 @@ export class ManageEmployeesKinComponent implements OnInit {
         employeeId: employeeId ? employeeId : this.employee.employeeId
       };
 
+      this.sending = true;
       this.employeeKinService.addEmployeeKin(employeeKin)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+          _ => this.sending = false,
+          error => {
+            console.log(error);
+            this.sending = false;
+          }
         );
     }
   }

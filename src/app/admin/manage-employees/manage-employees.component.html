@@ -13,7 +13,7 @@
                     <img alt="image" src="assets/profile.png">
                     </div>
                     <div class="sidebar-user-details">
-                        <div class="user-name">Name & Surname</div>
+                        <div class="user-name">{{user.firstName}} {{user.lastName}}</div>
                         <div class="user-role">Role</div>
                       </div>
                 </div>
@@ -73,19 +73,22 @@
             <a class="nav-link" id="access-tab" data-toggle="tab" href="#access" role="tab" aria-controls="access" aria-selected="false">Access Rights</a>
         </li>
     </ul>
-    <div class="tab-content" id="myTabContent" style="margin-top: 10px; margin-left: 10px">
-        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
-            <app-manage-employees-general></app-manage-employees-general>
+    <div>
+        <div class="tab-content" id="myTabContent" style="margin-top: 10px; margin-left: 10px">
+            <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+                <app-manage-employees-general></app-manage-employees-general>
+            </div>
+            <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+                <app-manage-employees-account [employee]="employee"></app-manage-employees-account>
+            </div>
+            <div class="tab-pane fade" id="kin" role="tabpanel" aria-labelledby="kin-tab">
+                <app-manage-employees-kin [employee]="employee"></app-manage-employees-kin>
+            </div>
+            <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
+                <app-manage-employees-permissions [employee]="employee"></app-manage-employees-permissions>
+            </div>
         </div>
-        <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
-            <app-manage-employees-account [employee]="employee"></app-manage-employees-account>
-        </div>
-        <div class="tab-pane fade" id="kin" role="tabpanel" aria-labelledby="kin-tab">
-            <app-manage-employees-kin [employee]="employee"></app-manage-employees-kin>
-        </div>
-        <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
-            <app-manage-employees-permissions [employee]="employee"></app-manage-employees-permissions>
-        </div>
+        <button type="submit" [disabled]="!allowed || loading" id="deleteEmployee" class="btn btn-danger delete" (click)="deleteEmployee()"> DELETE EMPLOYEE</button>
+        <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
     </div>
-    <button type="submit" id="deleteEmployee" class="delete" (click)="deleteEmployee()"> DELETE EMPLOYEE</button>
 </div>

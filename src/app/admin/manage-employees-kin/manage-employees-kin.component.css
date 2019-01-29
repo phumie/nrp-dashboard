@@ -1,7 +1,11 @@
 .submit {
     width: 150px;
-    border: none;
-    background-color: #356196;
-    color: #EBEBEB;
-    border-radius: 2px;
+    height: 45px;
+}
+
+.loader {
+    height: 200px;
+    position: relative;
+    left: 40%;
+    top: 30px;
 }

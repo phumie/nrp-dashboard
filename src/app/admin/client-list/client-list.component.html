@@ -13,7 +13,7 @@
                     <img alt="image" src="assets/profile.png">
                     </div>
                     <div class="sidebar-user-details">
-                        <div class="user-name">Name & Surname</div>
+                        <div class="user-name">{{employee.firstName}} {{employee.lastName}}</div>
                         <div class="user-role">Role</div>
                       </div>
                 </div>
@@ -58,7 +58,7 @@
 </div>
 
 <div class="main-content">
-    <div class="container-fluid">
+    <div class="container-fluid" *ngIf="loaded">
         <h5>CLIENTS LIST</h5>
 
         <form>
@@ -99,5 +99,8 @@
                 <a routerLink="/admin/clients/edit">ADD CLIENT</a>
             </button>
         </form>
+    </div>
+    <div *ngIf="!loaded" class="loader">
+        <mat-spinner></mat-spinner>
     </div>
 </div>

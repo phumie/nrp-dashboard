@@ -2,3 +2,14 @@
     width: 150px;
     height: 45px;
 }
+
+.loader {
+    height: 200px;
+    position: relative;
+    left: 40%;
+    top: 30px;
+}
+
+.error {
+    color: red;
+}

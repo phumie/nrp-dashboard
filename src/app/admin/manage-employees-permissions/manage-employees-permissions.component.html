@@ -1,137 +1,137 @@
-<form [formGroup]="employeePermissionForm" (ngSubmit)="onSubmit()">
-    <div class="form-group row">
+<form *ngIf="loaded" [formGroup]="employeePermissionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group row" formGroupName="projects">
         <label class="col-sm-2 col-form-label"><b>PROJECTS</b></label>
         <div class="col-sm-10">
-            <input formControlName="projectsRead" class="form-check-input" type="checkbox">
+            <input formControlName="read" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Read
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="projectsWrite" class="form-check-input" type="checkbox">
+            <input formControlName="write" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Write
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="projectsDelete" class="form-check-input" type="checkbox">
+            <input formControlName="delete" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Delete
             </label>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" formGroupName="finance">
         <label class="col-sm-2 col-form-label"><b>FINANCE</b></label>
         <div class="col-sm-10">
-            <input formControlName="financeRead" class="form-check-input" type="checkbox">
+            <input formControlName="read" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Read
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="financeWrite" class="form-check-input" type="checkbox">
+            <input formControlName="write" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Write
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="financeDelete" class="form-check-input" type="checkbox">
+            <input formControlName="delete" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Delete
             </label>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" formGroupName="rfq">
         <label class="col-sm-2 col-form-label"><b>RFQs</b></label>
         <div class="col-sm-10">
-            <input formControlName="rfqRead" class="form-check-input" type="checkbox">
+            <input formControlName="read" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Read
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="rfqWrite" class="form-check-input" type="checkbox">
+            <input formControlName="write" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Write
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="rfqDelete" class="form-check-input" type="checkbox">
+            <input formControlName="delete" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Delete
             </label>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" formGroupName="quotes">
         <label class="col-sm-2 col-form-label"><b>QUOTES</b></label>
         <div class="col-sm-10">
-            <input formControlName="quotesRead" class="form-check-input" type="checkbox">
+            <input formControlName="read" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Read
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="quotesWrite" class="form-check-input" type="checkbox">
+            <input formControlName="write" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Write
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="quotesDelete" class="form-check-input" type="checkbox">
+            <input formControlName="delete" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Delete
             </label>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" formGroupName="reports">
         <label class="col-sm-2 col-form-label"><b>REPORTS</b></label>
         <div class="col-sm-10">
-            <input formControlName="reportsRead" class="form-check-input" type="checkbox">
+            <input formControlName="read" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Read
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="reportsWrite" class="form-check-input" type="checkbox">
+            <input formControlName="write" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Write
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="reportsDelete" class="form-check-input" type="checkbox">
+            <input formControlName="delete" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Delete
             </label>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" formGroupName="admin">
         <label class="col-sm-2 col-form-label"><b>ADMIN</b></label>
         <div class="col-sm-10">
-            <input formControlName="adminRead" class="form-check-input" type="checkbox">
+            <input formControlName="read" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Read
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="adminWrite" class="form-check-input" type="checkbox">
+            <input formControlName="write" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Write
             </label>
         </div>
         <label class="col-sm-2 col-form-label"></label>
         <div class="col-sm-10">
-            <input formControlName="adminDelete" class="form-check-input" type="checkbox">
+            <input formControlName="delete" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="gridCheck1">
                 Delete
             </label>
@@ -139,8 +139,12 @@
     </div>
     <div class="form-group row">
         <div class="col-sm-10">
-        <button type="submit" class="submit">Submit</button>
+            <button type="submit" [disabled]="sending" class="btn btn-primary submit">Submit</button>
+            <img *ngIf="sending" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
         </div>
     </div>
 </form>
 
+<div *ngIf="!loaded" class="loader">
+    <mat-spinner></mat-spinner>
+</div>

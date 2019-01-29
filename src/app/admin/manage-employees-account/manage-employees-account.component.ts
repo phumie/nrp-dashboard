@@ -5,6 +5,7 @@ import { Employee } from 'src/app/classes/employee/employee';
 import { AccountService } from 'src/app/services/employees/account.service';
 import { EmployeeAccount } from 'src/app/classes/employee/employee-account';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-manage-employees-account',
@@ -16,10 +17,13 @@ export class ManageEmployeesAccountComponent implements OnInit {
   @Input() employee: Employee;
   employeeAccountForm: FormGroup;
   submitted = false;
+  loaded = false;
+  submitting = false;
   accountId: number;
 
   constructor(
     private route: ActivatedRoute,
+    private authService: AuthService,
     private formBuilder: FormBuilder,
     private accountService: AccountService
   ) { }
@@ -35,6 +39,7 @@ export class ManageEmployeesAccountComponent implements OnInit {
     if (id) {
       this.accountService.getEmployeeAccounts()
         .subscribe(accounts => {
+          this.loaded = true;
           const account = accounts.find(acc => {
             return (acc.employeeId === id);
           });
@@ -43,7 +48,20 @@ export class ManageEmployeesAccountComponent implements OnInit {
             this.employeeAccountForm.patchValue(account);
           }
         });
+    } else {
+      this.loaded = true;
     }
+
+    const user: Employee = this.authService.currentUserValue;
+    if (user.userRights.admin.write === false) {
+      this.disableEdit();
+    }
+  }
+
+  disableEdit(): void {
+    this.form.bankName.disable();
+    this.form.accountNumber.disable();
+    this.form.branchCode.disable();
   }
 
   get form() {
@@ -68,10 +86,14 @@ export class ManageEmployeesAccountComponent implements OnInit {
         employeeAccountsId: this.accountId
       };
 
+      this.submitting = true;
       this.accountService.updateEmployeeAcccount(employeeAccount)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+          _ => this.submitting = false,
+          error => {
+            this.submitting = false;
+            console.log(error);
+          }
         );
 
     } else {
@@ -83,10 +105,17 @@ export class ManageEmployeesAccountComponent implements OnInit {
         employeeId: id ? id : this.employee.employeeId
       };
 
+      this.submitting = true;
       this.accountService.addEmployeeAccount(employeeAccount)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
+          data => {
+            this.submitting = false;
+            console.log(data);
+          },
+          error => {
+            this.submitting = false;
+            console.log(error);
+          }
         );
 
     }

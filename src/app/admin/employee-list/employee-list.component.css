@@ -39,3 +39,9 @@ button a {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     margin-bottom: 10px;
 }
+
+.loader {
+    position: relative;
+    left: 40%;
+    top: 200px;
+}

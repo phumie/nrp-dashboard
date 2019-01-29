@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { SupplierService } from 'src/app/services/suppliers/supplier.service';
 import { Supplier } from 'src/app/classes/supplier/supplier';
 import { AuthService } from 'src/app/services/auth.service';
-import { SupplierAccount } from 'src/app/classes/supplier/supplier-account';
-import { SupplierAccountService } from 'src/app/services/suppliers/supplier-account.service';
+import { Employee } from 'src/app/classes/employee/employee';
 
 @Component({
   selector: 'app-supplier-list',
@@ -13,6 +12,8 @@ import { SupplierAccountService } from 'src/app/services/suppliers/supplier-acco
 })
 export class SupplierListComponent implements OnInit {
 
+  loaded = false;
+  user: Employee;
   suppliers: Supplier[];
 
   constructor(
@@ -23,11 +24,15 @@ export class SupplierListComponent implements OnInit {
 
   ngOnInit() {
     this.getClient();
+    this.user = this.authService.currentUserValue;
   }
 
   getClient(): void {
     this.supplierService.getSuppliers()
-      .subscribe(suppliers => this.suppliers = suppliers);
+      .subscribe(suppliers => {
+        this.suppliers = suppliers;
+        this.loaded = true;
+      });
   }
 
   onSelect(supplier: Supplier): void {

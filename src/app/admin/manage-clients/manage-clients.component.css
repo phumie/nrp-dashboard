@@ -58,9 +58,6 @@ td {
 }
 
 .delete {
-    width: 150px;
-    border: none;
-    background-color: #FC3636;
-    color: #EBEBEB;
-    border-radius: 2PX;
+    width: 170px;
+    height: 45px;
 }

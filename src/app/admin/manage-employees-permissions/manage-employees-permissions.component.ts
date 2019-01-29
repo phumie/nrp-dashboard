@@ -5,6 +5,7 @@ import { Employee } from 'src/app/classes/employee/employee';
 import { Permissions } from 'src/app/classes/permissions';
 import { EmployeePermissions } from 'src/app/classes/employee/employee-permissions';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-manage-employees-permissions',
@@ -15,48 +16,77 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
 
   @Input() employee: Employee;
   employeePermissionForm: FormGroup;
+  permissionsId: number;
   submitted = false;
+  sending = false;
+  loaded = false;
 
   constructor(
     private route: ActivatedRoute,
+    private authService: AuthService,
     private formBuilder: FormBuilder,
     private employeePermissionService: PermissionsService
   ) { }
 
   ngOnInit() {
     this.employeePermissionForm = this.formBuilder.group({
-      projectsRead: [false],
-      projectsWrite: [false],
-      projectsDelete: [false],
-      financeRead: [false],
-      financeWrite: [false],
-      financeDelete: [false],
-      rfqRead: [false],
-      rfqWrite: [false],
-      rfqDelete: [false],
-      quotesRead: [false],
-      quotesWrite: [false],
-      quotesDelete: [false],
-      reportsRead: [false],
-      reportsWrite: [false],
-      reportsDelete: [false],
-      adminRead: [false],
-      adminWrite: [false],
-      adminDelete: [false],
+      projects: this.formBuilder.group({
+        read: [false],
+        write: [false],
+        delete: [false]
+      }),
+      finance: this.formBuilder.group({
+        read: [false],
+        write: [false],
+        delete: [false]
+      }),
+      rfq: this.formBuilder.group({
+        read: [false],
+        write: [false],
+        delete: [false]
+      }),
+      quotes: this.formBuilder.group({
+        read: [false],
+        write: [false],
+        delete: [false]
+      }),
+      reports: this.formBuilder.group({
+        read: [false],
+        write: [false],
+        delete: [false]
+      }),
+      admin: this.formBuilder.group({
+        read: [false],
+        write: [false],
+        delete: [false]
+      })
     });
 
     const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.employeePermissionService.getEmployeesPermissions()
+      this.employeePermissionService.getEmployeePermissions(id)
         .subscribe(permissions => {
-          const permission = permissions.find(perm => {
-            return (perm.userLink === id);
-          });
-          if (permission) {
-            this.employeePermissionForm.patchValue(permission);
-          }
+          this.permissionsId = permissions.userLink;
+          this.employeePermissionForm.patchValue(permissions);
+          this.loaded = true;
         });
+    } else {
+      this.loaded = true;
     }
+
+    const user: Employee = this.authService.currentUserValue;
+    if (user.userRights.admin.write === false) {
+      this.disableEdit();
+    }
+  }
+
+  disableEdit(): void {
+    this.form.projects.disable();
+    this.form.finance.disable();
+    this.form.rfq.disable();
+    this.form.quotes.disable();
+    this.form.reports.disable();
+    this.form.admin.disable();
   }
 
   get form() {
@@ -69,79 +99,39 @@ export class ManageEmployeesPermissionsComponent implements OnInit {
       return ;
     }
 
-    const projectsRead = this.form.projectsRead.value;
-    const projectsWrite = this.form.projectsWrite.value;
-    const projectsDelete = this.form.projectsDelete.value;
-    const financeRead = this.form.financeRead.value;
-    const financeWrite = this.form.financeWrite.value;
-    const financeDelete = this.form.financeDelete.value;
-    const rfqRead = this.form.rfqRead.value;
-    const rfqWrite = this.form.rfqWrite.value;
-    const rfqDelete = this.form.rfqDelete.value;
-    const quotesRead = this.form.quotesRead.value;
-    const quotesWrite = this.form.quotesWrite.value;
-    const quotesDelete = this.form.quotesDelete.value;
-    const reportsRead = this.form.reportsRead.value;
-    const reportsWrite = this.form.reportsWrite.value;
-    const reportsDelete = this.form.reportsDelete.value;
-    const adminRead = this.form.adminRead.value;
-    const adminWrite = this.form.adminWrite.value;
-    const adminDelete = this.form.adminDelete.value;
-    const projects: Permissions = {
-      read: projectsRead,
-      write: projectsWrite,
-      delete: projectsDelete
-    };
-    const finance: Permissions = {
-      read: financeRead,
-      write: financeWrite,
-      delete: financeDelete
-    };
-    const rfq: Permissions = {
-      read: rfqRead,
-      write: rfqWrite,
-      delete: rfqDelete
-    };
-    const quotes: Permissions = {
-      read: quotesRead,
-      write: quotesWrite,
-      delete: quotesDelete
-    };
-    const reports: Permissions = {
-      read: reportsRead,
-      write: reportsWrite,
-      delete: reportsDelete
-    };
-    const admin: Permissions = {
-      read: adminRead,
-      write: adminWrite,
-      delete: adminDelete
-    };
+    const projects: Permissions = this.form.projects.value;
+    const finance: Permissions = this.form.finance.value;
+    const rfqs: Permissions = this.form.rfq.value;
+    const quotes: Permissions = this.form.quotes.value;
+    const reports: Permissions = this.form.reports.value;
+    const admin: Permissions = this.form.admin.value;
 
     const id = +this.route.snapshot.paramMap.get('id');
     const employeePermissions: EmployeePermissions = {
       projects: projects,
       finance: finance,
-      rfq: rfq,
+      rfq: rfqs,
       quotes: quotes,
       reports: reports,
-      admin: admin,
-      userLink: this.employee.employeeId,
+      admin: admin
     };
 
-    if (id) {
+    this.sending = true;
+    if (id && this.permissionsId) {
+      employeePermissions.userLink = id;
       this.employeePermissionService.updateEmployeePermissions(employeePermissions)
         .subscribe(
-          data => console.log(data),
-          error => console.log(error)
-        );
+          _ => this.sending = false,
+          error => console.log(error));
     } else {
+      employeePermissions.userLink = this.employee.employeeId;
       this.employeePermissionService.addEmployeePermissions(employeePermissions)
       .subscribe(
-        data => console.log(data),
-        error => console.log(error)
-      );
-
+        _ => this.sending = false,
+        error => {
+          this.sending = false;
+          console.log(error);
+        });
     }
 
   }

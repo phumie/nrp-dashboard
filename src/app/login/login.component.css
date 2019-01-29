@@ -66,6 +66,12 @@
       text-decoration: none;
       color: white;
   }
+
+ a p {
+    text-decoration: none;
+    margin: 10px;
+    color: rgb(75, 147, 180);
+  }
   
   input {
     background-color: #f6f6f6;

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Employee } from 'src/app/classes/employee/employee';
 
 @Component({
   selector: 'app-view-report',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewReportComponent implements OnInit {
 
-  constructor() { }
+  date: Date;
+  employee: Employee;
+  month = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'];
+
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+    this.date = new Date();
+    this.employee = this.authService.currentUserValue;
+  }
+
+  downloadPDF(): void {
   }
 
 }

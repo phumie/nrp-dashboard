@@ -15,11 +15,9 @@ import { ProjectReportsComponent } from './project-reports/project-reports.compo
 const routes: Routes = [
   {
     path: '',
-    // canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        // canActivateChild: [AuthGuard],
         children: [
           {
             path: 'project-reports',

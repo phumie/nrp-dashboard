@@ -15,6 +15,7 @@ import { BaseTemplateComponent } from './base-template/base-template.component';
 import { AdminTemplateComponent } from './admin-template/admin-template.component';
 import { ClientTemplateComponent } from './client-template/client-template.component';
 import { HttpModule } from '@angular/http';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { HttpModule } from '@angular/http';
     BaseTemplateComponent,
     AdminTemplateComponent,
     ClientTemplateComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

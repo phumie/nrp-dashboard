@@ -73,7 +73,7 @@
         </form>
 
         <div class="table-wrapper-scroll-y">
-          <table class="table table-striped table-bordered" cellspacing="0" style="margin-top:10px">
+          <table class="table-striped table-bordered" cellspacing="0" style="margin-top:10px">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -84,7 +84,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let supplier of suppliers" (click)="onSelect(supplier)">
-                    <th scope="row">{{supplier.supplierId}}</th>
+                    <td scope="row">{{supplier.supplierId}}</td>
                     <td>{{supplier.name}}</td>
                     <td>{{supplier.tell}}</td>
                     <td>{{supplier.email}}</td>
@@ -94,7 +94,7 @@
         </div>
 
         <form>
-            <button type="button" class="btn btn-primary btn-sm">
+            <button type="button" class="add">
                 <a routerLink="/admin/suppliers/edit">ADD SUPPLIER</a>
             </button>
         </form>

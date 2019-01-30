@@ -67,7 +67,7 @@
         </form>
 
         <div class="table-wrapper-scroll-y">
-            <table class="table table-hover" class="table table-striped table-bordered" cellspacing="0" style="margin-top: 10px">
+            <table class="table table-hover" class="table-striped table-bordered" cellspacing="0" style="margin-top: 10px">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
@@ -80,9 +80,9 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let client of clients" (click)="onSelect(client)">
-                        <td scope="row">{{client.clientId}}</td>
-                        <th>{{client.clientName}}</th>
-                        <th>{{client.address}}</th>
+                        <td>{{client.clientId}}</td>
+                        <td>{{client.clientName}}</td>
+                        <td>{{client.address}}</td>
                         <td *ngIf="client.contact">{{client.contact.firstName}} {{client.contact.lastName}}</td>
                         <td *ngIf="client.contact">{{client.contact.email}}</td>
                         <td *ngIf="client.contact">{{client.contact.cell}}</td>
@@ -95,7 +95,7 @@
         </div>
 
         <form>
-            <button type="button" class="btn btn-primary btn-sm">
+            <button type="button" class="add">
                 <a routerLink="/admin/clients/edit">ADD CLIENT</a>
             </button>
         </form>

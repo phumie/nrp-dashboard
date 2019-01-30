@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
+import { SiteLoginComponent } from './site-login/site-login.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
@@ -23,7 +24,11 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'change-password',
+    path: 'site-login',
+    component: SiteLoginComponent
+  },
+  {
+    path: 'forgot-password',
     component: ChangePasswordComponent
   },
   {

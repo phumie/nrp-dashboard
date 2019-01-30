@@ -20,6 +20,8 @@ import { QuotesComponent } from './project-view/quotes/quotes.component';
 import { FeedbackListComponent } from './view-timeline/feedback-list/feedback-list.component';
 import { SnagsListComponent } from './view-timeline/snags-list/snags-list.component';
 import { DateDetailsComponent } from './view-timeline/date-details/date-details.component';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
+import { AddTimelineComponent } from './project-view/timelines/add-timeline/add-timeline.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { DateDetailsComponent } from './view-timeline/date-details/date-details.
     FeedbackListComponent,
     SnagsListComponent,
     DateDetailsComponent,
+    MobileMenuComponent,
+    AddTimelineComponent,
   ],
   imports: [
     CommonModule,

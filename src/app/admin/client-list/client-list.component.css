@@ -60,3 +60,22 @@ button a {
     left: 40%;
     top: 200px;
 }
+
+.add {
+    margin: 10px;
+    border: none;
+    height: 25px;
+    color: white;
+    background-color: rgb(252, 55, 55);
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+table th {
+    background-color: rgb(42, 43, 43);
+    color: white;
+    border: none;
+}

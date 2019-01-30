@@ -16,10 +16,12 @@ h6 {
 }
 
 .delete {
-    width: 170px;
-    height: 45px;
-    position: relative;
-    left: 10px;
+    height: 25px;
+    width: 100px;
+    border: none;
+    background-color: rgb(255, 55, 55);
+    color: white;
+    
 }
 
 mat-spinner {

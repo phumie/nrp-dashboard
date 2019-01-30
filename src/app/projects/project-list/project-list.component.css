@@ -6,6 +6,11 @@ a, a:hover, a:focus {
 
 h5 {
     margin-top: 10px;
+    color: white;
+}
+
+.navbar-toggler {
+    border: none;
 }
 
 .status-bar
@@ -91,9 +96,12 @@ input {
 }
 
 .add {
-    background-color: #135772;
+    margin: 10px;
     border: none;
-    border-radius: 1px;
+    height: 30px;
+    color: white;
+    background-color: rgb(255, 72, 72);
+    width: 120px;
 }
 
 button a {

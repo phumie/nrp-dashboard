@@ -19,6 +19,7 @@ export class ManageEmployeesComponent implements OnInit, OnDestroy {
   loading = false;
   employee: Employee;
   subscription: Subscription;
+  user = this.authService.currentUserValue;
 
   constructor(
     private router: Router,
@@ -38,8 +39,8 @@ export class ManageEmployeesComponent implements OnInit, OnDestroy {
         .subscribe(employee => this.employee = employee);
     }
 
-    const user = this.authService.currentUserValue;
-    if (user.userRights.admin.delete) {
+    
+    if (this.user.userRights.admin.delete) {
       this.allowed = true;
     }
   }

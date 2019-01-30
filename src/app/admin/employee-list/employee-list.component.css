@@ -27,6 +27,8 @@ h5 {
     border-radius: 1px;
 }
 
+
+
 button a {
     text-decoration: none;
     color: #E6E6E6;
@@ -44,4 +46,23 @@ button a {
     position: relative;
     left: 40%;
     top: 200px;
+}
+
+.add {
+    margin: 10px;
+    border: none;
+    height: 25px;
+    color: white;
+    background-color: rgb(252, 55, 55);
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+table th {
+    background-color: rgb(42, 43, 43);
+    color: white;
+    border: none;
 }

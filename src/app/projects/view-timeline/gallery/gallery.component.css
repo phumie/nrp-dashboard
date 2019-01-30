@@ -1,0 +1,8 @@
+.overlay {
+    display:none;
+}
+
+.carousel-item:hover .overlay {
+    display: inline-block;
+    background-color: black;
+}

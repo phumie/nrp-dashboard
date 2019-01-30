@@ -19,3 +19,20 @@ h6 {
     left: 40%;
     top: 190px;
 }
+
+.add {
+    background-color: rgb(17, 148, 148);
+    height: 25px;
+    width: 100px;
+    border: none;
+    color: white;
+}
+
+.delete {
+    height: 25px;
+    width: 100px;
+    border: none;
+    background-color: rgb(255, 55, 55);
+    color: white;
+    
+}

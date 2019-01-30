@@ -1,4 +1,7 @@
-.submit {
-    width: 150px;
-    height: 45px;
+.add {
+    background-color: rgb(17, 148, 148);
+    height: 25px;
+    width: 100px;
+    border: none;
+    color: white;
 }

@@ -3,16 +3,14 @@
         <div id="formContent">  
             <div class="fadeIn first">
                 <img src="assets/login_black.png" id="icon"/>
-                <h3>NRP PORTAL</h3><br>
-                <h5>LOGIN AS</h5>
+                <h3>NRP SITE PORTAL</h3><br>
+                <h5>LOGIN</h5>
             </div>
     
             <form [formGroup]="loginForm">
                 <input type="text" formControlName="username" id="login" class="fadeIn second" name="login" placeholder="username" required>
                 <input type="password" formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password" required>
-                <button class="fadeIn fourth" (click)="employeeLogin()">EMPLOYEE</button>
-                <button class="fadeIn fourth"><a href="client-dashboard">ClIENT</a></button>
-                <a routerLink="/forgot-password"><p>forgot password?</p></a>
+                <button class="fadeIn fourth" (click)="employeeLogin()">LOGIN</button>
             </form>
         </div>
     </div>

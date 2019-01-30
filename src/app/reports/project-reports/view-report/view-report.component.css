@@ -1,8 +1,8 @@
 .generate {
-    background-color: rgb(197, 35, 35);
+    background-color: rgb(255, 80, 80);
     border: none;
     border-radius: 2px;
-    width: 150px;
+    width: 250px;
     color: rgb(245, 245, 245);
     cursor: pointer;
     margin:auto;

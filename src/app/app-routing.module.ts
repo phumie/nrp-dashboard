@@ -7,6 +7,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin/admin.guard';
 
@@ -38,6 +39,11 @@ const routes: Routes = [
     path: 'admin',
     canLoad: [AdminGuard],
     loadChildren : './admin/admin.module#AdminModule'
+  },
+  {
+    path: 'employee-profile',
+    canLoad: [AdminGuard],
+    component: UserProfileComponent
   },
   {
     path: 'projects',

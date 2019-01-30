@@ -15,9 +15,6 @@ export class ProjectReportsComponent implements OnInit {
   clients: Client[];
   projects: Project[];
   project: Project;
-  inProgress: number = 0;
-  overDue: number = 0;
-  pending: number = 0;
 
   constructor(
     private clientService: GeneralServiceClient,
@@ -25,24 +22,5 @@ export class ProjectReportsComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    this.getProjects();
-    this.projectService.currentProject.subscribe(project => this.project = project);
-  }
-
-  getProjects() {
-    console.log("Retrieving Projects");
-    this.projectService.getProjects()
-      .subscribe(projects => {
-        console.log(projects);
-        this.inProgress = projects.length;
-        this.projects = projects;
-      });
-  }
-
-  onSelect(projectSelected: Project) {
-    console.log(projectSelected);
-    this.projectService.setProject(projectSelected);
-    this.router.navigate(['projects/:'+projectSelected.projectId]);
-  }
+  ngOnInit() {}
 }

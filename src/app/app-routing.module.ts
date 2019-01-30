@@ -7,8 +7,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BaseTemplateComponent } from './base-template/base-template.component';
-import { AdminTemplateComponent } from './admin-template/admin-template.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AdminGuard } from './guard/admin/admin.guard';
 

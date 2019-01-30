@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="report">
-            <div class="content" #cover>
+            <div class="content"  #cover>
                 <div class="header">
                     <img src="assets/nrp-logo.jpg" class="logo"><br>
                     <h4 align="center"><b>{{employee.firstName}} {{employee.lastName}}</b></h4>
@@ -38,16 +38,20 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="body" id="content">
-                <div class="heade">
-                    <hr>
-                    <div class="update">
-                            <img src="ceiling.jpg">
-                            <h3>Item Title</h3>
-                            <h3 style="color:grey">Assigned To...</h3>
-                    </div> 
-                </div>              
-            </div>
+
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let projectFile of projectFiles" class="list-group-item">
+                    <div class="body" id="content{{projectFile.projectFileId}}">
+                        <div class="update">
+                            <img src="assets/ceiling.jpg">
+                            <div class="info">
+                                <h3>Item Title</h3>
+                                <h3 style="color:grey">Assigned To NRP</h3>
+                                <h3>{{projectFile.description}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </li>                
+            </ul>
         </div>
 </div>

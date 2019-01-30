@@ -15,7 +15,18 @@ import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { ViewReportComponent } from './project-reports/view-report/view-report.component';
 
 @NgModule({
-  declarations: [ReportsComponent, ProjectReportsComponent, FinancialReportsComponent, SiteReportsComponent, DailyReportsComponent, WeeklyReportsComponent, FleetReportsComponent, FuelReportsComponent, ProjectFeedbackComponent, ViewFeedbackComponent, ViewReportComponent],
+  declarations: [
+    ReportsComponent,
+    ProjectReportsComponent,
+    FinancialReportsComponent,
+    SiteReportsComponent,
+    DailyReportsComponent,
+    WeeklyReportsComponent,
+    FleetReportsComponent,
+    FuelReportsComponent,
+    ProjectFeedbackComponent,
+    ViewFeedbackComponent,
+    ViewReportComponent],
   imports: [
     CommonModule,
     ReportsRoutingModule

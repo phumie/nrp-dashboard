@@ -17,6 +17,7 @@ import { ClientTemplateComponent } from './client-template/client-template.compo
 import { HttpModule } from '@angular/http';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { SiteLoginComponent } from './site-login/site-login.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SiteLoginComponent } from './site-login/site-login.component';
     ClientTemplateComponent,
     ChangePasswordComponent,
     SiteLoginComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -30,6 +30,7 @@
 
 .topic {
     padding-top: 460px;
+    font-size: 12px;
     margin: 50px;
 }
 
@@ -50,4 +51,25 @@ hr {
     margin: 0px;
     padding: 0px;
     border: none;
+}
+
+.body {
+    height: 550px;
+    padding: 60px;
+}
+
+.update {
+    padding-left: 20px;
+    margin: 0px;
+}
+
+.update img{
+    height: 550px;
+    width: 550px;
+    float: left;
+}
+
+.info {
+    position: relative;
+    left: 20px;
 }

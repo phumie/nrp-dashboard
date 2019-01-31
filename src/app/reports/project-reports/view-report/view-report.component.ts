@@ -37,7 +37,7 @@ export class ViewReportComponent implements OnInit {
     console.log(this.today);
     this.today.setDate(-7);
     console.log(this.today);
-    this.getEmployeeProjectFiles();
+    // this.getEmployeeProjectFiles();
     this.employee = this.authService.currentUserValue;
   }
 
@@ -76,6 +76,7 @@ export class ViewReportComponent implements OnInit {
 
   async downloadFullReportPDF() {
     this.report = await 'FULL REPORT';
+    this.getEmployeeProjectFiles();
     const pdf = new jspdf('p', 'mm', 'a4');
     await html2canvas(this.cover.nativeElement).then(canvas => {
       const imgWidth = 208;

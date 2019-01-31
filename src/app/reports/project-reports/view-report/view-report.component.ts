@@ -17,6 +17,7 @@ import { Project } from 'src/app/classes/projects/project';
 export class ViewReportComponent implements OnInit {
 
   today: Date;
+  report: string;
   employee: Employee;
   project: Project;
   projectFiles: ProjectFile[];
@@ -33,6 +34,9 @@ export class ViewReportComponent implements OnInit {
 
   ngOnInit() {
     this.today = new Date();
+    console.log(this.today);
+    this.today.setDate(-7);
+    console.log(this.today);
     this.getEmployeeProjectFiles();
     this.employee = this.authService.currentUserValue;
   }
@@ -70,9 +74,9 @@ export class ViewReportComponent implements OnInit {
     ];
   }
 
-  async downloadPDF() {
+  async downloadFullReportPDF() {
+    this.report = await 'FULL REPORT';
     const pdf = new jspdf('p', 'mm', 'a4');
-
     await html2canvas(this.cover.nativeElement).then(canvas => {
       const imgWidth = 208;
       const imgHeight = canvas.height * imgWidth / canvas.width;
@@ -102,6 +106,10 @@ export class ViewReportComponent implements OnInit {
       });
     }
     pdf.save('Project Report.pdf');
+  }
+
+  async downloadWeeklyReportPDF() {
+
   }
 
 }

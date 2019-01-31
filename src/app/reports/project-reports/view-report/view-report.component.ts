@@ -7,6 +7,7 @@ import html2canvas from 'html2canvas';
 import * as jspdf from 'jspdf';
 import { ProjectFileService } from 'src/app/services/reports/project-file.service';
 import { ProjectFile } from 'src/app/classes/projects/project-file';
+import { Project } from 'src/app/classes/projects/project';
 
 @Component({
   selector: 'app-view-report',
@@ -17,6 +18,7 @@ export class ViewReportComponent implements OnInit {
 
   today: Date;
   employee: Employee;
+  project: Project;
   projectFiles: ProjectFile[];
   @ViewChild('cover') cover: ElementRef;
   month = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -68,11 +70,10 @@ export class ViewReportComponent implements OnInit {
     ];
   }
 
-  downloadPDF(): void {
+  async downloadPDF() {
     const pdf = new jspdf('p', 'mm', 'a4');
 
-    // failing to detect when the promise end, so I can save the pdf
-    html2canvas(this.cover.nativeElement).then(canvas => {
+    await html2canvas(this.cover.nativeElement).then(canvas => {
       const imgWidth = 208;
       const imgHeight = canvas.height * imgWidth / canvas.width;
 
@@ -80,33 +81,27 @@ export class ViewReportComponent implements OnInit {
       pdf.addImage(contentData, 'PNG', 0, 0, imgWidth, imgHeight);
     });
 
-    html2canvas(document.getElementById('content1')).then(canvas => {
-      const imgWidth = 208;
-      const imgHeight = canvas.height * imgWidth / canvas.width;
+    let pos = 0;
+    let count = 0;
+    pdf.addPage();
+    for (const file of this.projectFiles) {
+      if (count === 3) {
+        pos = 0;
+        count = 0;
+        pdf.addPage();
+      }
 
-      pdf.addPage();
-      const contentData = canvas.toDataURL('image/png');
-      pdf.addImage(contentData, 'PNG', 0, 0, imgWidth, imgHeight);
-      pdf.save('Project Report.pdf');
-    });
+      await html2canvas(document.getElementById(`content${file.projectId}`)).then(canvas => {
+        const imgWidth = 208;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
 
-
-    // This is the correct one I should have been using just found out
-    // const margins = {
-    //   top: 80,
-    //   bottom: 60,
-    //   left: 40,
-    //   width: 522
-    // };
-    // pdf.fromHTML(
-    //   this.cover.nativeElement,
-    //   margins.left,
-    //   margins.top, {
-    //     'width': margins.width
-    //   }, _ => {
-    //     pdf.save('Project Report.pdf');
-    //   });
-
+        const contentData = canvas.toDataURL('image/png');
+        pdf.addImage(contentData, 'PNG', 0, pos, imgWidth, imgHeight);
+        pos += (imgHeight + 10);
+        count++;
+      });
     }
+    pdf.save('Project Report.pdf');
+  }
 
 }

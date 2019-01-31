@@ -3,6 +3,7 @@ export class ProjectFile {
     filePath: string;
     description: string;
     projectId: number;
+    date?: Date;
     employeeId?: number;
     clientContactInfoId?: number;
 }

@@ -15,6 +15,7 @@ export class ProjectReportsComponent implements OnInit {
   clients: Client[];
   projects: Project[];
   project: Project;
+  projectId: number;
 
   constructor(
     private clientService: GeneralServiceClient,
@@ -23,4 +24,8 @@ export class ProjectReportsComponent implements OnInit {
   ) { }
 
   ngOnInit() {}
+
+  onSelect(id: number): void {
+    this.projectId = id;
+  }
 }

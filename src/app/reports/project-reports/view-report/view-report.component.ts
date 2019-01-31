@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { Employee } from 'src/app/classes/employee/employee';
@@ -17,11 +17,12 @@ import { Project } from 'src/app/classes/projects/project';
 export class ViewReportComponent implements OnInit {
 
   today: Date;
-  report: string;
+  report = '';
   employee: Employee;
   project: Project;
   projectFiles: ProjectFile[];
   @ViewChild('cover') cover: ElementRef;
+  @Input() projectId: number;
   month = ['January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'];
   day = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
@@ -34,17 +35,13 @@ export class ViewReportComponent implements OnInit {
 
   ngOnInit() {
     this.today = new Date();
-    console.log(this.today);
-    this.today.setDate(-7);
-    console.log(this.today);
-    // this.getEmployeeProjectFiles();
     this.employee = this.authService.currentUserValue;
   }
 
-  getEmployeeProjectFiles(): void {
+  getFullProjectFiles(): void {
     // this.projectFileService.getProjectsFiles()
     //   .subscribe(projectsFiles => {
-    //     this.projectFiles = projectsFiles.filter(projectFile => projectFile.projectId === 1);
+    //     this.projectFiles = projectsFiles.filter(projectFile => projectFile.projectId === projectId);
     //   });
     this.projectFiles = [
       {
@@ -74,9 +71,51 @@ export class ViewReportComponent implements OnInit {
     ];
   }
 
+  getWeeklyProjectFiles(): void {
+    // this.projectFileService.getProjectsFiles()
+    //   .subscribe(projectsFiles => {
+    //     this.projectFiles = projectsFiles.filter(projectFile => {
+    //       if (projectFile.projectId === projectId) {
+    //         const date = new Date();
+    //         date.setDate(-7);
+    //         if (projectFile.date > date) {
+    //           return projectFile;
+    //         }
+    //       }
+    //     });
+    //   });
+
+    this.projectFiles = [
+      {
+        projectFileId: 1,
+        projectId: 1,
+        description: 'Blah Blah Blah',
+        filePath: 'assets/annual.png',
+      },
+      {
+        projectFileId: 2,
+        projectId: 2,
+        description: 'Blah Blah Blah',
+        filePath: 'assets/admin.png',
+      },
+      {
+        projectFileId: 3,
+        projectId: 3,
+        description: 'Blah Blah Blah',
+        filePath: 'assets/background.png',
+      },
+      {
+        projectFileId: 4,
+        projectId: 4,
+        description: 'Blah Blah Blah',
+        filePath: 'assets/budget.png',
+      }
+    ];
+  }
+
   async downloadFullReportPDF() {
-    this.report = await 'FULL REPORT';
-    this.getEmployeeProjectFiles();
+    this.report = 'FULL REPORT';
+    this.getFullProjectFiles();
     const pdf = new jspdf('p', 'mm', 'a4');
     await html2canvas(this.cover.nativeElement).then(canvas => {
       const imgWidth = 208;
@@ -110,7 +149,38 @@ export class ViewReportComponent implements OnInit {
   }
 
   async downloadWeeklyReportPDF() {
+    this.report = 'UPDATE';
+    this.getWeeklyProjectFiles();
+    const pdf = new jspdf('p', 'mm', 'a4');
+    await html2canvas(this.cover.nativeElement).then(canvas => {
+      const imgWidth = 208;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
 
+      const contentData = canvas.toDataURL('image/png');
+      pdf.addImage(contentData, 'PNG', 0, 0, imgWidth, imgHeight);
+    });
+
+    let pos = 0;
+    let count = 0;
+    pdf.addPage();
+    for (const file of this.projectFiles) {
+      if (count === 3) {
+        pos = 0;
+        count = 0;
+        pdf.addPage();
+      }
+
+      await html2canvas(document.getElementById(`content${file.projectId}`)).then(canvas => {
+        const imgWidth = 208;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+
+        const contentData = canvas.toDataURL('image/png');
+        pdf.addImage(contentData, 'PNG', 0, pos, imgWidth, imgHeight);
+        pos += (imgHeight + 10);
+        count++;
+      });
+    }
+    pdf.save('Weekly Project Report.pdf');
   }
 
 }
